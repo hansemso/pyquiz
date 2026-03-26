@@ -57,7 +57,7 @@ py main.py
 ```
 
 ## 🧠 How to Use
-1. py quiz.py to start app. 
+1. py main.py to start app. 
 
 ### ⭐ Add/EDIT Study Cards
 
