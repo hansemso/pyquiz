@@ -97,7 +97,7 @@ Source code:
 
 
 ## 📜 File Structure
-
+```
 pyquiz/
 ├── main.py           # Main menu + program entry point
 ├── quiz.py           # Quiz logic (run_quiz, quiz_mode, quiz_range)
@@ -106,3 +106,4 @@ pyquiz/
 ├── quiz_cards.json   # Your card database
 └── han_data/         # Data analysis apps [[[In Progress]]]
     └── quiz.db       # SQLite DB
+```
