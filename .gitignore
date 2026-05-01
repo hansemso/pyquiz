@@ -1,0 +1,10 @@
+# temporary backups
+*_copy.py
+
+# database
+quiz.db
+
+# python cache
+__pycache__/
+*.pyc
+han_data/

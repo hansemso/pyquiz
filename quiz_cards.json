@@ -1,0 +1,316 @@
+[
+  {
+    "id": "1",
+    "code": "#******* decorators again *******\n\nGiven:\n\ndef decoration\n    def wrapper\n\n",
+    "qa": [
+      {
+        "question": "Write its closest equivalent using new_wrapper and wrapper with no white_space",
+        "answer": "new_wrapper=decoration(wrapper)"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "code": "# ******* @decorator at runtime **********\ndef decorator(func):\n    def wrapper(a, b):\n        return func(a, b) * 7\n    return wrapper\n\n@decorator\ndef add(a, b)\n    return a + b\n\nprint(add(3,4))\n\n",
+    "qa": [
+      {
+        "question": "Which function is the kernel/innermost function?",
+        "answer": "add"
+      },
+      {
+        "question": "Which function is the outermost function?",
+        "answer": "decorator"
+      },
+      {
+        "question": "Which function contains all of the math?",
+        "answer": "wrapper"
+      },
+      {
+        "question": "What is the output?",
+        "answer": "77"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "code": "#***** JS_vs_Py_retrieval_1 *****\n\nCompare JS vs Py retrieval means:  \n\nconst j = prop.attr;      p = attr.mthd\nj();                      p()  \n",
+    "qa": [
+      {
+        "question": "Which operation has no automatic descriptor binding at access time? (js or py)",
+        "answer": "js"
+      },
+      {
+        "question": "Which output uses context at call time instead of binding at access time? (js or py)",
+        "answer": "js"
+      },
+      {
+        "question": "What is the name of the instance reference object?",
+        "answer": "attr"
+      },
+      {
+        "question": "What is the name of the instance reference pointer?",
+        "answer": "p"
+      },
+      {
+        "question": "'this' or 'self' is never the __ but always just a __ . (comma, no white_space)",
+        "answer": "2"
+      },
+      {
+        "question": "The instance reference object is the object that __ the method.",
+        "answer": "owns"
+      },
+      {
+        "question": "What is the function reference variable name?",
+        "answer": "j"
+      },
+      {
+        "question": "*Bonus question: Internally, which dunder method is invoked first during attribute retrieval and on which object? (Type in exactly separated by a comma with no whitespace)",
+        "answer": "__getattribute__,attr"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "code": "#*** Python Class vs JavaScript Class ***\n\n+---------------------------+---------------------------+\n| Python                    | JavaScript                |\n+---------------------------+---------------------------+\n| class C:                  | class C {                 |  \n|     def __init__(self):   |     constructor() {       |    \n|         self.x = 10       |         this.x = 10;      |  \n|                           |     }                     |\n|     def mthd(self):       |                           |  \n|         return self.x     |     mthd() {              |\n|                           |         return this.x;    |\n| p = C()                   |     }                     |\n| p.mthd()                  | }                         |\n|                           | const p = new C();        |\n|                           | p.mthd();                 |\n+---------------------------+---------------------------+",
+    "qa": [
+      {
+        "question": "In which language are functions always independent? (js or py)",
+        "answer": "js"
+      },
+      {
+        "question": "Which language automatically binds instance context during method retrieval?",
+        "answer": "py"
+      },
+      {
+        "question": "In which language is p.mthd() not bound?  (js/py)",
+        "answer": "js"
+      },
+      {
+        "question": "Which language always passes a reference explicitly to p as the first parameter?",
+        "answer": "py"
+      },
+      {
+        "question": "How and when does JS pass reference then? Fill in: __-ly  at  __ time. (Use comma, no whitespace)",
+        "answer": "implicitly,call"
+      },
+      {
+        "question": "Which language needs bind() to bind its reference object?  (py/js)",
+        "answer": "js"
+      },
+      {
+        "question": "Which reference object can be hijacked by another function and when?  Fill in: __ at __ time.",
+        "answer": "this,call"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "code": "#*** Py self vs JS this ***\n\n+-----------------------------+--------------------------------------+\n| Python                      | JavaScript                           |\n+-----------------------------+--------------------------------------+\n| class C:                    | class C {                            |\n|     def __init__():         |     constructor() {                  |\n|         self.self = self    |         this.u = this;               |\n|                             |     }                                |\n|     def mthd():             |     mthd() {                         |\n|         return self.self    |         return this.u;               |\n|                             |     }                                |\n| i = C()  # i = instance     | const i = new C();  // i = instance  |\n|                             |                                      | \n| print(i.mthd())             | console.log(i.mthd());               |\n| print(i.mthd() is i)        | console.log(i.mthd() === i);         |\n+-----------------------------+--------------------------------------+",
+    "qa": [
+      {
+        "question": "What will be the first print output? a)True b)False  c)TypeError d)self  (a,b,c, or d)",
+        "answer": "c"
+      },
+      {
+        "question": "What will be the first console output? a)True b)False c)TypeError d)Circular",
+        "answer": "d"
+      },
+      {
+        "question": "What will be the second print output? a)True b)False c)TypeError d)self",
+        "answer": "c"
+      },
+      {
+        "question": "What will be the second console output?",
+        "answer": "true"
+      },
+      {
+        "question": "Let __init__(self)__ and mthd(self). What will be the first print output? a)TypeError b)self c)<__main__.C address> d)Circular",
+        "answer": "c"
+      },
+      {
+        "question": "Let  __init__(self)__ and mthd(self). What will be the second print output? a)True b)False c)TypeError d)<__main__.C address> e)self",
+        "answer": "a"
+      },
+      {
+        "question": "In which language is i.mthd() not bound?  (js/py)",
+        "answer": "js"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "code": "#**** index filter ****\n\nfiltered = []\n\nfor card in study_bank:\n    cid = int(card['id'])\n    if start <= cid <= end:\n        filtered.append(card)\n",
+    "qa": [
+      {
+        "question": "Which function parses the string and creates an integer?",
+        "answer": "int()"
+      },
+      {
+        "question": "Which is the indexing syntax?",
+        "answer": "card[]"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "code": "\\033[34m#******* Python's @dataclass @property *********\\033[0m\n\nfrom dataclasses import dataclass        |# With decorator                       |# Long form w/o decorator                         \n                                         |                                       |\n@dataclass                               |                                       |\nclass Rectangle:                         |  class Rectangle:                     |  class Rectangle:\n    width: int                           |      def __init__(self, w, h):        |      def __init__(self, w, h):\n    height: int                          |          self.width = w               |          self.width = w\n                                         |              self.height = h          |              self.height = h                                            \n    @property                            |                                       |\n    def area(self):                      |              @property                |          def area(self):                               \n        return self.width * self.height  |                  def area(self):      |                           \n                                         |                                       |      return self.width * self.height \nr = Rectangle(4, 5)                      |      return self.width * self.height  |         \n                                         |                                       |      area = property(area)  \nprint(r.area)                            |                                       |\n\n                  # attribute_name = property(method_name)\n",
+    "qa": [
+      {
+        "question": "Which syntax automatically generates __init__, __repr__, and __eq__ methods?",
+        "answer": "@dataclass"
+      },
+      {
+        "question": "Which syntax turns a method into an attribute?",
+        "answer": "@property"
+      },
+      {
+        "question": "Which method() into which .attribute? (comma,no_white_space)",
+        "answer": "area(),.area"
+      },
+      {
+        "question": "In JS a method belongs to any __ , but in Py it belongs only to a __ . (comma,no_white_space)",
+        "answer": "object,class"
+      },
+      {
+        "question": "In Pythonese, what do 'r' and 'area' each stand for in 'r.area'? (comma,no_white_space)",
+        "answer": "instance,attribute"
+      },
+      {
+        "question": "What computed instance attribute does @property create?",
+        "answer": "r.area"
+      },
+      {
+        "question": "What is the long-form equivalent of @property? (no_white_space)",
+        "answer": "attribute = property(function)"
+      },
+      {
+        "question": "Which dunder method does @dataclass automatically generate? (w/o delimiter)",
+        "answer": "__init__"
+      },
+      {
+        "question": "In both Py and JS, any .name() is always a __ and never an __ because it is __-able by delimiter. (comma,no_white_space)\")",
+        "answer": "method,attribute,callable"
+      }
+    ]
+  },
+  {
+    "id": "700",
+    "code": "still testing",
+    "qa": [
+      {
+        "question": "testing",
+        "answer": "testing done"
+      }
+    ]
+  },
+  {
+    "id": "1000",
+    "code": "Python Interview Questions (set 1)",
+    "qa": [
+      {
+        "question": "What will [x**2 for x in range(3)] output? (Use default format)",
+        "answer": "[0, 1, 4]"
+      },
+      {
+        "question": "_____ is a keyword that turns a normal function into a generator.",
+        "answer": "yield"
+      },
+      {
+        "question": "What is the JS equivalent of yield?",
+        "answer": "function*"
+      },
+      {
+        "question": "a = [1, 2] and b = [3, 4]. How to output [1, 2, 3, 4]?",
+        "answer": "a.extend(b)"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "code": "def f(x):\n    return x * 2\n\ny = f(5)\nprint(y)",
+    "qa": [
+      {
+        "question": "What will it print?",
+        "answer": "10"
+      },
+      {
+        "question": "What is the argument?",
+        "answer": "5"
+      },
+      {
+        "question": "What is the parameter?",
+        "answer": "x"
+      },
+      {
+        "question": "What is the result?",
+        "answer": "y"
+      },
+      {
+        "question": "print(obj) where obj == _____ result",
+        "answer": "valid"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "code": "\nx = 10\n\ndef f():\n    global x\n    print(x)\n    x = 5\n\nf()  \n",
+    "qa": [
+      {
+        "question": "What will it print?",
+        "answer": "10"
+      },
+      {
+        "question": "If we # global x, what will f() try to print?",
+        "answer": "5"
+      },
+      {
+        "question": "Will it print? (y/n)",
+        "answer": "y"
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "code": "py vs js set 2:\n",
+    "qa": [
+      {
+        "question": "What is the py equivalent of anonymous functions in JS? (single JS keyword)",
+        "answer": "lambda"
+      },
+      {
+        "question": "function sum(a, b) {return a + b;} using arrow function w implicit return",
+        "answer": "const sum = (a, b) => a + b;"
+      },
+      {
+        "question": "JS ______ var declarations to the top of their scope.",
+        "answer": "hoists"
+      },
+      {
+        "question": "A function + its surrounding variables = ?",
+        "answer": "closure"
+      },
+      {
+        "question": "How can you add a new property to an existing object, myObj, with a property name color and a value blue? (Type in code)",
+        "answer": "myObj.color = 'blue'"
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "code": "JS set 1\n:",
+    "qa": [
+      {
+        "question": "In JS, a _ _ is metadata that describes how it behaves on an object. (2 words)",
+        "answer": "property attribute"
+      },
+      {
+        "question": "var x; → hoisted, so x exists but is _? (1 word)",
+        "answer": "undefined"
+      },
+      {
+        "question": "Let x = 1; what will console.log(++x); output?",
+        "answer": "2"
+      }
+    ]
+  }
+]
