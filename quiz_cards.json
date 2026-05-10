@@ -312,5 +312,165 @@
         "answer": "2"
       }
     ]
+  },
+  {
+    "id": "12",
+    "code": "In JS, an object is a [1] of [2] [3] and [4]. (Fill in each)\n:",
+    "qa": [
+      {
+        "question": "[1]:",
+        "answer": "collection"
+      },
+      {
+        "question": "[2]:",
+        "answer": "related"
+      },
+      {
+        "question": "[3]:",
+        "answer": "data"
+      },
+      {
+        "question": "[4]:",
+        "answer": "functions"
+      },
+      {
+        "question": "An object is created as a [1] and stored in a [2] declared with const, let, or var. (Start with [1]:)",
+        "answer": "value"
+      },
+      {
+        "question": "[2]:",
+        "answer": "variable"
+      },
+      {
+        "question": "An object is a value of what JS type?",
+        "answer": "object"
+      },
+      {
+        "question": "A JS object usually inherits from ___ through its prototype chain. (Hint: __.__ , case sensitive)",
+        "answer": "Object.prototype"
+      },
+      {
+        "question": "In JS, ___ live in HTML, while properties live in the DOM object.",
+        "answer": "attributes"
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "code": "JS set 3\n:",
+    "qa": [
+      {
+        "question": "const, let , var are declarative __. (Fill in)",
+        "answer": "keywords"
+      },
+      {
+        "question": "JS keywords are __, while functions are callable __. (comma, 1 whitespace)",
+        "answer": "syntax, objects"
+      },
+      {
+        "question": "DOM is accessed through which global JS object?",
+        "answer": "document"
+      },
+      {
+        "question": "A keyword is syntax, an identifier is a name in ____. (4-letter word)",
+        "answer": "code"
+      },
+      {
+        "question": "And document is an identifier in the ______ _____. (2-word term)",
+        "answer": "global scope"
+      },
+      {
+        "question": "document is a property of ______, the global browser object.",
+        "answer": "window"
+      },
+      {
+        "question": "Forcing a function into an expression allows it to be immediately invoked. (T/F)",
+        "answer": "T"
+      },
+      {
+        "question": "An object literal consists of ___ (key–value pairs) and can also be empty. (1 word)",
+        "answer": "properties"
+      },
+      {
+        "question": "In arrow functions, {} means a _____ (no return) unless wrapped in (), which turns it into an ______ expression. (comma, 1 whitespace)",
+        "answer": "block, object"
+      },
+      {
+        "question": "A __ is the value itself, while an __ is the name used to refer to that value. (comma, 1 whitespace)",
+        "answer": "literal, identifier"
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "code": "JS set 4\n:",
+    "qa": [
+      {
+        "question": "___ is function or global scope, causes more bugs.",
+        "answer": "var"
+      },
+      {
+        "question": "Use dot notation to add 'blue' to the color property of myObj. (End with ;)",
+        "answer": "myObj.color = 'blue';"
+      },
+      {
+        "question": "Ditto using bracket notation.",
+        "answer": "myObj['color'] = 'blue';"
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "code": "JS vs Py set 3\n:",
+    "qa": [
+      {
+        "question": "Type in JS keywords for variable declaration (Alphabetical order, comma, 1 whitespace)",
+        "answer": "const, let, var"
+      },
+      {
+        "question": "In JS, all variables should be declared (t/f)",
+        "answer": "t"
+      },
+      {
+        "question": "x = 5 is an __ variable assignment that creates an __  __ variable (3 words, commas, 1 whitespace)",
+        "answer": "undeclared, implicit, global"
+      },
+      {
+        "question": "As such, in strict mode, it throws a __.",
+        "answer": "ReferenceError"
+      },
+      {
+        "question": "Python does not use variable declaration keywords like Javascript (t/f)",
+        "answer": "t"
+      },
+      {
+        "question": "Which JS variable declaration keyword has function scope?",
+        "answer": "var"
+      },
+      {
+        "question": "What scope do let and const have instead?",
+        "answer": "block"
+      },
+      {
+        "question": "Re-write const add = function(a, b) {  in function declaration form",
+        "answer": "function add(a, b) {"
+      },
+      {
+        "question": "Now re-write as arrow function",
+        "answer": "const add = (a, b) => {"
+      },
+      {
+        "question": "In both cases, 'add' is a variable binding to a  __  __  in memory (2-word term)",
+        "answer": "function object"
+      },
+      {
+        "question": "Arrow functions are __, not __ . (comma, 1 whitespace)",
+        "answer": "expressions, declarations"
+      },
+      {
+        "question": "function(a, b) {...} creates a temporary ___ function object because it has no binding or reference keeping it reachable. (lowercase word)",
+        "answer": "anonymous"
+      }
+    ]
   }
 ]
