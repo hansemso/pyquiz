@@ -406,7 +406,7 @@
     "code": "JS set 4\n:",
     "qa": [
       {
-        "question": "___ is function or global scope, causes more bugs.",
+        "question": "Which of the variable declaration keywords is function or global scope?",
         "answer": "var"
       },
       {
@@ -472,5 +472,122 @@
         "answer": "anonymous"
       }
     ]
+  },
+  {
+    "id": "16",
+    "code": "*** Dynamic buy-sell program ***\n\ndef max_profit(prices):\n    min_price = prices[0]\n    max_profit = 0\n\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n\n    return max_profit\n\n\nwhile True:\n    raw = input(\"Enter prices (space-separated) or q to quit: \")\n\n    if raw.lower() == 'q':\n        break\n\n    prices = list(map(int, raw.split()))\n\n    print(\"Max Profit:\", max_profit(prices))\n",
+    "qa": [
+      {
+        "question": "__ = current item in the list during iteration (1 word in the code)",
+        "answer": "price"
+      },
+      {
+        "question": "Given 13 5 7 77 9 1, what will be the Max Profit?",
+        "answer": "72"
+      },
+      {
+        "question": "while True runs ___ until a ___ statement is executed inside the loop. (comma, whitespace)",
+        "answer": "forever, break"
+      },
+      {
+        "question": "If the user inputs Q, .lower() turns it into  _ .",
+        "answer": "q"
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "code": "Python questions:",
+    "qa": [
+      {
+        "question": "Methods use _ , attributes do not. (syntax symbol)",
+        "answer": "()"
+      },
+      {
+        "question": "An attribute/property is __ stored on an object, whereas a method is a __ that belongs to an object. (comma, whitespace)",
+        "answer": "data, function"
+      },
+      {
+        "question": "In JS, every object has a prototype; in Python, every object has a __.",
+        "answer": "class"
+      },
+      {
+        "question": "JS uses a single prototype chain for inheritance, while Python separates object inheritance (classes → ___ ) and class creation (classes → ___ ). (comma, whitespace)",
+        "answer": "object, type"
+      },
+      {
+        "question": "JS uses one unified prototype chain for everything, while Python separates runtime behavior (MRO through classes → __ ) from class creation (via the type __ ). (comma, whitespace)",
+        "answer": "object, metaclass"
+      },
+      {
+        "question": "Python uses class creation (via __ ) when defining classes, and MRO(Method Resolution Order) when resolving attribute/method access at __. (comma, whitespace)",
+        "answer": "type, runtime"
+      },
+      {
+        "question": "classes inherit from __, while type is the metaclass that creates classes and also inherits from __. (comma, whitespace)",
+        "answer": "object, object"
+      }
+    ]
+  },
+  {
+    "id": "18",
+    "code": "JS questions",
+    "qa": [
+      {
+        "question": "{} === {} evaluates to __  because each object literal creates a new, distinct __ in memory. (comma, whitespace)",
+        "answer": "false, object"
+      },
+      {
+        "question": "Arrow functions do not use the function keyword. (t/f)",
+        "answer": "t"
+      },
+      {
+        "question": "A while loop checks its condition __  execution, while a __...while loop executes once before checking the condition. (2 words, comma, whitespace)",
+        "answer": "before, do"
+      },
+      {
+        "question": "In Python, an __ is anything on an object, while a __ is a special attribute that runs logic when accessed. (comma, whitespace)",
+        "answer": "attribute, property"
+      },
+      {
+        "question": "Given: const add = function sum(a, b) ...which word can be deleted to make an anonymous function expression?",
+        "answer": "sum"
+      },
+      {
+        "question": "Object.___(obj) returns an array of an object’s key-value pairs.",
+        "answer": "entries"
+      }
+    ]
+  },
+  {
+    "id": "19",
+    "code": "JS\n:",
+    "qa": [
+      {
+        "question": "A switch statement checks ___ values, and ___ is used to stop execution after a matching case. (comma, whitespace)",
+        "answer": "discrete, break"
+      },
+      {
+        "question": "___ -> stop everything, whereas ___ -> skip this one, keep going. (comma, whitespace)",
+        "answer": "break, continue"
+      },
+      {
+        "question": "NaN represents an invalid ___ result, whereas undefined represents the absence of a ___. (comma, whitespace)",
+        "answer": "number, value"
+      },
+      {
+        "question": "A ___ loop checks the condition before running the code, whereas a do...while loop runs the code ___ before checking the condition. (comma, whitespace)",
+        "answer": "while, once"
+      },
+      {
+        "question": "In JS, var uses ___ scope (or ___ scope if declared outside a function), whereas let and const use ___ scope tied to {}. (commas, whitespaces)",
+        "answer": "function, global, block"
+      }
+    ]
+  },
+  {
+    "id": "2000",
+    "code": "Bayes' Theorem (set 1)\n\n          P(H∩C)       P(C|H)P(H)      C: coin\nP(H|C) =  ------   =   ----------      H: heads\n           P(C)           P(C)         T: tails\n",
+    "qa": []
   }
 ]
