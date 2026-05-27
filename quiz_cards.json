@@ -7,7 +7,9 @@
         "question": "Write its closest equivalent using new_wrapper and wrapper with no white_space",
         "answer": "new_wrapper=decoration(wrapper)"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "2",
@@ -27,9 +29,11 @@
       },
       {
         "question": "What is the output?",
-        "answer": "77"
+        "answer": "49"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "3",
@@ -67,7 +71,9 @@
         "question": "*Bonus question: Internally, which dunder method is invoked first during attribute retrieval and on which object? (Type in exactly separated by a comma with no whitespace)",
         "answer": "__getattribute__,attr"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "4",
@@ -101,7 +107,9 @@
         "question": "Which reference object can be hijacked by another function and when?  Fill in: __ at __ time.",
         "answer": "this,call"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "5",
@@ -135,7 +143,9 @@
         "question": "In which language is i.mthd() not bound?  (js/py)",
         "answer": "js"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "6",
@@ -149,7 +159,9 @@
         "question": "Which is the indexing syntax?",
         "answer": "card[]"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "7",
@@ -191,7 +203,9 @@
         "question": "In both Py and JS, any .name() is always a __ and never an __ because it is __-able by delimiter. (comma,no_white_space)\")",
         "answer": "method,attribute,callable"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "700",
@@ -201,29 +215,9 @@
         "question": "testing",
         "answer": "testing done"
       }
-    ]
-  },
-  {
-    "id": "1000",
-    "code": "Python Interview Questions (set 1)",
-    "qa": [
-      {
-        "question": "What will [x**2 for x in range(3)] output? (Use default format)",
-        "answer": "[0, 1, 4]"
-      },
-      {
-        "question": "_____ is a keyword that turns a normal function into a generator.",
-        "answer": "yield"
-      },
-      {
-        "question": "What is the JS equivalent of yield?",
-        "answer": "function*"
-      },
-      {
-        "question": "a = [1, 2] and b = [3, 4]. How to output [1, 2, 3, 4]?",
-        "answer": "a.extend(b)"
-      }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "8",
@@ -249,7 +243,9 @@
         "question": "print(obj) where obj == _____ result",
         "answer": "valid"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "9",
@@ -267,7 +263,9 @@
         "question": "Will it print? (y/n)",
         "answer": "y"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "10",
@@ -293,7 +291,9 @@
         "question": "How can you add a new property to an existing object, myObj, with a property name color and a value blue? (Type in code)",
         "answer": "myObj.color = 'blue'"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "11",
@@ -311,7 +311,9 @@
         "question": "Let x = 1; what will console.log(++x); output?",
         "answer": "2"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "12",
@@ -353,7 +355,9 @@
         "question": "In JS, ___ live in HTML, while properties live in the DOM object.",
         "answer": "attributes"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "13",
@@ -399,7 +403,9 @@
         "question": "A __ is the value itself, while an __ is the name used to refer to that value. (comma, 1 whitespace)",
         "answer": "literal, identifier"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "14",
@@ -417,7 +423,9 @@
         "question": "Ditto using bracket notation.",
         "answer": "myObj['color'] = 'blue';"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "15",
@@ -471,7 +479,9 @@
         "question": "function(a, b) {...} creates a temporary ___ function object because it has no binding or reference keeping it reachable. (lowercase word)",
         "answer": "anonymous"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "16",
@@ -493,7 +503,9 @@
         "question": "If the user inputs Q, .lower() turns it into  _ .",
         "answer": "q"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "17",
@@ -527,7 +539,9 @@
         "question": "classes inherit from __, while type is the metaclass that creates classes and also inherits from __. (comma, whitespace)",
         "answer": "object, object"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "18",
@@ -557,7 +571,9 @@
         "question": "Object.___(obj) returns an array of an object’s key-value pairs.",
         "answer": "entries"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "19",
@@ -583,11 +599,130 @@
         "question": "In JS, var uses ___ scope (or ___ scope if declared outside a function), whereas let and const use ___ scope tied to {}. (commas, whitespaces)",
         "answer": "function, global, block"
       }
-    ]
+    ],
+    "pdf": null,
+    "page": 1
   },
   {
     "id": "2000",
-    "code": "Bayes' Theorem (set 1)\n\n          P(H∩C)       P(C|H)P(H)      C: coin\nP(H|C) =  ------   =   ----------      H: heads\n           P(C)           P(C)         T: tails\n",
-    "qa": []
+    "code": "testing access to pdf in foxit [p]",
+    "qa": [
+      {
+        "question": "testing the first question.",
+        "answer": "testing the first answer."
+      }
+    ],
+    "page": 1,
+    "pdf": "notes\\bayes_notes.pdf"
+  },
+  {
+    "id": "20",
+    "code": "JS set 5:",
+    "qa": [
+      {
+        "question": "JS GET puts data in ___ wheras POST puts data in ___ ___. (lowercase, comma, whitespace)",
+        "answer": "url, request body"
+      },
+      {
+        "question": "In JS, a function resolves variables through ___ scope first, then outer ___ scope. (comma, whitespace)",
+        "answer": "local, global"
+      },
+      {
+        "question": "END",
+        "answer": "END"
+      }
+    ],
+    "pdf": null,
+    "page": 1
+  },
+  {
+    "id": "21",
+    "code": "JS var   \n\nvar x = 10;\n\nfunction changeX() { var x = 5; }\n\nchangeX();\n",
+    "qa": [
+      {
+        "question": "Given the code below, what will the value of x be after execution?",
+        "answer": "10"
+      },
+      {
+        "question": "What is the function keyword?",
+        "answer": "function"
+      },
+      {
+        "question": "What is the function name?",
+        "answer": "changeX"
+      },
+      {
+        "question": "What is the function call operator used to invoke(call) the function?",
+        "answer": "()"
+      },
+      {
+        "question": "What contains the function's code block?",
+        "answer": "{}"
+      },
+      {
+        "question": "In both JS and Py (and most languages), {} by itself represent a code ___, not an ___. (comma, whitespace)",
+        "answer": "block, expression"
+      },
+      {
+        "question": "The {} above contains ___s, not ___s. (comma, whitespace)",
+        "answer": "statements, expressions"
+      },
+      {
+        "question": "{} is a ___ in statements, and an ___ in expressions. (comma, whitespace)",
+        "answer": "block, object"
+      },
+      {
+        "question": "In JS, an object expression is a {} syntax that evaluates to an object ___.",
+        "answer": "value"
+      },
+      {
+        "question": "A statement performs an ___. An expression produces a ___. (comma, space)",
+        "answer": "action, value"
+      },
+      {
+        "question": "As such, statement is global, which local? (comma, space, no semicolon)",
+        "answer": "var x = 10, var x = 5"
+      },
+      {
+        "question": "___ is function-scoped (or global if outside a function), while let and const are ___-scoped to the nearest ___ syntax. (commas, spaces)",
+        "answer": "var, block, {}"
+      },
+      {
+        "question": "___ creates block scope for let and const, but only function creates function scope for ___. (syntax, comma, space, keyword)",
+        "answer": "{}, var"
+      },
+      {
+        "question": "Whereas in Python, ___ creates block scope, and only ___ creates function scope. (comma, space)",
+        "answer": "indentation, def"
+      },
+      {
+        "question": "END",
+        "answer": "END"
+      }
+    ],
+    "pdf": null
+  },
+  {
+    "id": "22",
+    "code": "Python questions:",
+    "qa": [
+      {
+        "question": "What will [x**2 for x in range(3)] output? (Use default format)",
+        "answer": "[0, 1, 4]"
+      },
+      {
+        "question": "_____ is a keyword that turns a normal function into a generator.",
+        "answer": "yield"
+      },
+      {
+        "question": "What is the JS equivalent of yield?",
+        "answer": "function*"
+      },
+      {
+        "question": "a = [1, 2] and b = [3, 4]. How to output [1, 2, 3, 4]?",
+        "answer": "a.extend(b)"
+      }
+    ],
+    "pdf": null
   }
 ]
