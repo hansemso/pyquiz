@@ -19,7 +19,7 @@ Features:
 ✅ Fully modularized structure for easy debugging and modification. Just need Python 3.xx download and Windows Powershell terminal.
 ✅ Multi-line example code display with notes popup for each card. Make in googledocs, download as pdf, open in foxit viewer by entering [p].
 ✅ QA's are groupable, editable, deletable per card. Also the pdf link to notes.
-✅ Card range selector to categorize study subjects
+✅ Card range selector to categorize study subjects with y/n shuffle of qa's per range. Just select range, type y/n.  
 ✅ Instant grading feedback per problem, total result at end
 ✅ Local JSON storage. Can connect to sql and add data analysis scripts
 

@@ -1055,5 +1055,11 @@
       }
     ],
     "pdf": "END"
+  },
+  {
+    "id": "23",
+    "code": "Py isinstance() Function problem:\n",
+    "qa": [],
+    "pdf": null
   }
 ]

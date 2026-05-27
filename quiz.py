@@ -1,10 +1,10 @@
-# quiz.py   May 2026
+# quiz.py   May 27, 2026
 import random
 import cards
 import pdf_viewer
 
 
-def run_quiz(cards_list):
+def run_quiz(cards_list, shuffle_qa=False):
 
     score = 0
     total = 0
@@ -20,9 +20,14 @@ def run_quiz(cards_list):
 
         print("\n" + card.get("code", "<no code>"))
 
-        qa_list = card.get("qa", [])
-        random.shuffle(qa_list)
-        
+        qa_list = card.get("qa", []).copy()
+
+        # ======================================
+        # QA SHUFFLE (SESSION CONTROLLED)
+        # ======================================
+        if shuffle_qa:
+            random.shuffle(qa_list)
+
         has_pdf = bool(card.get("pdf"))
 
         # ======================================
@@ -35,7 +40,7 @@ def run_quiz(cards_list):
                 pdf_viewer.open_from_card(card)
 
         # ======================================
-        # QUIZ LOOP (ONCE PER QUESTION)
+        # QUIZ LOOP
         # ======================================
         for qa in qa_list:
 
@@ -65,11 +70,14 @@ def quiz_range():
         print("Invalid range")
         return
 
+    shuffle = input("Shuffle QA? (y/n) > ").strip().lower() == "y"
+
     filtered = [
         c for c in cards.study_bank
         if start <= int(c.get("id", 0)) <= end
     ]
 
+    # keeps card order randomized (optional design choice you already had)
     random.shuffle(filtered)
 
-    run_quiz(filtered)
+    run_quiz(filtered, shuffle_qa=shuffle)
