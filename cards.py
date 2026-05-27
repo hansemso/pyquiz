@@ -152,12 +152,12 @@ def add_study_card():
 
     while True:
 
-        q = input("Question: ").strip()
+        q = input("Q: ").strip()
 
         if q.upper() == "END":
             break
 
-        a = input("Answer: ").strip()
+        a = input("A: ").strip()
 
         if q and a:
             qa_list.append({
@@ -337,25 +337,30 @@ def edit_card():
 
             if choice == "a":
 
-                q = input(
-                    "Q: "
-                ).strip()
+                print("\nAdding QA pairs (press Enter on Q or A to stop)\n")
 
-                a = input(
-                    "A: "
-                ).strip()
+                while True:
 
-                if q and a:
+                    q = input("Q: ").strip()
+                    if q == "":
+                        print("↩️ Stopped adding QA")
+                        break
+
+                    a = input("A: ").strip()
+                    if a == "":
+                        print("↩️ Stopped adding QA")
+                        break
 
                     qa_list.append({
                         "question": q,
                         "answer": a
                     })
 
-                    save_all_cards()
-
-                    print("✅ QA added.")
-
+                    
+                    print("✅ Added\n")
+                
+                save_all_cards()
+                
                 continue
 
             # ---------------------------------------------
@@ -439,12 +444,6 @@ def edit_card():
         elif action == "5":
             break
 
-        # =================================================
-        # EXIT
-        # =================================================
-
-        elif action == "5":
-            break
-
+       
         else:
             print("❌ Invalid option.")

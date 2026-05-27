@@ -21,6 +21,8 @@ def run_quiz(cards_list):
         print("\n" + card.get("code", "<no code>"))
 
         qa_list = card.get("qa", [])
+        random.shuffle(qa_list)
+        
         has_pdf = bool(card.get("pdf"))
 
         # ======================================
