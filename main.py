@@ -12,15 +12,21 @@ cards.load_cards()
 def main_menu():
 
     while True:
-
+        
+               
         print("\n1. Quiz All Cards")
         print("2. Quiz Range")
         print("3. Add Card")
-        print("4. Edit Card")
-        print("5. Exit")
-
+        print("4. Edit Card/Index")
+        print("5. Edit Index")
+        print("6. Exit")
+      
         choice = input("Select option: ").strip()
 
+        print("\n====================================")
+        print(cards.load_directory_note())
+        print("====================================") 
+        
         if choice == "1":
             quiz.quiz_all()
 
@@ -34,6 +40,9 @@ def main_menu():
             cards.edit_card()
 
         elif choice == "5":
+            cards.edit_directory_note()
+
+        elif choice == "6":
             print("Goodbye.")
             break
 

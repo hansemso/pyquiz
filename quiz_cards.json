@@ -1058,8 +1058,84 @@
   },
   {
     "id": "23",
-    "code": "Py isinstance() Function problem:\n",
-    "qa": [],
+    "code": "Py problems:",
+    "qa": [
+      {
+        "question": "___() checks exact class only, while ___() also returns True for subclasses. (comma,space)",
+        "answer": "type, ininstance"
+      },
+      {
+        "question": "Given class S(K):, which is the subclass?",
+        "answer": "S"
+      },
+      {
+        "question": "Py inheritance must be made by using the Py keyword: class   (t/f)",
+        "answer": "t"
+      },
+      {
+        "question": "As such, given class S(K), which inherits from which? (comma, space)",
+        "answer": "S, K"
+      }
+    ],
+    "pdf": null
+  },
+  {
+    "id": "24",
+    "code": "Python import math problems:\n",
+    "qa": [
+      {
+        "question": "Write pow(x, y) using ^",
+        "answer": "x^y"
+      },
+      {
+        "question": "What is another simpler way to write pow(x, y) in Python?",
+        "answer": "x**y"
+      },
+      {
+        "question": "Re-write pow(a, b, c) likewise. (no whitespace)",
+        "answer": "(a**b)%c"
+      },
+      {
+        "question": "What is c in arithmetic terminology?",
+        "answer": "divisor"
+      },
+      {
+        "question": "What is pow(2,3,5) or (2**3)%5  ?",
+        "answer": "3"
+      },
+      {
+        "question": "What does math.pow() always return?",
+        "answer": "float"
+      },
+      {
+        "question": "4//2 = 2 but 4//2.00001 = ?",
+        "answer": "1.0"
+      },
+      {
+        "question": "What will divmod(10, 3) output?",
+        "answer": "(3, 1)"
+      },
+      {
+        "question": "What is divmod(a, b) in tuple form? (comma, spaces)",
+        "answer": "(a // b, a % b)"
+      },
+      {
+        "question": "Type in the floor division assignment operator",
+        "answer": "//="
+      },
+      {
+        "question": "Type in the modulo assignment operator",
+        "answer": "%="
+      },
+      {
+        "question": "Type in the exponentiation assignment operator",
+        "answer": "**="
+      },
+      {
+        "question": "Type in the inequality comparison operator",
+        "answer": "!="
+      }
+    ],
     "pdf": null
   }
 ]

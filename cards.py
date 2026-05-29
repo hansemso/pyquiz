@@ -16,6 +16,63 @@ def normalize(text: str | None) -> str:
 
 
 # =====================================================
+# Directory Note
+# =====================================================
+
+DIRECTORY_FILE = os.path.join(
+    os.path.dirname(__file__),
+    "directory.txt"
+)
+
+
+def load_directory_note() -> str:
+
+    try:
+        with open(DIRECTORY_FILE, "r", encoding="utf-8") as f:
+            return f.read()
+
+    except FileNotFoundError:
+
+        default_note = (
+            "1–999 : Py & JS Q&A (no shuffle)\n"
+            "1000–2000 : Py & JS Q&A (shuffle)"
+        )
+
+        with open(DIRECTORY_FILE, "w", encoding="utf-8") as f:
+            f.write(default_note)
+
+        return default_note
+
+
+def edit_directory_note():
+
+    print("\n===== EDIT DIRECTORY NOTE =====\n")
+
+    print(load_directory_note())
+
+    print("\nType new note.")
+    print("Type END on its own line to save.\n")
+
+    lines = []
+
+    while True:
+
+        line = input()
+
+        if line.strip().upper() == "END":
+            break
+
+        lines.append(line)
+
+    new_text = "\n".join(lines)
+
+    with open(DIRECTORY_FILE, "w", encoding="utf-8") as f:
+        f.write(new_text)
+
+    print("\n✅ Directory note updated.")
+
+
+# =====================================================
 # SAFE CARD FIXER
 # =====================================================
 
@@ -200,8 +257,12 @@ def edit_card():
 
     print()
 
-    for card in study_bank:
-
+    
+    for card in sorted(
+        study_bank,
+        key=lambda c: int(c.get("id", 0))
+    ):
+        
         code = card.get("code") or ""
 
         first_line = (
@@ -233,12 +294,13 @@ def edit_card():
     
     
     while True:
-
+        
         print("\n1. Edit code")
         print("2. Edit QA")
         print("3. Edit pdf link")
-        print("4. Delete card")
-        print("5. Cancel")
+        print("4. Change ID")
+        print("5. Delete card")
+        print("6. Cancel")
 
         action = input(
             "Select option: "
@@ -337,7 +399,7 @@ def edit_card():
 
             if choice == "a":
 
-                print("\nAdding QA pairs (press Enter on Q or A to stop)\n")
+                print("\nAdd QAs (Enter to stop)\n")
 
                 while True:
 
@@ -429,10 +491,46 @@ def edit_card():
     
 
         # =================================================
-        # DELETE
+        # 4. CHANGE ID
         # =================================================
 
         elif action == "4":
+
+            current_id = card.get("id")
+
+            print(f"\nCurrent ID: {current_id}")
+
+            new_id = input(
+                "Enter new ID: "
+            ).strip()
+
+            if not new_id:
+                print("❌ ID cannot be blank.")
+                continue
+
+            # prevent duplicates
+            duplicate = any(
+                c.get("id") == new_id and c is not card
+                for c in study_bank
+            )
+
+            if duplicate:
+                print("❌ That ID already exists.")
+                continue
+
+            card["id"] = new_id
+
+            save_all_cards()
+
+            print("✅ ID updated.")
+            
+            
+
+        # =================================================
+        # DELETE
+        # =================================================
+
+        elif action == "5":
             confirm = input("Delete card? (y/n): ").strip().lower()
 
             if confirm == "y":
@@ -441,7 +539,7 @@ def edit_card():
                 print("✅ Card deleted.")
                 break
 
-        elif action == "5":
+        elif action == "6":
             break
 
        
