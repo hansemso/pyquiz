@@ -18,10 +18,9 @@ Features:
 
 ✅ Fully modularized structure for easy debugging and modification. Just need Python 3.xx download and Windows Powershell terminal.
 ✅ Multi-line example code display with popup notes. Make your notes in googledocs, download as pdf, open in foxit viewer by entering [p].
-✅ QA's are groupable, editable, deletable per card. Cards auto shuffle. QA's shuffle per range manually. Type in range, e.g. 1-500, type y/n. Can update directory, change card id. 
+✅ QA's are groupable, editable, deletable per card. Can turn off QA auto shuffle per card. Can update directory. Can change card id. 
 ✅ Instant grading feedback per problem, total result at end
 ✅ Local JSON storage. Can connect to sql and add data analysis scripts
-✅ 
 
 
 
