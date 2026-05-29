@@ -14,12 +14,11 @@ def main_menu():
     while True:
         
                
-        print("\n1. Quiz All Cards")
-        print("2. Quiz Range")
-        print("3. Add Card")
-        print("4. Edit Card/Index")
-        print("5. Edit Index")
-        print("6. Exit")
+        print("\n1. Quiz Range")
+        print("2. Add Card")
+        print("3. Edit Card/Index")
+        print("4. Edit Index")
+        print("5. Exit")
       
         choice = input("Select option: ").strip()
 
@@ -28,21 +27,14 @@ def main_menu():
         print("====================================") 
         
         if choice == "1":
-            quiz.quiz_all()
-
-        elif choice == "2":
             quiz.quiz_range()
-
-        elif choice == "3":
+        elif choice == "2":
             cards.add_study_card()
-
-        elif choice == "4":
+        elif choice == "3":
             cards.edit_card()
-
-        elif choice == "5":
+        elif choice == "4":
             cards.edit_directory_note()
-
-        elif choice == "6":
+        elif choice == "5":
             print("Goodbye.")
             break
 

@@ -4,7 +4,7 @@ import cards
 import pdf_viewer
 
 
-def run_quiz(cards_list, shuffle_qa=False):
+def run_quiz(cards_list):
 
     score = 0
     total = 0
@@ -15,19 +15,24 @@ def run_quiz(cards_list, shuffle_qa=False):
     if not cards_list:
         print("No quiz questions.")
         return
-
+    
+    
+    
     for card in cards_list:
 
         print("\n" + card.get("code", "<no code>"))
 
         qa_list = card.get("qa", []).copy()
 
+        
         # ======================================
         # QA SHUFFLE (SESSION CONTROLLED)
         # ======================================
-        if shuffle_qa:
+        
+        if not card.get("no_shuffle_qa", False):
             random.shuffle(qa_list)
-
+        
+        
         has_pdf = bool(card.get("pdf"))
 
         # ======================================
@@ -53,12 +58,8 @@ def run_quiz(cards_list, shuffle_qa=False):
                 score += 1
             else:
                 print(f"❌ {qa['answer']}")
-
     print(f"\nScore: {score} / {total}")
 
-
-def quiz_all():
-    run_quiz(cards.study_bank)
 
 
 def quiz_range():
@@ -70,7 +71,7 @@ def quiz_range():
         print("Invalid range")
         return
 
-    shuffle = input("Shuffle QA? (y/n) > ").strip().lower() == "y"
+    
 
     filtered = [
         c for c in cards.study_bank
@@ -80,4 +81,5 @@ def quiz_range():
     # keeps card order randomized (optional design choice you already had)
     random.shuffle(filtered)
 
-    run_quiz(filtered, shuffle_qa=shuffle)
+    run_quiz(filtered)
+    

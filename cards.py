@@ -16,7 +16,7 @@ def normalize(text: str | None) -> str:
 
 
 # =====================================================
-# Directory Note
+# Directory/Index
 # =====================================================
 
 DIRECTORY_FILE = os.path.join(
@@ -34,8 +34,8 @@ def load_directory_note() -> str:
     except FileNotFoundError:
 
         default_note = (
-            "1–999 : Py & JS Q&A (no shuffle)\n"
-            "1000–2000 : Py & JS Q&A (shuffle)"
+            "Cards auto-shuffle by default.\n"
+            "Use Edit Card → Toggle QA Shuffle for ordered cards."
         )
 
         with open(DIRECTORY_FILE, "w", encoding="utf-8") as f:
@@ -95,6 +95,7 @@ def sanitize_card(card: dict) -> dict:
     card.setdefault("code", "")
     card.setdefault("qa", [])
     card.setdefault("pdf", None)
+    card.setdefault("no_shuffle_qa", False)
     
     if card["code"] is None:
         card["code"] = ""
@@ -237,7 +238,7 @@ def add_study_card():
         "code": code,
         "qa": qa_list,
         "pdf": pdf,
-        
+        "no_shuffle_qa": False
     })
 
     save_all_cards()
@@ -300,8 +301,10 @@ def edit_card():
         print("3. Edit pdf link")
         print("4. Change ID")
         print("5. Delete card")
-        print("6. Cancel")
-
+        print("6. Toggle QA shuffle")
+        print("7. Cancel")
+        
+        
         action = input(
             "Select option: "
         ).strip()
@@ -540,8 +543,27 @@ def edit_card():
                 break
 
         elif action == "6":
-            break
 
+            current = card.get("no_shuffle_qa", False)
+
+            status = "OFF (ordered)" if current else "ON (shuffled)"
+            print(f"\nCurrent QA shuffle: {status}")
+
+            new_value = input("Disable QA shuffle? (y/n): ").strip().lower()
+
+            if new_value == "y":
+                card["no_shuffle_qa"] = True
+            elif new_value == "n":
+                card["no_shuffle_qa"] = False
+            else:
+                print("❌ Invalid input")
+                continue
+
+            save_all_cards()
+            print("✅ QA shuffle setting updated.")
+       
+        elif action == "7":
+            break
        
         else:
             print("❌ Invalid option.")

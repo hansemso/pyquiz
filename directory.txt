@@ -1,2 +1,0 @@
-1-499: Py & JS q&a (no shuffle)
-500-999: Py & JS q&a  (shuffle)
