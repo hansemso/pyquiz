@@ -1,4 +1,4 @@
-### *** cards.py ***    May 2026
+### *** cards.py ***    6_1_2026
 
 import json
 import os
@@ -98,6 +98,7 @@ def sanitize_card(card: dict) -> dict:
     card.setdefault("no_shuffle_qa", False)
     card.setdefault("type", "I")
     card.setdefault("answer", "")
+    card.setdefault("followup_qa", [])
     
     if card["code"] is None:
         card["code"] = ""
@@ -105,8 +106,12 @@ def sanitize_card(card: dict) -> dict:
     if card["qa"] is None:
         card["qa"] = []
 
-    if not isinstance(card["qa"], list):
-        card["qa"] = []
+    fq = card.get("followup_qa", [])
+
+    if not isinstance(fq, list):
+        fq = []
+
+    card["followup_qa"] = fq
     
     pdf = card.get("pdf")
     if not pdf:
@@ -228,13 +233,32 @@ def add_study_card():
 
         pdf = pdf if pdf else None
 
+        followup_qa = []
+
+        print("\nOptional follow-up QA (ENTER Q = stop)\n")
+
+        while True:
+            q = input("Q: ").strip()
+            if q.upper() == "END":
+                break
+
+            a = input("A: ").strip()
+            if a == "" or a.upper() == "END":
+                break
+
+            followup_qa.append({
+                "question": q,
+                "answer": a
+            })
+
         study_bank.append({
             "type": "II",
             "id": card_id,
             "code": code,
             "answer": answer,
             "pdf": pdf,
-            "no_shuffle_qa": False
+            "no_shuffle_qa": False,
+            "followup_qa": followup_qa
         })
 
         save_all_cards()
@@ -377,7 +401,14 @@ def edit_card():
 
         elif action == "2":  # Option 2: Edit QA
 
-            qa_list = card.setdefault("qa", [])
+            if card.get("type") == "II":
+                qa_key = "followup_qa"
+                print("\nEditing Follow-up QA\n")
+            else:
+                qa_key = "qa"
+                print("\nEditing QA\n")
+
+            qa_list = card.setdefault(qa_key, [])
 
             # ---------------------------------------------
             # NO QA YET
@@ -409,7 +440,7 @@ def edit_card():
 
                         print("✅ QA added.")
 
-                card["qa"] = qa_list
+                card["qa_key"] = qa_list
 
                 save_all_cards()
 

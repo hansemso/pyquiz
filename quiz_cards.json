@@ -12,7 +12,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "2",
@@ -39,7 +40,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "3",
@@ -82,7 +84,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "4",
@@ -121,7 +124,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "5",
@@ -160,7 +164,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "6",
@@ -179,7 +184,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "7",
@@ -226,7 +232,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "700",
@@ -241,7 +248,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "8",
@@ -272,7 +280,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "9",
@@ -295,7 +304,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "10",
@@ -326,7 +336,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "11",
@@ -349,7 +360,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "12",
@@ -396,7 +408,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "13",
@@ -447,7 +460,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "14",
@@ -470,7 +484,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "15",
@@ -529,7 +544,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "16",
@@ -556,7 +572,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "17",
@@ -595,7 +612,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "18",
@@ -630,7 +648,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "19",
@@ -661,7 +680,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "2000",
@@ -676,7 +696,8 @@
     "pdf": "notes\\bayes_notes.pdf",
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "20",
@@ -699,7 +720,8 @@
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "21",
@@ -769,7 +791,8 @@
     "pdf": null,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "22",
@@ -795,7 +818,8 @@
     "pdf": null,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "10000",
@@ -1129,7 +1153,8 @@
     "pdf": "END",
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "23",
@@ -1155,7 +1180,8 @@
     "pdf": null,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "24",
@@ -1217,7 +1243,8 @@
     "pdf": null,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "25",
@@ -1235,7 +1262,8 @@
     "pdf": null,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "id": "26",
@@ -1293,7 +1321,8 @@
     "pdf": null,
     "no_shuffle_qa": false,
     "type": "I",
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "type": "I",
@@ -1307,14 +1336,22 @@
     ],
     "pdf": null,
     "no_shuffle_qa": false,
-    "answer": ""
+    "answer": "",
+    "followup_qa": []
   },
   {
     "type": "II",
     "id": "99",
     "code": "d\nd\nd\nd",
-    "answer": "e\nd\nd\nd\ndEND",
+    "answer": "d\nd\nd\nd",
     "pdf": null,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "followup_qa": [
+      {
+        "question": "b",
+        "answer": "b"
+      }
+    ],
+    "qa": []
   }
 ]
