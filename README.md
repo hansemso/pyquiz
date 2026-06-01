@@ -12,22 +12,25 @@ Source code:
 
 🎯 Overview
 
-PyQuiz is a Python command-line flashcard app using JSON-based persistent storage. It was made for self-study and has my problems. However, anybody can download and modify and use. The goal was to build a solid CLI-based app that is simple, rugged, and modifiable/expandable.  
+PyQuiz is a Python CLI flashcard app using JSON-based persistent storage. Made for self-study with my problems. However, anybody can modify and use. Goal was to build a easy-to-troubleshoot app that is expandable. Developed and updated regularly.  
 
 Features:
 
-✅ Fully modularized structure for easy debugging and modification. Just need Python 3.xx download and Windows Powershell terminal.
-✅ Multi-line example code display with popup notes. Make your notes in googledocs, download as pdf, open in foxit viewer by entering [p].
-✅ QA's are groupable, editable, deletable per card. Can turn off QA auto shuffle per card. Can update directory. Can change card id. 
-✅ Instant grading feedback per problem, total result at end
-✅ Local JSON storage. Can connect to sql and add data analysis scripts
+-✅ Fully modularized structure for easy debugging and modification. Uses Python 3.
+-✅ Type I cards: Multiline problem display; groupable QAs' with single line input.
+-✅ Type II: Multi-line problem display; multi-line answer input for exercises.  
+-✅ Popup notes. Make in googledocs, download as pdf, view with foxit per card.
+-✅ Index with range selector with on/off auto shuffle per range. 
+-✅ Instant grading feedback per problem, total result at end
+-✅ Local JSON storage. Can connect to sql and add data analysis scripts
 
 
 
 ## 📜 MENU
 
-✅ 1-999: Python or Javascript problems
-✅ 1000-1999: Machine Learning problems
+-✅ 1-999: Python or Javascript problems
+-✅ 1000-1999: Machine Learning problems
+-✅ 10000-11000: hanja
 
 
 ## 📥 Installation
