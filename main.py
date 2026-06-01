@@ -16,8 +16,8 @@ def main_menu():
                
         print("\n1. Quiz Range")
         print("2. Add Card")
-        print("3. Edit Card/Index")
-        print("4. Edit Index")
+        print("3. Edit Card/View Index")
+        print("4. Edit Index Directory")
         print("5. Exit")
       
         choice = input("Select option: ").strip()

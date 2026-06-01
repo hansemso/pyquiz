@@ -10,7 +10,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "2",
@@ -35,7 +37,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "3",
@@ -76,7 +80,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "4",
@@ -113,7 +119,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "5",
@@ -150,7 +158,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "6",
@@ -167,7 +177,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "7",
@@ -212,7 +224,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "700",
@@ -225,7 +239,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "8",
@@ -254,7 +270,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "9",
@@ -275,7 +293,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "10",
@@ -304,7 +324,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "11",
@@ -325,7 +347,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "12",
@@ -370,7 +394,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "13",
@@ -419,7 +445,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "14",
@@ -440,7 +468,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "15",
@@ -497,7 +527,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "16",
@@ -522,7 +554,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "17",
@@ -559,7 +593,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "18",
@@ -592,7 +628,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "19",
@@ -621,7 +659,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "2000",
@@ -634,7 +674,9 @@
     ],
     "page": 1,
     "pdf": "notes\\bayes_notes.pdf",
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "20",
@@ -655,7 +697,9 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "21",
@@ -723,7 +767,9 @@
       }
     ],
     "pdf": null,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "22",
@@ -747,7 +793,9 @@
       }
     ],
     "pdf": null,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "10000",
@@ -1079,7 +1127,9 @@
       }
     ],
     "pdf": "END",
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "23",
@@ -1103,7 +1153,9 @@
       }
     ],
     "pdf": null,
-    "no_shuffle_qa": false
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
   },
   {
     "id": "24",
@@ -1162,6 +1214,106 @@
         "answer": "!="
       }
     ],
+    "pdf": null,
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
+  },
+  {
+    "id": "25",
+    "code": "map() function \n\nnums = [1, 2, 3, 4]\n\nresult = map(lambda x: x * x, nums)\n\nprint(list(result))  \n",
+    "qa": [
+      {
+        "question": "What will be the output? (comma, spaces)",
+        "answer": "[1, 4, 9, 16]"
+      },
+      {
+        "question": "Fill in basic form: map(___, ___)",
+        "answer": "function, iterable"
+      }
+    ],
+    "pdf": null,
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
+  },
+  {
+    "id": "26",
+    "code": "Py set problems:\n\nA = {1, 2, 3, 4}\nB = {3, 4, 5, 6}\n\n△  ∩  ∪  Aᶜ  Bᶜ  ∅  ¬  λ  ≡  ≠  ≤  ≥\n⊆  ⊂  ⊇  ⊃  @  &  •\n",
+    "qa": [
+      {
+        "question": "A | B  output",
+        "answer": "{1, 2, 3, 4, 5}"
+      },
+      {
+        "question": "A.union(B) output:",
+        "answer": "{1, 2, 3, 4, 5}"
+      },
+      {
+        "question": "A & B  output:",
+        "answer": "{3, 4}"
+      },
+      {
+        "question": "Write A|B in math notation. (Use spacing)",
+        "answer": "A ∪ B"
+      },
+      {
+        "question": "Write A.union(B) in math notation. (spacing)",
+        "answer": "A ∪ B"
+      },
+      {
+        "question": "Write A & B in math notation. (spacing)",
+        "answer": "A ∩ B"
+      },
+      {
+        "question": "Write A.intersection(B) in math notation.",
+        "answer": "A ∩ B"
+      },
+      {
+        "question": "Write A - B in math notation (Use spacing)",
+        "answer": "A \\ B"
+      },
+      {
+        "question": "END",
+        "answer": "END"
+      },
+      {
+        "question": "Write A.difference(B) in math notation (Use spacing)",
+        "answer": "A \\ B"
+      },
+      {
+        "question": "Write A ^ B in math notation",
+        "answer": "A ⊆ B"
+      },
+      {
+        "question": "Write A < B in math notation",
+        "answer": "A ⊂ B"
+      }
+    ],
+    "pdf": null,
+    "no_shuffle_qa": false,
+    "type": "I",
+    "answer": ""
+  },
+  {
+    "type": "I",
+    "id": "100",
+    "code": "ji\njke\nsd",
+    "qa": [
+      {
+        "question": "jkf",
+        "answer": "jkf"
+      }
+    ],
+    "pdf": null,
+    "no_shuffle_qa": false,
+    "answer": ""
+  },
+  {
+    "type": "II",
+    "id": "99",
+    "code": "d\nd\nd\nd",
+    "answer": "e\nd\nd\nd\ndEND",
     "pdf": null,
     "no_shuffle_qa": false
   }

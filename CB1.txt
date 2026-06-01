@@ -1,0 +1,13 @@
+Function Skeleton problem:
+
+Write a function called process_data that:
+- takes one input d
+- creates an empty list e 
+- loops through the input using i
+- returns a new list
+
+def process_data(d):
+    e = []
+    for i in d:
+        pass
+    return e

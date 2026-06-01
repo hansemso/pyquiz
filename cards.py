@@ -96,6 +96,8 @@ def sanitize_card(card: dict) -> dict:
     card.setdefault("qa", [])
     card.setdefault("pdf", None)
     card.setdefault("no_shuffle_qa", False)
+    card.setdefault("type", "I")
+    card.setdefault("answer", "")
     
     if card["code"] is None:
         card["code"] = ""
@@ -194,6 +196,12 @@ def add_study_card():
 
     print("\n=== Add New Study Card ===")
 
+    card_type = input("Card type (I / II): ").strip().upper()
+
+    if card_type not in ("I", "II"):
+        print("❌ Invalid card type.")
+        return
+
     card_id = input("Enter card ID: ").strip()
 
     if any(card.get("id") == card_id for card in study_bank):
@@ -203,6 +211,40 @@ def add_study_card():
     code = multiline_input(
         "Enter code (END to finish):"
     )
+
+    # ==========================================
+    # TYPE II
+    # ==========================================
+
+    if card_type == "II":
+
+        answer = multiline_input(
+            "Enter answer (END to finish):"
+        )
+
+        pdf = input(
+            "pdf path (optional, ENTER to skip): "
+        ).strip()
+
+        pdf = pdf if pdf else None
+
+        study_bank.append({
+            "type": "II",
+            "id": card_id,
+            "code": code,
+            "answer": answer,
+            "pdf": pdf,
+            "no_shuffle_qa": False
+        })
+
+        save_all_cards()
+
+        print("✅ Type II card added!")
+        return
+
+    # ==========================================
+    # TYPE I (existing behavior)
+    # ==========================================
 
     qa_list = []
 
@@ -227,13 +269,10 @@ def add_study_card():
         "pdf path (optional, ENTER to skip): "
     ).strip()
 
-    
-
     pdf = pdf if pdf else None
 
-    
-
     study_bank.append({
+        "type": "I",
         "id": card_id,
         "code": code,
         "qa": qa_list,
