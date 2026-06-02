@@ -8,6 +8,7 @@ Source code:
 
 
 # PyQuiz customizable flashcard/quiz app
+👉 For full details on development:  https://github.com/hansemso/pyquiz/blob/main/devlog.md
 
 
 🎯 Overview
