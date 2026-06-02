@@ -230,12 +230,7 @@ quiz.py
         └── run_quiz(filtered)
 ```
 
-Quiz engine  
-Type I grading  
-Type II grading  
-Follow-up QA  
 
----
 
 ### pdf_viewer.py
 PDF launching
@@ -279,43 +274,7 @@ Index file for updating directory from within app
 }
 ```
 
----
 
-## Current Program Flow
 
-main.py
 
-Menu
-├─ Quiz Range → run_quiz()
-├─ Add Card → add_study_card()
-├─ Edit Card → edit_card()
-├─ Edit Directory Note
-└─ Exit
 
----
-
-## Future Ideas
-
-- Search System
-- Card Tags
-- Difficulty Levels
-- Statistics
-- Import / Export
-- Backup System
-- Spaced Repetition
-
----
-
-## Known Issues
-
-None currently
-
----
-
-## Version History
-
-2026-06-01
-- Added Type II cards
-- Added follow-up QA
-- Added answer cleaning
-- Added QA shuffle toggle
