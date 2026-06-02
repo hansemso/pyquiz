@@ -20,6 +20,11 @@ Working Features
 
 ## File Structure --overall
 
+### Synopsis
+
+```
+Triangular design with brief main.py at top as access. cards.py = data logic(biggest file); quiz.py = runtime logic(selecting, filtering, shuffling).   
+
 ```
 PyQuiz
 │
@@ -28,16 +33,16 @@ PyQuiz
 │   └── Main Menu
 │       │
 │       ├── 1. Quiz Range
-│       │       └── quiz.quiz_range()
+│       │       └── quiz.quiz_range()  # Listed in directory which user can modify. Groups cards into topics.
 │       │
 │       ├── 2. Add Card
 │       │       └── cards.add_study_card()
 │       │
 │       ├── 3. Edit Card / View Index
-│       │       └── cards.edit_card()
+│       │       └── cards.edit_card()  # Select by ID num ➜ cards.py below ➜ edit mode
 │       │
 │       ├── 4. Edit Directory Note
-│       │       └── cards.edit_directory_note()
+│       │       └── cards.edit_directory_note()  # Stores directory in txt file. Just for user to view.
 │       │
 │       └── 5. Exit
 │
@@ -78,57 +83,45 @@ PyQuiz
 │   ├── Card Creation
 │   │   │
 │   │   └── add_study_card()
-│   │       ├── Type I
-│   │       └── Type II
+│   │       ├── Type I  #multiline problem, single-line qa's
+│   │       └── Type II  #multiline problem and answer with extra single-line qa's
 │   │
 │   ├── Card Editing
 │   │   │
 │   │   └── edit_card()
-│   │       ├── Edit Code
-│   │       ├── Edit QA
-│   │       ├── Edit PDF
-│   │       ├── Change ID
+│   │       ├── Edit Code  # multiline
+│   │       ├── Edit QA  #edit qa in pairs, type 'a' to keep adding
+│   │       ├── Edit PDF  # Link to pdf. View with foxit. Store in \notes
+│   │       ├── Change ID  # In case need to shuffle across ranges
 │   │       ├── Delete Card
-│   │       └── Toggle QA Shuffle
+│   │       └── Toggle QA Shuffle  # y/n exempts select cards from auto shuffle
 │   │
 │   └── Startup
-│       └── init()
+│       └── init()  #loads from json into study_bank
 │
 ├── quiz.py
 │   │
 │   ├── quiz_range()
 │   │   │
-│   │   ├── User enters ID range
-│   │   ├── Filter study_bank
-│   │   ├── Shuffle card order
+│   │   ├── User enters ID range ➜ Filter study_bank ➜ Shuffle
 │   │   └── run_quiz()
 │   │
 │   └── Quiz Engine
 │       │
 │       └── run_quiz()
 │           │
-│           ├── Display code block
-│           ├── Optional PDF launch
+│           ├── Display multiline problem(sample code or other)
+│           ├── Optional PDF launch(User enters [p])
 │           │
 │           ├── Type I Processing
 │           │   │
 │           │   ├── Read qa list
-│           │   ├── Check no_shuffle_qa
-│           │   │
-│           │   ├── False
-│           │   │     └── random.shuffle(qa_list)
-│           │   │
-│           │   └── True
-│           │         └── Preserve order
+│           │   └── Check no_shuffle_qa ➜ If True, cancel auto shuffle, preserve order
 │           │
-│           ├── Ask QA
-│           ├── Grade answers
-│           └── Track score
+│           ├── Ask QA ➜ Grade answers ➜ Track score
 │           │
 │           ├── Type II Processing
-│           │   ├── Multiline answer
-│           │   ├── Grade answer
-│           │   └── Follow-up QA
+│           │   └── Multiline answer ➜ Grade answer ➜ Follow-up QA
 │           │
 │           └── Final Score
 │
@@ -162,6 +155,7 @@ PyQuiz
 ```
 
 ### Shuffle Logic
+
 ```
 User
  │
@@ -184,7 +178,7 @@ Filter study_bank
 Selected Cards
  │
  ▼
-Shuffle Card Order
+Shuffle Card Order  # runs on auto for all cards, shutoff per card
 (random.shuffle(filtered))
  │
  ▼
