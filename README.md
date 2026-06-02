@@ -15,6 +15,7 @@ Source code:
 
 PyQuiz is a Python CLI flashcard app using JSON-based persistent storage. Made for self-study with my problems. However, anybody can modify and use. Goal was to build a easy-to-troubleshoot app that is expandable. Developed and updated regularly.  
 
+
 ## ✨ FEATURES
 
 ✅ Fully modularized structure for easy debugging and modification. Uses Python 3.

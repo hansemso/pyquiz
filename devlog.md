@@ -17,7 +17,7 @@ Working Features
 
 ---
 
-## File Structure
+## File Structure --overall
 
 ```text
 PyQuiz
@@ -50,10 +50,6 @@ Main Menu
 ├── 4. Edit Index Directory ➜ cards.edit_directory_note()
 └── 5. Exit
 ```
-
-Program startup
-
----
 
 ### cards.py
 
