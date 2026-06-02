@@ -23,9 +23,10 @@ Working Features
 ### Synopsis
 
 ```
-Triangular design with brief main.py at top as access. cards.py = data logic(biggest file); quiz.py = runtime logic(selecting, filtering, shuffling).   
+Triangular design with main.py at top as access. cards.py = data logic(biggest file); quiz.py = runtime logic(selecting, filtering, shuffling).   
 
 ```
+
 PyQuiz
 │
 ├── main.py
@@ -125,33 +126,13 @@ PyQuiz
 │           │
 │           └── Final Score
 │
-├── pdf_viewer.py
-│   │
-│   └── PDF Launching System
-│       └── open_from_card()
+├── pdf_viewer.py ➜ PDF Launching System ➜ open_from_card()
 │
-├── directory.txt
-│   │
-│   └── User-maintained study/index notes
-│
-└── quiz_cards.json
-    │
-    └── Persistent Card Storage
-        │
-        ├── Type I
-        │   ├── id
-        │   ├── code
-        │   ├── qa
-        │   ├── pdf
-        │   └── no_shuffle_qa
-        │
-        └── Type II
-            ├── id
-            ├── code
-            ├── answer
-            ├── pdf
-            ├── followup_qa
-            └── no_shuffle_qa
+├── directory.txt ➜ User-maintained study/index notes
+│                                                   ┌──  Type I
+└── quiz_cards.json ➜ Persistent Card Storage  ────┤
+                                                    └──  Type II
+        
 ```
 
 ### Shuffle Logic
@@ -183,17 +164,17 @@ Current Card
  ▼
 Card Type?
  │
- ├───────────────┬────────────────
- │               │
- ▼               ▼
-Type I          Type II
- │               │
- ▼               ▼
-Read QA      Multiline Answer
- │               │
- ▼               ▼
-Check no_shuffle_qa (y/n)
- │
+ ├───────────────────────┬
+ │                       │
+ ▼                       ▼
+Type I                Type II
+ │                       │
+ ▼                       ▼
+Singleline QA's    Multiline Answer
+ │                       │
+ ▼                       ▼
+ └──  shuffle(y/n)     ──┘
+         │
  ┌───────┴────────┐
  │                │
  ▼                ▼
@@ -206,16 +187,7 @@ Shuffle QA      Keep QA Order
  └───────┬────────┘
          │
          ▼
-    Ask Questions
-         │
-         ▼
-      Grade
-         │
-         ▼
-     Next Card
-         │
-         ▼
-    Final Score
+      session ➜ grading ➜ next card ➜ final score
 ```
 
 
