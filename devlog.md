@@ -1,251 +1,325 @@
-# Devlog — PyQuiz (June 2026)
-
----
+# devlog  ...for pyquiz June 2026
 
 ## Current Status
 
-### Working Features
-
-* [x] JSON card storage (`quiz_cards.json`)
-* [x] Type I cards: multiline code + single-line QA pairs
-* [x] Type II cards: multiline exercise + multiline answers + follow-up QA
-* [x] Follow-up QA after Type II answers
-* [x] PDF links per card (open via viewer)
-* [x] Directory/Index system (topic ranges like 1–500 Python, 501–1000 JS)
-* [x] Range selector for study sessions
-* [x] Automatic shuffle for quiz cards
-* [x] QA shuffle toggle per card
-* [x] Instant grading per question
-* [x] Score tracking with final results
+Working Features
+----------------
+- [x] JSON card storage: quiz_cards.json
+- [x] Type I cards: multiline display with single line qa's in pairs. Use display for example code and qa's for questions about it.
+- [x] Type II cards: multiline display with multiline answer and extra single line Follow-up qa's. Good for making coding exercises.
+- [x] Follow-up QA: After multi-line answer, add extra single line questions to answer about the problem
+- [x] PDF links: Link problem to pdf by popup. Make in googledocs, download as pdf, open with foxit per card to help.
+- [x] Directory/Index: Lists types of questions by range. Ex: 1-500: Python, 501-1000: Javascript
+- [x] Range selector: Select the range to study. App will load and auto shuffle cards in that range.
+- [x] QA shuffle toggle: Turn off auto shuffle for certain cards, e.g. cards with non-random QA's.
+- [x] Instant grading: Checks answer per problem.
+- [x] Score tracking: Keep track of score, give final score at end.
 
 ---
 
 ## File Structure
 
-```
+```text
 PyQuiz
 │
 ├── main.py
-│   └── Main Menu Controller
+│   └── Main Menu
 │
 ├── cards.py
 │   ├── Storage System
 │   ├── Directory System
 │   ├── Card Creation
 │   ├── Card Editing
-│   └── Validation Layer
+│   └── Validation
 │
 ├── quiz.py
-│   ├── Quiz Range Selector
+│   ├── Quiz Range Selection
 │   └── Quiz Engine
 │
-├── pdf_viewer.py
-│   └── PDF Launching Utility
-│
-├── quiz_cards.json
-│   └── Study card database
-│
-└── directory.txt
-    └── Index mapping topics to ID ranges
+└── pdf_viewer.py
+    └── PDF Launching
 ```
+
+### main.py
+
+```
+Main Menu
+├── 1. Quiz Range ➜ quiz.quiz_range()
+├── 2. Add Card ➜ cards.add_study_card()
+├── 3. Edit Card/View Index ➜ cards.edit_card()
+├── 4. Edit Index Directory ➜ cards.edit_directory_note()
+└── 5. Exit
+```
+
+Program startup
 
 ---
 
-## Program Flow
+### cards.py
 
 ```
-main.py
+cards.py
 │
-├── Quiz Range
-│   └── run_quiz()
+├── Global Data
+│   └── study_bank ⇒ Working copy in RAM while the program runs
 │
-├── Add Card
-│   └── add_study_card()
+├── Utility
+│   ├── normalize()
+│   ├── clean_answer()
+│   └── multiline_input()
 │
-├── Edit Card
-│   └── edit_card()
-│
-├── Edit Directory Note
+├── Directory / Index System
+│   │
+│   ├── DIRECTORY_FILE
+│   │
+│   ├── load_directory_note()
+│   │   ├── Read directory.txt
+│   │   └── Create default if missing
+│   │
 │   └── edit_directory_note()
+│       ├── Display current note
+│       ├── Multiline edit
+│       └── Save directory.txt
 │
-└── Exit
+├── Card Safety / Validation
+│   │
+│   └── sanitize_card()
+│       ├── Verify card is dict
+│       ├── Add missing fields
+│       ├── Fix None values
+│       ├── Validate followup_qa
+│       └── Clean answer text
+│
+├── File Storage
+│   │
+│   ├── load_cards()
+│   │   ├── Open quiz_cards.json
+│   │   ├── Read JSON
+│   │   ├── sanitize_card()
+│   │   └── Populate study_bank
+│   │
+│   └── save_all_cards()
+│       └── Write study_bank to JSON
+│
+├── Card Creation System
+│   │
+│   └── add_study_card()
+│       │
+│       ├── Select Type
+│       │   ├── Type I
+│       │   └── Type II
+│       │
+│       ├── Enter ID
+│       ├── Check duplicate ID
+│       ├── Enter code
+│       │
+│       ├── Type I Branch
+│       │   ├── Enter QA pairs
+│       │   ├── Enter PDF
+│       │   ├── Create card
+│       │   └── Save
+│       │
+│       └── Type II Branch
+│           ├── Enter answer
+│           ├── Enter PDF
+│           ├── Enter follow-up QA
+│           ├── Create card
+│           └── Save
+│
+├── Card Editing System
+│   │
+│   └── edit_card()
+│       │
+│       ├── Verify cards exist
+│       ├── Sort cards by ID
+│       ├── Display index
+│       ├── Select card
+│       ├── sanitize_card()
+│       │
+│       └── Edit Menu
+│           ├── Edit code
+│           ├── Edit QA
+│           ├── Edit pdf link
+│           ├── Change ID
+│           ├── Delete card
+│           ├── Toggle QA shuffle
+│           └── Cancel
+│
+└── Startup
+    └── init()
+        └── load_cards()
 ```
+
+Card storage: Has all the logic for manipulating cards. Biggest file in app.  
+Add card  
+Edit card: 1. Added subroutine to continuously add qa's without exiting mode. 2. Terminate adding new code or qa's by entering "END". 3. Worked on preventing crashes due to bugs by input logic.  
+Save/load JSON: Automatically updates, should never have to be opened. Had connected to sql, gre...but decided best to keep it simple with json for long-term personal use.  
+Directory note  
 
 ---
 
-## Data Structures
+### quiz.py
 
-### Type I Card
-
-```json
-{
-  "type": "I",
-  "id": "1",
-  "code": "...",
-  "qa": [],
-  "pdf": null,
-  "no_shuffle_qa": false
-}
+```
+quiz.py
+│
+├── Imports
+│   ├── random
+│   ├── cards
+│   ├── pdf_viewer
+│   └── multiline_input
+│
+├── Quiz Engine
+│   │
+│   └── run_quiz(cards_list)
+│       │
+│       ├── Initialize score
+│       │   ├── score = 0
+│       │   └── total = 0
+│       │
+│       ├── Filter valid cards
+│       │   ├── Type I with QA
+│       │   └── Type II
+│       │
+│       ├── Empty quiz check
+│       │
+│       └── For each card
+│           │
+│           ├── Display code
+│           │
+│           ├── PDF System
+│           │   ├── Check pdf exists
+│           │   ├── Ask user
+│           │   └── Open PDF
+│           │
+│           ├── Determine card type
+│           │
+│           ├── Type II Branch
+│           │   │
+│           │   ├── Multiline answer input
+│           │   ├── Compare answer
+│           │   ├── Grade answer
+│           │   ├── Display expected answer
+│           │   │
+│           │   └── Follow-up QA Loop
+│           │       ├── Ask question
+│           │       ├── Grade answer
+│           │       └── Update score
+│           │
+│           └── Type I Branch
+│               │
+│               ├── Copy QA list
+│               ├── Shuffle QA (optional)
+│               │
+│               └── QA Loop
+│                   ├── Ask question
+│                   ├── Grade answer
+│                   └── Update score
+│
+│       └── Print Final Score
+│
+└── Quiz Range Selector
+    │
+    └── quiz_range()
+        │
+        ├── Input start ID
+        ├── Input end ID
+        ├── Validate range
+        │
+        ├── Filter cards
+        │   └── ID between start/end
+        │
+        ├── Shuffle cards
+        │
+        └── run_quiz(filtered)
 ```
 
-### Type II Card
-
-```json
-{
-  "type": "II",
-  "id": "50",
-  "code": "...",
-  "answer": "...",
-  "followup_qa": [],
-  "pdf": null,
-  "no_shuffle_qa": false
-}
-```
-
----
-
-## Core Modules
-
-### cards.py — Data & Card System
-
-Responsible for all card management.
-
-#### Utility
-
-* normalize()
-* clean_answer()
-* multiline_input()
-
-#### Storage
-
-* load_cards()
-* save_all_cards()
-
-#### Directory System
-
-* load_directory_note()
-* edit_directory_note()
-
-#### Validation Layer
-
-* sanitize_card()
-
-  * Prevents missing keys
-  * Fixes broken or incomplete cards
-  * Ensures safe runtime behavior
-
-#### Card Creation
-
-* add_study_card()
-
-  * Type I creation flow
-  * Type II creation flow
-  * Follow-up QA builder
-
-#### Card Editing
-
-* edit_card()
-
-  * Select card
-  * Modify fields
-  * Delete cards
-  * Toggle QA shuffle
-
-#### Startup
-
-* init() → load_cards()
-
----
-
-### quiz.py — Quiz Engine
-
-Handles all quiz execution and grading.
-
-#### Core Engine
-
-* run_quiz(cards_list)
-
-Workflow:
-
-* Filter valid cards
-* Loop through cards
-* Display code
-* Optional PDF viewing
-* Branch by card type
-
-#### Type I Flow
-
-* Shuffle QA (optional)
-* Ask questions
-* Grade answers
-
-#### Type II Flow
-
-* Multiline answer input
-* Compare expected answer
-* Grade result
-* Follow-up QA loop
-
-#### Quiz Range
-
-* quiz_range()
-
-  * Select ID range
-  * Shuffle selection
-  * Run quiz engine
+Quiz engine  
+Type I grading  
+Type II grading  
+Follow-up QA  
 
 ---
 
 ### pdf_viewer.py
-
-* Opens linked PDF files for a card
-* Triggered during quiz when available
+PDF launching
 
 ---
 
-## Current Design Notes
-
-* `study_bank` is the runtime working copy of all cards
-* JSON file is only persistent storage
-* Program never reads JSON directly except load/save
-* All logic operates on in-memory data
+### quiz_cards.json
+Study card database
 
 ---
 
-## Architecture Summary
+### directory.txt
+Index file for updating directory from within app
 
+---
+
+## Data Structure
+
+### Type I Card
+```json
+{
+    "type": "I",
+    "id": "1",
+    "code": "...",
+    "qa": [],
+    "pdf": null,
+    "no_shuffle_qa": false
+}
 ```
-main.py → controls flow
 
-cards.py → data + editing + storage
-
-quiz.py → execution + grading
-
-pdf_viewer.py → external file handling
-
-JSON → persistent storage
+### Type II Card
+```json
+{
+    "type": "II",
+    "id": "50",
+    "code": "...",
+    "answer": "...",
+    "followup_qa": [],
+    "pdf": null,
+    "no_shuffle_qa": false
+}
 ```
+
+---
+
+## Current Program Flow
+
+main.py
+
+Menu
+├─ Quiz Range → run_quiz()
+├─ Add Card → add_study_card()
+├─ Edit Card → edit_card()
+├─ Edit Directory Note
+└─ Exit
 
 ---
 
 ## Future Ideas
 
-* [ ] Search system for cards
-* [ ] Tag system
-* [ ] Difficulty levels
-* [ ] Statistics dashboard
-* [ ] Import/export system
-* [ ] Backup system
-* [ ] Spaced repetition algorithm
+- Search System
+- Card Tags
+- Difficulty Levels
+- Statistics
+- Import / Export
+- Backup System
+- Spaced Repetition
+
+---
+
+## Known Issues
+
+None currently
 
 ---
 
 ## Version History
 
-### 2026-06-01
-
-* Added Type II cards
-* Added follow-up QA system
-* Added answer normalization
-* Added QA shuffle toggle
-* Improved input safety handling
+2026-06-01
+- Added Type II cards
+- Added follow-up QA
+- Added answer cleaning
+- Added QA shuffle toggle
