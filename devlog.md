@@ -166,20 +166,10 @@ Main Menu
 Quiz Range
  │
  ▼
-quiz_range()
- │
- ├── Select Start ID
- ├── Select End ID
+quiz_range() ➜ Select Start ID ➜ Select End ID ➜ Filter study_bank ➜ Selected Cards ⏎
  │
  ▼
-Filter study_bank
- │
- ▼
-Selected Cards
- │
- ▼
-Shuffle Card Order  # runs on auto for all cards, shutoff per card
-(random.shuffle(filtered))
+(random.shuffle(filtered))  # runs on auto for all cards, shutoff per card in Edit
  │
  ▼
 run_quiz()
@@ -202,7 +192,7 @@ Type I          Type II
 Read QA      Multiline Answer
  │               │
  ▼               ▼
-Check no_shuffle_qa
+Check no_shuffle_qa (y/n)
  │
  ┌───────┴────────┐
  │                │
