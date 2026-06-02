@@ -236,22 +236,6 @@
     "followup_qa": []
   },
   {
-    "id": "700",
-    "code": "still testing",
-    "qa": [
-      {
-        "question": "testing",
-        "answer": "testing done"
-      }
-    ],
-    "pdf": null,
-    "page": 1,
-    "no_shuffle_qa": false,
-    "type": "I",
-    "answer": "",
-    "followup_qa": []
-  },
-  {
     "id": "8",
     "code": "def f(x):\n    return x * 2\n\ny = f(5)\nprint(y)",
     "qa": [
@@ -678,22 +662,6 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false,
-    "type": "I",
-    "answer": "",
-    "followup_qa": []
-  },
-  {
-    "id": "2000",
-    "code": "testing access to pdf in foxit [p]",
-    "qa": [
-      {
-        "question": "testing the first question.",
-        "answer": "testing the first answer."
-      }
-    ],
-    "page": 1,
-    "pdf": "notes\\bayes_notes.pdf",
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
@@ -1325,21 +1293,6 @@
     "followup_qa": []
   },
   {
-    "type": "I",
-    "id": "100",
-    "code": "ji\njke\nsd",
-    "qa": [
-      {
-        "question": "jkf",
-        "answer": "jkf"
-      }
-    ],
-    "pdf": null,
-    "no_shuffle_qa": false,
-    "answer": "",
-    "followup_qa": []
-  },
-  {
     "type": "II",
     "id": "99",
     "code": "d\nd\nd\nd",
@@ -1353,5 +1306,31 @@
       }
     ],
     "qa": []
+  },
+  {
+    "type": "II",
+    "id": "27",
+    "code": "loop function problem:\nWrite a function using these terms/syntax: \ntransform_list, param, [], item,  for...in, append(), new, result\n----------------",
+    "answer": "def transform_list(param):\n    result = []\n\n    for item in param:\n        new_item = item  \n        result.append(new_item)\n\n    return result\n----------------------",
+    "pdf": null,
+    "no_shuffle_qa": false,
+    "followup_qa": [
+      {
+        "question": "Name the iteration variable above",
+        "answer": "item"
+      },
+      {
+        "question": "What is result.append called (in OOP terms)?",
+        "answer": "bound method"
+      },
+      {
+        "question": "Name the instance",
+        "answer": "result"
+      },
+      {
+        "question": "Name the built-in Py class of the instance",
+        "answer": "list"
+      }
+    ]
   }
 ]

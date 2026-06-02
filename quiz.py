@@ -55,7 +55,25 @@ def run_quiz(cards_list):
                 "\nAnswer (END to finish): "
             )
 
+
+
+
+
+
             correct = card.get("answer", "")
+
+
+#
+            print("---- USER RAW ----")
+            print(repr(ans))
+
+            print("---- EXPECTED RAW ----")
+            print(repr(correct))
+
+            print("---- USER LENGTH ----", len(ans))
+            print("---- EXPECTED LENGTH ----", len(correct))
+#
+
 
             if cards.normalize(ans) == cards.normalize(correct):
                 print("✅ Correct")

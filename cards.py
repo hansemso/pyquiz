@@ -15,6 +15,12 @@ def normalize(text: str | None) -> str:
     return (text or "").strip().lower()
 
 
+def clean_answer(text: str) -> str:
+    if not isinstance(text, str):
+        return ""
+    return text.replace("----------------------", "").rstrip()
+
+
 # =====================================================
 # Directory/Index
 # =====================================================
@@ -26,13 +32,11 @@ DIRECTORY_FILE = os.path.join(
 
 
 def load_directory_note() -> str:
-
     try:
         with open(DIRECTORY_FILE, "r", encoding="utf-8") as f:
             return f.read()
 
     except FileNotFoundError:
-
         default_note = (
             "Cards auto-shuffle by default.\n"
             "Use Edit Card → Toggle QA Shuffle for ordered cards."
@@ -45,9 +49,7 @@ def load_directory_note() -> str:
 
 
 def edit_directory_note():
-
     print("\n===== EDIT DIRECTORY NOTE =====\n")
-
     print(load_directory_note())
 
     print("\nType new note.")
@@ -56,12 +58,9 @@ def edit_directory_note():
     lines = []
 
     while True:
-
         line = input()
-
         if line.strip().upper() == "END":
             break
-
         lines.append(line)
 
     new_text = "\n".join(lines)
@@ -88,7 +87,10 @@ def sanitize_card(card: dict) -> dict:
             "code": "",
             "qa": [],
             "pdf": None,
-            
+            "type": "I",
+            "no_shuffle_qa": False,
+            "answer": "",
+            "followup_qa": []
         }
 
     card.setdefault("id", "0")
@@ -99,24 +101,28 @@ def sanitize_card(card: dict) -> dict:
     card.setdefault("type", "I")
     card.setdefault("answer", "")
     card.setdefault("followup_qa", [])
-    
+
+    # normalize fields
     if card["code"] is None:
         card["code"] = ""
-    
+
     if card["qa"] is None:
         card["qa"] = []
 
-    fq = card.get("followup_qa", [])
+    if not isinstance(card["followup_qa"], list):
+        card["followup_qa"] = []
 
-    if not isinstance(fq, list):
-        fq = []
+    # ensure QA structure safety
+    card["followup_qa"] = [
+        qa for qa in card["followup_qa"]
+        if isinstance(qa, dict) and "question" in qa and "answer" in qa
+    ]
 
-    card["followup_qa"] = fq
-    
-    pdf = card.get("pdf")
-    if not pdf:
+    card["answer"] = clean_answer(card.get("answer", ""))
+
+    if not card.get("pdf"):
         card["pdf"] = None
-    
+
     return card
 
 
@@ -127,20 +133,13 @@ def sanitize_card(card: dict) -> dict:
 def load_cards():
     global study_bank
 
-    path = os.path.join(
-        os.path.dirname(__file__),
-        "quiz_cards.json"
-    )
+    path = os.path.join(os.path.dirname(__file__), "quiz_cards.json")
 
     try:
         with open(path, "r", encoding="utf-8") as f:
             raw = json.load(f)
 
-        # repair cards on load
-        study_bank = [
-            sanitize_card(c)
-            for c in raw
-        ]
+        study_bank = [sanitize_card(c) for c in raw]
 
         print(f"✅ Loaded {len(study_bank)} cards")
 
@@ -150,19 +149,10 @@ def load_cards():
 
 
 def save_all_cards():
-
-    path = os.path.join(
-        os.path.dirname(__file__),
-        "quiz_cards.json"
-    )
+    path = os.path.join(os.path.dirname(__file__), "quiz_cards.json")
 
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(
-            study_bank,
-            f,
-            indent=2,
-            ensure_ascii=False
-        )
+        json.dump(study_bank, f, indent=2, ensure_ascii=False)
 
 
 # =====================================================
@@ -170,24 +160,14 @@ def save_all_cards():
 # =====================================================
 
 def multiline_input(prompt="Enter text (END to finish):"):
-
     print(prompt)
 
     lines = []
-    started = False
 
     while True:
         line = input()
-
-        # KEEP CURRENT SIGNAL
-                   
-        if not started and line.strip() == "":
-            return None
-        started = True
-
         if line.strip().upper() == "END":
             break
-
         lines.append(line)
 
     return "\n".join(lines)
@@ -209,29 +189,18 @@ def add_study_card():
 
     card_id = input("Enter card ID: ").strip()
 
-    if any(card.get("id") == card_id for card in study_bank):
+    if any(str(card.get("id")) == card_id for card in study_bank):
         print("❌ Duplicate ID!")
         return
 
-    code = multiline_input(
-        "Enter code (END to finish):"
-    )
+    code = multiline_input("Enter code (END to finish):")
 
-    # ==========================================
     # TYPE II
-    # ==========================================
-
     if card_type == "II":
 
-        answer = multiline_input(
-            "Enter answer (END to finish):"
-        )
+        answer = multiline_input("Enter answer (END to finish):")
 
-        pdf = input(
-            "pdf path (optional, ENTER to skip): "
-        ).strip()
-
-        pdf = pdf if pdf else None
+        pdf = input("pdf path (optional): ").strip() or None
 
         followup_qa = []
 
@@ -246,54 +215,38 @@ def add_study_card():
             if a == "" or a.upper() == "END":
                 break
 
-            followup_qa.append({
-                "question": q,
-                "answer": a
-            })
+            followup_qa.append({"question": q, "answer": a})
 
         study_bank.append({
             "type": "II",
             "id": card_id,
             "code": code,
-            "answer": answer,
+            "answer": clean_answer(answer),
             "pdf": pdf,
             "no_shuffle_qa": False,
             "followup_qa": followup_qa
         })
 
         save_all_cards()
-
         print("✅ Type II card added!")
         return
 
-    # ==========================================
-    # TYPE I (existing behavior)
-    # ==========================================
-
+    # TYPE I
     qa_list = []
 
     print("\nEnter QA pairs (END as question to stop)")
 
     while True:
-
         q = input("Q: ").strip()
-
         if q.upper() == "END":
             break
 
         a = input("A: ").strip()
 
         if q and a:
-            qa_list.append({
-                "question": q,
-                "answer": a
-            })
+            qa_list.append({"question": q, "answer": a})
 
-    pdf = input(
-        "pdf path (optional, ENTER to skip): "
-    ).strip()
-
-    pdf = pdf if pdf else None
+    pdf = input("pdf path (optional): ").strip() or None
 
     study_bank.append({
         "type": "I",
@@ -305,7 +258,6 @@ def add_study_card():
     })
 
     save_all_cards()
-
     print("✅ Card added!")
 
 
@@ -321,31 +273,23 @@ def edit_card():
 
     print()
 
-    
-    for card in sorted(
-        study_bank,
-        key=lambda c: int(c.get("id", 0))
-    ):
-        
-        code = card.get("code") or ""
+    def safe_id_key(c):
+        try:
+            return int(c.get("id", 0))
+        except:
+            return 0
 
-        first_line = (
-            code.splitlines()[0]
-            if code.strip()
-            else "<no code>"
-        )
+    for card in sorted(study_bank, key=safe_id_key):
+
+        code = card.get("code") or ""
+        first_line = code.splitlines()[0] if code.strip() else "<no code>"
 
         print(f"{card.get('id')}. {first_line}")
 
-    selected_id = (input(
-        "\nSelect card ID: "
-    ) or "").strip()
+    selected_id = (input("\nSelect card ID: ") or "").strip()
 
     card = next(
-        (
-            c for c in study_bank
-            if str(c.get("id")) == selected_id
-        ),
+        (c for c in study_bank if str(c.get("id")) == selected_id),
         None
     )
 
@@ -353,12 +297,10 @@ def edit_card():
         print("❌ Card not found.")
         return
 
-    # enforce safe structure
     card = sanitize_card(card)
-    
-    
+
     while True:
-        
+
         print("\n1. Edit code")
         print("2. Edit QA")
         print("3. Edit pdf link")
@@ -366,274 +308,20 @@ def edit_card():
         print("5. Delete card")
         print("6. Toggle QA shuffle")
         print("7. Cancel")
-        
-        
-        action = input(
-            "Select option: "
-        ).strip()
 
-        # =================================================
-        # EDIT CODE
-        # =================================================
+        action = input("Select option: ").strip()
 
-        if action == "1":
-
-            print("\nCURRENT CODE:\n")
-
-            print(card.get("code", ""))
-
-            new_code = multiline_input(
-                "\nEnter new code "
-                "(END to finish, blank = keep current):"
-            )
-
-            if new_code is not None and new_code != "":
-                card["code"] = new_code
-                save_all_cards()
-                print("✅ Code updated.")
-            else:
-                save_all_cards()
-                print("↩️ No changes made (kept existing code).")
-
-        # =================================================
-        # EDIT QA
-        # =================================================
-
-        elif action == "2":  # Option 2: Edit QA
-
-            if card.get("type") == "II":
-                qa_key = "followup_qa"
-                print("\nEditing Follow-up QA\n")
-            else:
-                qa_key = "qa"
-                print("\nEditing QA\n")
-
-            qa_list = card.setdefault(qa_key, [])
-
-            # ---------------------------------------------
-            # NO QA YET
-            # ---------------------------------------------
-
-            if len(qa_list) == 0:
-
-                print("\nNo QA yet. Add some.\n")
-
-                while True:
-
-                    q = input(
-                        "Q (END to stop): "
-                    ).strip()
-
-                    if q.upper() == "END":
-                        break
-
-                    a = input(
-                        "A: "
-                    ).strip()
-
-                    if q and a:
-
-                        qa_list.append({
-                            "question": q,
-                            "answer": a
-                        })
-
-                        print("✅ QA added.")
-
-                card["qa_key"] = qa_list
-
-                save_all_cards()
-
-                continue
-
-            # ---------------------------------------------
-            # SHOW QA
-            # ---------------------------------------------
-
-            print("\nQA List:\n")
-
-            for i, qa in enumerate(qa_list, start=1):
-
-                print(
-                    f"{i}. "
-                    f"Q: {qa['question']} | "
-                    f"A: {qa['answer']}"
-                )
-
-            print("\na = add new QA")
-
-            choice = input(
-                "\nSelect QA #: "
-            ).strip().lower()
-
-            # ---------------------------------------------
-            # ADD NEW QA
-            # ---------------------------------------------
-
-            if choice == "a":
-
-                print("\nAdd QAs (Enter to stop)\n")
-
-                while True:
-
-                    q = input("Q: ").strip()
-                    if q == "":
-                        print("↩️ Stopped adding QA")
-                        break
-
-                    a = input("A: ").strip()
-                    if a == "":
-                        print("↩️ Stopped adding QA")
-                        break
-
-                    qa_list.append({
-                        "question": q,
-                        "answer": a
-                    })
-
-                    
-                    print("✅ Added\n")
-                
-                save_all_cards()
-                
-                continue
-
-            # ---------------------------------------------
-            # EDIT EXISTING QA
-            # ---------------------------------------------
-
-            try:
-                qa_index = int(choice) - 1
-
-            except:
-                print("❌ Invalid selection.")
-                continue
-
-            if qa_index < 0 or qa_index >= len(qa_list):
-                print("❌ QA not found.")
-                continue
-
-            qa_item = qa_list[qa_index]
-
-            print(
-                f"\nCurrent Question: "
-                f"{qa_item['question']}"
-            )
-
-            new_question = input(
-                "New Q (blank = keep): "
-            ).strip()
-
-            if new_question:
-                qa_item["question"] = new_question
-
-            print(
-                f"\nCurrent Answer: "
-                f"{qa_item['answer']}"
-            )
-
-            new_answer = input(
-                "New Answer (blank = keep): "
-            ).strip()
-
-            if new_answer:
-                qa_item["answer"] = new_answer
-
-            save_all_cards()
-
-            print("✅ QA updated.")
-
-#======================================
-#     3. Edit Card  (Input pdf path here)
-#==============================================
-     
-        elif action == "3":
-            current = card.get("pdf")
-
-            print(f"\nCurrent PDF: {current}")
-
-            new_pdf = input("Enter pdf path (blank = remove): ").strip()
-
-            if new_pdf:
-                card["pdf"] = new_pdf
-            else:
-                card["pdf"] = None
-
-            save_all_cards()
-            print("✅ PDF updated.")
-    
-
-        # =================================================
-        # 4. CHANGE ID
-        # =================================================
-
-        elif action == "4":
-
-            current_id = card.get("id")
-
-            print(f"\nCurrent ID: {current_id}")
-
-            new_id = input(
-                "Enter new ID: "
-            ).strip()
-
-            if not new_id:
-                print("❌ ID cannot be blank.")
-                continue
-
-            # prevent duplicates
-            duplicate = any(
-                c.get("id") == new_id and c is not card
-                for c in study_bank
-            )
-
-            if duplicate:
-                print("❌ That ID already exists.")
-                continue
-
-            card["id"] = new_id
-
-            save_all_cards()
-
-            print("✅ ID updated.")
-            
-            
-
-        # =================================================
-        # DELETE
-        # =================================================
+        if action == "7":
+            break
 
         elif action == "5":
             confirm = input("Delete card? (y/n): ").strip().lower()
-
             if confirm == "y":
                 study_bank.remove(card)
                 save_all_cards()
                 print("✅ Card deleted.")
                 break
 
-        elif action == "6":
 
-            current = card.get("no_shuffle_qa", False)
-
-            status = "OFF (ordered)" if current else "ON (shuffled)"
-            print(f"\nCurrent QA shuffle: {status}")
-
-            new_value = input("Disable QA shuffle? (y/n): ").strip().lower()
-
-            if new_value == "y":
-                card["no_shuffle_qa"] = True
-            elif new_value == "n":
-                card["no_shuffle_qa"] = False
-            else:
-                print("❌ Invalid input")
-                continue
-
-            save_all_cards()
-            print("✅ QA shuffle setting updated.")
-       
-        elif action == "7":
-            break
-       
-        else:
-            print("❌ Invalid option.")
+def init():
+    load_cards()
