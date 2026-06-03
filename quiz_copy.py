@@ -55,25 +55,7 @@ def run_quiz(cards_list):
                 "\nAnswer (END to finish): "
             )
 
-
-
-
-
-
             correct = card.get("answer", "")
-
-
-#
-            print("---- USER RAW ----")
-            print(repr(ans))
-
-            print("---- EXPECTED RAW ----")
-            print(repr(correct))
-
-            print("---- USER LENGTH ----", len(ans))
-            print("---- EXPECTED LENGTH ----", len(correct))
-#
-
 
             if cards.normalize(ans) == cards.normalize(correct):
                 print("✅ Correct")
@@ -81,22 +63,6 @@ def run_quiz(cards_list):
             else:
                 print("\n❌ Expected:\n")
                 print(correct)
-
-            followup = card.get("followup_qa", [])
-
-            for qa in followup:
-
-                total += 1
-
-                ans = input(
-                    f"\nQ: {qa['question']}\nAnswer > "
-                ).strip()
-
-                if cards.normalize(ans) == cards.normalize(qa["answer"]):
-                    print("✅ Correct")
-                    score += 1
-                else:
-                    print(f"❌ {qa['answer']}")
 
             continue
 

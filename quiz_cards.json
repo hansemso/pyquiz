@@ -236,22 +236,6 @@
     "followup_qa": []
   },
   {
-    "id": "700",
-    "code": "still testing",
-    "qa": [
-      {
-        "question": "testing",
-        "answer": "testing done"
-      }
-    ],
-    "pdf": null,
-    "page": 1,
-    "no_shuffle_qa": false,
-    "type": "I",
-    "answer": "",
-    "followup_qa": []
-  },
-  {
     "id": "8",
     "code": "def f(x):\n    return x * 2\n\ny = f(5)\nprint(y)",
     "qa": [
@@ -678,22 +662,6 @@
     ],
     "pdf": null,
     "page": 1,
-    "no_shuffle_qa": false,
-    "type": "I",
-    "answer": "",
-    "followup_qa": []
-  },
-  {
-    "id": "2000",
-    "code": "testing access to pdf in foxit [p]",
-    "qa": [
-      {
-        "question": "testing the first question.",
-        "answer": "testing the first answer."
-      }
-    ],
-    "page": 1,
-    "pdf": "notes\\bayes_notes.pdf",
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
@@ -1325,33 +1293,13 @@
     "followup_qa": []
   },
   {
-    "type": "I",
-    "id": "100",
-    "code": "ji\njke\nsd",
-    "qa": [
-      {
-        "question": "jkf",
-        "answer": "jkf"
-      }
-    ],
-    "pdf": null,
-    "no_shuffle_qa": false,
-    "answer": "",
-    "followup_qa": []
-  },
-  {
     "type": "II",
-    "id": "99",
-    "code": "d\nd\nd\nd",
-    "answer": "d\nd\nd\nd",
+    "id": "27",
+    "code": "test",
+    "answer": "test",
     "pdf": null,
     "no_shuffle_qa": false,
-    "followup_qa": [
-      {
-        "question": "b",
-        "answer": "b"
-      }
-    ],
+    "followup_qa": [],
     "qa": []
   }
 ]
