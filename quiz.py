@@ -5,12 +5,11 @@ import pdf_viewer
 from cards import multiline_input
 
 
-cards.load_cards()
 
 
 
-def run_quiz(cards_list):
 
+def run_quiz(cards_list):    
     score = 0
     total = 0
 
@@ -131,6 +130,7 @@ def run_quiz(cards_list):
 
 
 def quiz_range():
+    cards.load_cards()
 
     try:
         start = int(input("Start ID: "))
@@ -138,7 +138,6 @@ def quiz_range():
     except:
         print("Invalid range")
         return
-    
 
     filtered = [
         c for c in cards.study_bank
