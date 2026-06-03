@@ -5,6 +5,10 @@ import pdf_viewer
 from cards import multiline_input
 
 
+cards.load_cards()
+
+
+
 def run_quiz(cards_list):
 
     score = 0
@@ -105,9 +109,9 @@ def run_quiz(cards_list):
         # ==========================
         qa_list = card.get("qa", []).copy()
 
-        if not card.get("no_shuffle_qa", False):
+        if card.get("shuffle_qa", True):
             random.shuffle(qa_list)
-
+    
         for qa in qa_list:
 
             total += 1
@@ -134,7 +138,6 @@ def quiz_range():
     except:
         print("Invalid range")
         return
-
     
 
     filtered = [
@@ -142,7 +145,6 @@ def quiz_range():
         if start <= int(c.get("id", 0)) <= end
     ]
 
-    # keeps card order randomized (optional design choice you already had)
     random.shuffle(filtered)
 
     run_quiz(filtered)

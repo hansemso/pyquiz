@@ -91,7 +91,7 @@ def sanitize_card(card: dict) -> dict:  # *** sanitize_card ***
     card.setdefault("code", "")
     card.setdefault("qa", [])
     card.setdefault("pdf", None)
-    card.setdefault("shuffle_qa", True)
+    card.setdefault("no_shuffle_qa", False)
     card.setdefault("type", "I")
     card.setdefault("answer", "")
     card.setdefault("followup_qa", [])
@@ -146,8 +146,9 @@ def save_all_cards():
 # Utility Input
 # =====================================================
 
-def multiline_required(prompt="Enter text (END to finish):"):  # inner loop. 
+def multiline_input(prompt="Enter text (END to finish):"):
     print(prompt)
+
     lines = []
 
     while True:
@@ -158,33 +159,11 @@ def multiline_required(prompt="Enter text (END to finish):"):  # inner loop.
 
         lines.append(line)
 
-    return "\n".join(lines)
-    
-
-def multiline_input(prompt="Enter text (END to finish):"):
-    return multiline_required(prompt)
-    
-
-def multiline_optional(prompt="Enter text (END to save, ENTER to keep):"):
-    print(prompt)
-
-    first = input()
-
-    # KEEP EXISTING VALUE
-    if first.strip() == "":
+    if not lines:
         return None
 
-    lines = [first]
-
-    while True:
-        line = input()
-
-        if line.strip().upper() == "END":
-            break
-
-        lines.append(line)
-
     return "\n".join(lines)
+
 
 # =====================================================
 # QA EDITOR 
@@ -298,7 +277,7 @@ def add_study_card():
             "code": code,
             "answer": answer,
             "pdf": pdf,
-            "shuffle_qa": True,
+            "no_shuffle_qa": False,
             "followup_qa": followup_qa
         })
 
@@ -327,7 +306,7 @@ def add_study_card():
         "code": code,
         "qa": qa_list,
         "pdf": pdf,
-        "shuffle_qa": True
+        "no_shuffle_qa": False
     })
 
     save_all_cards()
@@ -364,14 +343,14 @@ def edit_card():                    # ***** edit_card ******
 
     print("DEBUG TYPE:", card.get("type"))
 
-#  main.py → 3. Edit Card/View Index →  ***** EDIT MENU *****
-    while True:  # outer loop
-        print("\n1. Edit mline-Q")  # For both type I and II, multiline question only
-        print("2. Edit mline-Ans, qa's")  # qa edit(type I,II) + multiline answer(type I only)
-        print("3. Edit pdf link")  # In \pyquiz\pdfs folder for pdf's only. Opens using foxit.
-        print("4. Change card id")
+
+    while True:
+        print("\n1. Edit Type I/II Question")
+        print("2. Edit Type II Multiline Answer, Type I/II qa's")
+        print("3. Edit pdf link")
+        print("4. Change ID")
         print("5. Delete card")
-        print("6. Auto shuffle on/off")  # Turn off auto shuffle for Type I cards(ordered qa content) 
+        print("6. Toggle QA shuffle")
         print("7. Cancel")
 
         action = input("Select option: ").strip()
@@ -383,7 +362,7 @@ def edit_card():                    # ***** edit_card ******
             print("\nCURRENT CODE:\n")
             print(card.get("code", ""))
 
-            new_code = multiline_input("Enter new code (END to finish):")  # Uses <break> throughout to exit inner loop. 
+            new_code = multiline_input("Enter new code (END to finish):")
 
             if new_code is not None:
                 card["code"] = new_code
@@ -399,11 +378,10 @@ def edit_card():                    # ***** edit_card ******
         # 2. EDIT QA.  Type 2 multiline answer goes here ***
         
         elif action == "2":
-            if card.get("type") == "II":
-
+            if card.get("type", "I") == "II":  
                 while True:
-                    print("\n1. Edit mline-Ans")
-                    print("2. Edit follow-up qa's")
+                    print("\n1. Edit Type II multiline answer")  # multiline ANSWER
+                    print("2. Edit follow-up QA")  
                     print("3. Back")
 
                     sub = input("Select option: ").strip()
@@ -412,15 +390,16 @@ def edit_card():                    # ***** edit_card ******
                         print("\nCURRENT ANSWER:\n")
                         print(card.get("answer", ""))
 
-                        new_answer = multiline_optional("New answer (END to save, ENTER to cancel):")
+                        new_answer = multiline_input("New answer (END to finish):")
 
-                        if new_answer is None:
-                            print("↩️ No changes made.")
-                        else:
+                        if new_answer is not None:
                             card["answer"] = new_answer
                             save_all_cards()
-                            
                             print("✅ Answer updated.")
+                        else:
+                            print("↩️ No changes made.")
+                            
+                        #continue  ...this makes it break. Can't enter new answer
 
                     elif sub == "2":
                         qa_list = card.setdefault("followup_qa", [])
@@ -429,28 +408,15 @@ def edit_card():                    # ***** edit_card ******
                     elif sub == "3":
                         break
 
-                    else:
-                        print("❌ Invalid option.")
-
             else:
                 qa_list = card.setdefault("qa", [])
                 edit_qa_loop(card, qa_list, "qa")
                 save_all_cards()
 
-       # elif action == "3":
-        #    card["pdf"] = input("PDF (blank remove): ").strip() or None
-         #   save_all_cards()
-
         elif action == "3":
-            new_pdf = input("PDF (blank remove): ").strip() or None
-            print("DEBUG SAVING:", repr(new_pdf))
-
-            card["pdf"] = new_pdf
-
-            print("CARD NOW:", repr(card["pdf"]))
-
+            card["pdf"] = input("PDF (blank remove): ").strip() or None
             save_all_cards()
-    
+
         elif action == "4":
             new_id = input("New ID: ").strip()
             if new_id:
@@ -464,26 +430,9 @@ def edit_card():                    # ***** edit_card ******
                 break
 
         elif action == "6":
-            card["shuffle_qa"] = not card.get("shuffle_qa", True)
+            card["no_shuffle_qa"] = not card.get("no_shuffle_qa", False)
             save_all_cards()
-
-            if card["shuffle_qa"]:
-                state = "ON (shuffle allowed)"
-            else:
-                state = "OFF (no shuffle)"
             
-            
-            print(f"🔁 Auto shuffle toggled: {state}")
-    
-            print("DEBUG:", card["id"], card["no_shuffle_qa"])
-            
-        elif action == "debug":
-            print("=== DEBUG CARDS ===")
-            for c in study_bank:
-                print("ID:", c.get("id"),
-                  "| shuffle:", c.get("shuffle_qa"),
-                  "| type:", c.get("type"))
-    
         elif action == "7":
             break
 

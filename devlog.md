@@ -164,62 +164,33 @@ Current Card
  ▼
 Card Type?
  │
- ├───────────────────────┬
- │                       │
- ▼                       ▼
-Type I                Type II
- │                       │
- ▼                       ▼
-Singleline QA's    Multiline Answer
- │                       │
- ▼                       ▼
- └──  shuffle(y/n)     ──┘
-         │
- ┌───────┴────────┐
- │                │
- ▼                ▼
-False            True
-(auto)          (exempt)
- │                │
- ▼                ▼
+ │                                      ┌── <Type I>  ➜ <option b> ➜ singline qa pairs  
+ ├──<Input: Type I/II> ➜ multiline Q ──│
+ │                                      │                                      ⬆️                                             
+ │                                      └── <Type II> ➜ <option b> ➜ MULTILINE ANSWER     *Only Type II has multiline answer, which is in option b not a
+ │
+ └──➜ shuffle(y/n)     
+          │
+  ┌───────┴────────┐
+  │                │
+  ▼                ▼
+False             True
+(auto)           (exempt)
+  │                │
+  ▼                ▼
 Shuffle QA      Keep QA Order
- │                │
- └───────┬────────┘
-         │
-         ▼
-      session ➜ grading ➜ next card ➜ final score
+  │                │
+  └───────┬────────┘
+          │
+          ▼
+       session ➜ grading ➜ next card ➜ final score
 ```
 
 
 
-## Data Structure
+## LOG (latest date on top)
 
-### Type I Card
-```json
-{
-    "type": "I",
-    "id": "1",
-    "code": "...",
-    "qa": [],
-    "pdf": null,
-    "no_shuffle_qa": false
-}
-```
-
-### Type II Card
-```json
-{
-    "type": "II",
-    "id": "50",
-    "code": "...",
-    "answer": "...",
-    "followup_qa": [],
-    "pdf": null,
-    "no_shuffle_qa": false
-}
-```
-
-
-
-
+6_3_26 
+- Type 1,2 cards both have multiline question input field and singline qa's. Type 2 has in addition multiline answer. They were separated in edit mode. 
+- Also, save work(END), cancel, Enter, back...these are all different loops, easy to tangle in code.  
 

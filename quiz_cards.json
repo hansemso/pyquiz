@@ -1293,39 +1293,42 @@
     "followup_qa": []
   },
   {
-    "type": "II",
+    "type": "I",
     "id": "27",
-    "code": "test",
-    "answer": "test",
-    "pdf": null,
-    "no_shuffle_qa": false,
-    "followup_qa": [],
-    "qa": []
-  },
-  {
-    "type": "II",
-    "id": "27",
-    "code": "loop function problem:\nWrite a function using these terms/syntax: \ntransform_list, param, [], item,  for...in, append(), new, result\n----------------",
-    "answer": "def transform_list(param):\n    result = []\n\n    for item in param:\n        new_item = item  \n        result.append(new_item)\n\n    return result\n----------------------",
-    "pdf": null,
-    "no_shuffle_qa": false,
-    "followup_qa": [
+    "code": "Python break vs continue\n:",
+    "qa": [
       {
-        "question": "Name the iteration variable above",
-        "answer": "item"
+        "question": "Which loop stops loop, moves to next line?",
+        "answer": "break"
       },
       {
-        "question": "What is result.append called (in OOP terms)?",
-        "answer": "bound method"
+        "question": "Which loop skips everything left in the loop iteration and goes back to the top?",
+        "answer": "continue"
       },
       {
-        "question": "Name the instance",
-        "answer": "result"
+        "question": "An iteration is part of a loop (t/f)",
+        "answer": "t"
       },
       {
-        "question": "Name the built-in Py class of the instance",
-        "answer": "list"
+        "question": "A loop is part of an iteration (t/f)",
+        "answer": "f"
+      },
+      {
+        "question": "A ___ is a repeating structure in code, and an ___ is one execution of its body (indented block). (comma, space)",
+        "answer": "loop, iteration"
+      },
+      {
+        "question": "range(n) never produces n, it produces values from __ to ___ (comma, space)",
+        "answer": "0, n-1"
+      },
+      {
+        "question": "After continue, the loop moves to the next iteration, and the if condition is checked again as normal. (t/f)",
+        "answer": "t"
       }
-    ]
+    ],
+    "pdf": null,
+    "no_shuffle_qa": false,
+    "answer": "",
+    "followup_qa": []
   }
 ]
