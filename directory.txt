@@ -1,3 +1,4 @@
-1-999: Py or JS problems
-1000-1999: Machine Learning problems
-10000-11000: hanja
+1-699: Py or JS problems
+700-999: debugging problems
+1000-1499: Machine Learning
+9000-9999: hanja

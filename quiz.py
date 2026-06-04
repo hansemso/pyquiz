@@ -54,7 +54,7 @@ def run_quiz(cards_list):
 
             total += 1
 
-            ans = multiline_input(
+            ans = multiline_input(            # User input object
                 "\nAnswer (END to finish): "
             )
 
@@ -62,19 +62,21 @@ def run_quiz(cards_list):
 
 
 
+            # User answer object
+            correct = card.get("answer", "")  # card["answer"] from JSON-loaded data, i.e. a json loaded object
 
-            correct = card.get("answer", "")
 
+# debugging block left in for now  
+# repr() returns unformatted string representation of an object, incl hidden characters. debug mode of print(). 
 
-#
-            print("---- USER RAW ----")
-            print(repr(ans))
+            print("---- USER RAW ----")  # RAW == unformatted str
+            print(repr(ans))  # ans is input from user above
 
             print("---- EXPECTED RAW ----")
-            print(repr(correct))
+            print(repr(correct))  # correct == user object answer from above from json
 
-            print("---- USER LENGTH ----", len(ans))
-            print("---- EXPECTED LENGTH ----", len(correct))
+            print("---- USER LENGTH ----", len(ans))  # len checks for extra spaces, newlines, etc
+            print("---- EXPECTED LENGTH ----", len(correct))  # compare discrepancy between user input and json output
 #
 
 

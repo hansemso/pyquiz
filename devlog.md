@@ -49,9 +49,8 @@ PyQuiz
 │
 ├── cards.py
 │   │
-│   ├── Global Working Memory
-│   │   └── study_bank
-│   │       └── Active card collection loaded into RAM
+│   ├── Global Working Memory in RAM ⇆ study_bank ⇆ quiz_cards.json
+│   │       
 │   │
 │   ├── Utility Functions
 │   │   ├── normalize()
@@ -165,8 +164,8 @@ Current Card
 Card Type?
  │
  │                                      ┌── <Type I>  ➜ <option b> ➜ singline qa pairs  
- ├──<Input: Type I/II> ➜ multiline Q ──│
- │                                      │                                      ⬆️                                             
+ ├──<Input: Type I/II> ➜ multiline Q ──│                                      
+ │                                      │                                      🡱                                             
  │                                      └── <Type II> ➜ <option b> ➜ MULTILINE ANSWER     *Only Type II has multiline answer, which is in option b not a
  │
  └──➜ shuffle(y/n)     
@@ -180,7 +179,7 @@ False             True
   ▼                ▼
 Shuffle QA      Keep QA Order
   │                │
-  └───────┬────────┘
+  └───────┬────────┘S
           │
           ▼
        session ➜ grading ➜ next card ➜ final score

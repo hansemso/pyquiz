@@ -1,18 +1,25 @@
+'''
+1.Utility  2.Directory/Index  3.SAFE CARD SANITIZER  4.File Storage  5.Utility Input  6.QA EDITOR  7.ADD CARD  8.EDIT CARD 
+RAM: study_bank: List[Dict[str, Any]] = []
+L: |1|edit_directory_note(): lines, line, new_text  |4|save_all_cards():path,f |5|multiline_required():prompt,lines,line; multiline_optional():prompt,first,lines,line |6|edit_qa_loop():i,qa,q,a,choice,idx,item,nq,na |7|add_study_card():card_type,card_id,code,answer,pdf,followup_qa,qa_list,q,a |8|edit_card():card,code,first_line,selected_id,action,new_code,sub,new_answer,qa_list,new_pdf,new_id,state,c
+E: No indented def's
+G: |1|normalize(), sort_key()  |2|DIRECTORY_FILE, load_directory_note(), edit_directory_note() |3|sanitize_card() |4|load_cards(), save_all_cards() |5|multiline_required(), multiline_input(), multiline_optional() |6|edit_qa_loop() |7|add_study_card() |8|edit_card()
+B: |1|(none directly used) |2|open,FileNotFoundError |3|dict,list,isinstance |4|open,Exception |5|input,str |6|input,enumerate,int,str |7|input,any,dict,list |8|input,print,next,str,int,dict,enumerate
+'''
 import json
 import os
 from typing import List, Dict, Any
 
-study_bank: List[Dict[str, Any]] = []
-
+study_bank: List[Dict[str, Any]] = []  # in-memory data storage loaded from json file. Kept in RAM while program runs. json is the persistent storage. 
 
 # =====================================================
-# Utility
+# 1. Utility
 # =====================================================
 
 def normalize(text: str | None) -> str:
     return (text or "").strip().lower()
 
-def sort_key(card):
+def sort_key(card):  # Used below by sorted()
     cid = str(card.get("id", "")).strip()
 
     # numeric IDs first
@@ -23,7 +30,7 @@ def sort_key(card):
     return (1, cid.lower())
     
 # =====================================================
-# Directory/Index
+# 2. Directory/Index
 # =====================================================
 
 DIRECTORY_FILE = os.path.join(
@@ -75,7 +82,7 @@ def edit_directory_note():
 
 
 # =====================================================
-# SAFE CARD FIXER
+# 3. SAFE CARD SANITIZER
 # =====================================================
 
 def sanitize_card(card: dict) -> dict:  # *** sanitize_card ***
@@ -115,11 +122,11 @@ def sanitize_card(card: dict) -> dict:  # *** sanitize_card ***
 
 
 # =====================================================
-# File Storage
+# 4. File Storage
 # =====================================================
 
 def load_cards():
-    global study_bank
+    global study_bank  # global is a py keyword for go-to-top
 
     path = os.path.join(os.path.dirname(__file__), "quiz_cards.json")
 
@@ -143,7 +150,7 @@ def save_all_cards():
 
 
 # =====================================================
-# Utility Input
+# 5. Utility Input
 # =====================================================
 
 def multiline_required(prompt="Enter text (END to finish):"):  # inner loop. 
@@ -172,9 +179,9 @@ def multiline_optional(prompt="Enter text (END to save, ENTER to keep):"):
 
     # KEEP EXISTING VALUE
     if first.strip() == "":
-        return None
+        return None  # Enter 🡪 cancel 🡪 finds new_answer = multiline_optional() in LEGB namespace(declared in EDIT) 🡪 prints message to user by if...None statement
 
-    lines = [first]
+    lines = [first]  # needed bc append() below can only add to an existing list.
 
     while True:
         line = input()
@@ -182,12 +189,12 @@ def multiline_optional(prompt="Enter text (END to save, ENTER to keep):"):
         if line.strip().upper() == "END":
             break
 
-        lines.append(line)
+        lines.append(line)  # adds new line to existing list. 
 
-    return "\n".join(lines)
+    return "\n".join(lines)  # inserts newline for each line in list, stacks vertically
 
 # =====================================================
-# QA EDITOR 
+# 6. QA EDITOR 
 # =====================================================
 
 def edit_qa_loop(card, qa_list, qa_key):  # ***** edit_qa_loop ****
@@ -247,7 +254,7 @@ def edit_qa_loop(card, qa_list, qa_key):  # ***** edit_qa_loop ****
 
 
 # =====================================================
-# ADD CARD
+# 7. ADD CARD
 # =====================================================
 
 def add_study_card():
@@ -335,23 +342,23 @@ def add_study_card():
 
 
 # =====================================================
-# EDIT CARD (FIXED)
+# 8. EDIT CARD 
 # =====================================================
 
-def edit_card():                    # ***** edit_card ******
+def edit_card():         # 🡨 elif choice == "3": from main.py 
     if not study_bank:
         print("❌ No cards available.")
         return
 
-    print()
+    print()  # print blank line. cosmetic. no other purpose.
     
 # *************** for card in sorted *********
-    for card in sorted(study_bank, key=sort_key):
+    for card in sorted(study_bank, key=sort_key):  # from def sort_key() in utility above
         code = card.get("code") or ""
         first_line = code.splitlines()[0] if code.strip() else "<no code>"
-        print(f"{card.get('id')}. {first_line}")
+        print(f"{card.get('id')}. {first_line}")  # Prints the cards list by id. 
 
-    selected_id = input("\nSelect card ID: ").strip()
+    selected_id = input("\nSelect card ID: ").strip()  # Waits for use to type in card id
 
     card = next((c for c in study_bank if str(c.get("id")) == selected_id), None)
 
@@ -374,7 +381,7 @@ def edit_card():                    # ***** edit_card ******
         print("6. Auto shuffle on/off")  # Turn off auto shuffle for Type I cards(ordered qa content) 
         print("7. Cancel")
 
-        action = input("Select option: ").strip()
+        action = input("Select option: ").strip()  # action is the variable for user input string for elif list below
 
         
 
@@ -475,7 +482,7 @@ def edit_card():                    # ***** edit_card ******
             
             print(f"🔁 Auto shuffle toggled: {state}")
     
-            print("DEBUG:", card["id"], card["no_shuffle_qa"])
+            
             
         elif action == "debug":
             print("=== DEBUG CARDS ===")
