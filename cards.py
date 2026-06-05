@@ -6,6 +6,7 @@ E: No indented def's
 G: |1|normalize(), sort_key()  |2|DIRECTORY_FILE, load_directory_note(), edit_directory_note() |3|sanitize_card() |4|load_cards(), save_all_cards() |5|multiline_required(), multiline_input(), multiline_optional() |6|edit_qa_loop() |7|add_study_card() |8|edit_card()
 B: |1|(none directly used) |2|open,FileNotFoundError |3|dict,list,isinstance |4|open,Exception |5|input,str |6|input,enumerate,int,str |7|input,any,dict,list |8|input,print,next,str,int,dict,enumerate
 '''
+
 import json
 import os
 from typing import List, Dict, Any
@@ -150,7 +151,7 @@ def save_all_cards():
 
 
 # =====================================================
-# 5] Utility Input [user interaction, dependent on input()]
+# 5] Utility Input [dependent on user input()]
 # =====================================================
 
 def multiline_required(prompt="Enter text (END to finish):"):  # inner loop. 
@@ -169,10 +170,10 @@ def multiline_required(prompt="Enter text (END to finish):"):  # inner loop.
     
 
 def multiline_input(prompt="Enter text (END to finish):"):
-    return multiline_required(prompt)
+    return multiline_required(prompt)  # i.e. just an extra input method. Good practice for future code change.
     
-
-def multiline_optional(prompt="Enter text (END to save, ENTER to keep):"):
+# optional = can abort and return None to signal “no change”
+def multiline_optional(prompt="Enter text (END to save, ENTER to cancel):"):
     print(prompt)
 
     first = input()
@@ -260,7 +261,7 @@ def edit_qa_loop(card, qa_list, qa_key):  # ***** edit_qa_loop ****
 def add_study_card():
     print("\n=== Add New Study Card ===")
 
-    card_type = input("Card type (I / II): ").strip().upper()
+    card_type = input("Card type (I / II): ").strip().upper()  # Waits for user input
 
     if card_type not in ("I", "II"):
         print("❌ Invalid card type.")
@@ -278,7 +279,7 @@ def add_study_card():
 
     print("DEBUG: before multiline")
 
-    code = multiline_input("Enter code (END to finish):")  # 🔥mline-Q for Type I and II
+    code = multiline_input("Enter code (END to finish):")  # 🔥mline-Q for Type I or II
 
     if card_type == "II":
         answer = multiline_input("Enter answer (END to finish):")  # 🔥mline-Ans for Type II only as I has none.
@@ -311,7 +312,7 @@ def add_study_card():
 
         save_all_cards()
         
-        print("✅ Type II card added!")
+        print("✅ Type II card added!")  
         return
 
     qa_list = []
@@ -338,7 +339,7 @@ def add_study_card():
     })
 
     save_all_cards()
-    print("✅ Card added!")
+    print("✅ Type I card added!")  
 
 
 # =====================================================
@@ -385,12 +386,14 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
 
         
 
-        # 1: Edit multiline-Question  
-        if action == "1":  # 🔥 Input mline-Question for Type I and II
+        # 1: Edit multiline-Question(mline-Q)  
+        if action == "1":  # 🔥 Input mline-Q for Type I and II
             print("\nCURRENT CODE:\n")
-            print(card.get("code", ""))
+            print(card.get("code", ""))  # If no saved code/Q, print empty str instead
 
-            new_code = multiline_input("Enter new code (END to finish):")  # Uses <break> throughout to exit inner loop. 
+            new_code = multiline_optional(
+                "Enter new code (END to finish, ENTER to cancel):"
+            )
 
             if new_code is not None:
                 card["code"] = new_code
@@ -399,7 +402,7 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
                 
                 print("✅ Code updated.")
             else:
-                print("↩️ No changes made.")
+                print("↩️ No changes made.")  # Program "backs out" bc nothing was done. It feels like it backs out to user when all it did actually was do nothing, cancelled action. 
                 
            
 
