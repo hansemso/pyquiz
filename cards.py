@@ -13,7 +13,7 @@ from typing import List, Dict, Any
 study_bank: List[Dict[str, Any]] = []  # in-memory data storage loaded from json file. Kept in RAM while program runs. json is the persistent storage. 
 
 # =====================================================
-# 1. Utility
+# 1] Utility (pure generic helpers, no user interaction)
 # =====================================================
 
 def normalize(text: str | None) -> str:
@@ -30,7 +30,7 @@ def sort_key(card):  # Used below by sorted()
     return (1, cid.lower())
     
 # =====================================================
-# 2. Directory/Index
+# 2] Directory/Index
 # =====================================================
 
 DIRECTORY_FILE = os.path.join(
@@ -82,7 +82,7 @@ def edit_directory_note():
 
 
 # =====================================================
-# 3. SAFE CARD SANITIZER
+# 3] SAFE CARD SANITIZER
 # =====================================================
 
 def sanitize_card(card: dict) -> dict:  # *** sanitize_card ***
@@ -122,7 +122,7 @@ def sanitize_card(card: dict) -> dict:  # *** sanitize_card ***
 
 
 # =====================================================
-# 4. File Storage
+# 4] File Storage
 # =====================================================
 
 def load_cards():
@@ -150,7 +150,7 @@ def save_all_cards():
 
 
 # =====================================================
-# 5. Utility Input
+# 5] Utility Input [user interaction, dependent on input()]
 # =====================================================
 
 def multiline_required(prompt="Enter text (END to finish):"):  # inner loop. 
@@ -194,7 +194,7 @@ def multiline_optional(prompt="Enter text (END to save, ENTER to keep):"):
     return "\n".join(lines)  # inserts newline for each line in list, stacks vertically
 
 # =====================================================
-# 6. QA EDITOR 
+# 6] QA EDITOR 
 # =====================================================
 
 def edit_qa_loop(card, qa_list, qa_key):  # ***** edit_qa_loop ****
@@ -254,7 +254,7 @@ def edit_qa_loop(card, qa_list, qa_key):  # ***** edit_qa_loop ****
 
 
 # =====================================================
-# 7. ADD CARD
+# 7] ADD CARD
 # =====================================================
 
 def add_study_card():
@@ -278,10 +278,10 @@ def add_study_card():
 
     print("DEBUG: before multiline")
 
-    code = multiline_input("Enter code (END to finish):")
+    code = multiline_input("Enter code (END to finish):")  # 🔥mline-Q for Type I and II
 
     if card_type == "II":
-        answer = multiline_input("Enter answer (END to finish):")
+        answer = multiline_input("Enter answer (END to finish):")  # 🔥mline-Ans for Type II only as I has none.
 
         pdf = input("pdf path (optional): ").strip() or None
 
@@ -342,7 +342,7 @@ def add_study_card():
 
 
 # =====================================================
-# 8. EDIT CARD 
+# 8] EDIT CARD 
 # =====================================================
 
 def edit_card():         # 🡨 elif choice == "3": from main.py 
@@ -352,29 +352,29 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
 
     print()  # print blank line. cosmetic. no other purpose.
     
-# *************** for card in sorted *********
-    for card in sorted(study_bank, key=sort_key):  # from def sort_key() in utility above
+### from global list in study_bank, creates temporary sorted list in ram only Python knows 
+    for card in sorted(study_bank, key=sort_key):  # from def sort_key() in 1]Utility above. 
         code = card.get("code") or ""
         first_line = code.splitlines()[0] if code.strip() else "<no code>"
-        print(f"{card.get('id')}. {first_line}")  # Prints the cards list by id. 
+        print(f"{card.get('id')}. {first_line}")  # 1st line of multiline question(type I/II in 7]ADD CARD)
 
-    selected_id = input("\nSelect card ID: ").strip()  # Waits for use to type in card id
+    selected_id = input("\nSelect card ID: ").strip()  # a) user inputs card id
 
-    card = next((c for c in study_bank if str(c.get("id")) == selected_id), None)
+    card = next((c for c in study_bank if str(c.get("id")) == selected_id), None)  # b) assigns user selection to, 'card'
 
     if not card:
         print("❌ Card not found.")
         return
 
     # 🔥 sanitize BEFORE ANY TYPE CHECKS ARE USED
-    card = sanitize_card(card)
+    card = sanitize_card(card)  # take 'card' to 3] def sanitize_card, assign back to 'card'
 
-    print("DEBUG TYPE:", card.get("type"))
+    print("card type:", card.get("type"))  # 3.Edit prints I or II after card id input. Serves as 🐞DEBUG🐞 for 'type' = variable for type I or II loop defined in 2] add card.
 
 #  main.py → 3. Edit Card/View Index →  ***** EDIT MENU *****
     while True:  # outer loop
-        print("\n1. Edit mline-Q")  # For both type I and II, multiline question only
-        print("2. Edit mline-Ans, qa's")  # qa edit(type I,II) + multiline answer(type I only)
+        print("\n1. Edit mline Q")  # For both type I and II, multiline question only
+        print("2. Edit qa, mline Ans")  # qa edit(type I,II) + multiline answer(type I only)
         print("3. Edit pdf link")  # In \pyquiz\pdfs folder for pdf's only. Opens using foxit.
         print("4. Change card id")
         print("5. Delete card")
@@ -385,8 +385,8 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
 
         
 
-        # 1. EDIT CODE  *** action 1. Code only, not type 2 multiline answer ****
-        if action == "1":
+        # 1: Edit multiline-Question  
+        if action == "1":  # 🔥 Input mline-Question for Type I and II
             print("\nCURRENT CODE:\n")
             print(card.get("code", ""))
 
@@ -403,7 +403,7 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
                 
            
 
-        # 2. EDIT QA.  Type 2 multiline answer goes here ***
+        # 2: EDIT QA.  🔥Type II multiline answer goes here
         
         elif action == "2":
             if card.get("type") == "II":
