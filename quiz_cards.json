@@ -812,342 +812,6 @@
     "shuffle_qa": true
   },
   {
-    "id": "10000",
-    "code": "hanja (set 1)",
-    "qa": [
-      {
-        "question": "學校",
-        "answer": "학교"
-      },
-      {
-        "question": "學生",
-        "answer": "학생"
-      },
-      {
-        "question": "先生",
-        "answer": "선생"
-      },
-      {
-        "question": "國家",
-        "answer": "국가"
-      },
-      {
-        "question": "歷史",
-        "answer": "역사"
-      },
-      {
-        "question": "政治",
-        "answer": "정치"
-      },
-      {
-        "question": "經濟",
-        "answer": "경재"
-      },
-      {
-        "question": "社會",
-        "answer": "사회"
-      },
-      {
-        "question": "電話",
-        "answer": "전화"
-      },
-      {
-        "question": "電氣",
-        "answer": "전기"
-      },
-      {
-        "question": "自動車",
-        "answer": "자동차"
-      },
-      {
-        "question": "時間",
-        "answer": "시간"
-      },
-      {
-        "question": "今日 (en)",
-        "answer": "금일 today"
-      },
-      {
-        "question": "明日 (en)",
-        "answer": "명일 tomorrow"
-      },
-      {
-        "question": "昨日 (en)",
-        "answer": "작일 yesterday"
-      },
-      {
-        "question": "午前",
-        "answer": "오전"
-      },
-      {
-        "question": "午後",
-        "answer": "오후"
-      },
-      {
-        "question": "食堂",
-        "answer": "식당"
-      },
-      {
-        "question": "飮食",
-        "answer": "음식"
-      },
-      {
-        "question": "病院",
-        "answer": "병원"
-      },
-      {
-        "question": "藥局",
-        "answer": "약국"
-      },
-      {
-        "question": "銀行",
-        "answer": "은행"
-      },
-      {
-        "question": "會社",
-        "answer": "회사"
-      },
-      {
-        "question": "工場",
-        "answer": "공장"
-      },
-      {
-        "question": "市場",
-        "answer": "시장"
-      },
-      {
-        "question": "道路",
-        "answer": "도로"
-      },
-      {
-        "question": "地下",
-        "answer": "지하"
-      },
-      {
-        "question": "地下鐵",
-        "answer": "지하철"
-      },
-      {
-        "question": "海洋",
-        "answer": "해양"
-      },
-      {
-        "question": "天氣  (en)",
-        "answer": "천기 weather"
-      },
-      {
-        "question": "空港",
-        "answer": "공항"
-      },
-      {
-        "question": "外國",
-        "answer": "외국"
-      },
-      {
-        "question": "內部",
-        "answer": "내부"
-      },
-      {
-        "question": "外部",
-        "answer": "외부"
-      },
-      {
-        "question": "男女",
-        "answer": "남녀"
-      },
-      {
-        "question": "父母",
-        "answer": "부모"
-      },
-      {
-        "question": "兄弟",
-        "answer": "형제"
-      },
-      {
-        "question": "友情",
-        "answer": "우정"
-      },
-      {
-        "question": "安心",
-        "answer": "안심"
-      },
-      {
-        "question": "注意",
-        "answer": "주의"
-      },
-      {
-        "question": "安全",
-        "answer": "안전"
-      },
-      {
-        "question": "危險",
-        "answer": "위험"
-      },
-      {
-        "question": "自由",
-        "answer": "자유"
-      },
-      {
-        "question": "平和",
-        "answer": "평화"
-      },
-      {
-        "question": "政府",
-        "answer": "정부"
-      },
-      {
-        "question": "政治",
-        "answer": "정치"
-      },
-      {
-        "question": "國家",
-        "answer": "국가"
-      },
-      {
-        "question": "國會",
-        "answer": "국회"
-      },
-      {
-        "question": "大統領",
-        "answer": "대통령"
-      },
-      {
-        "question": "首相",
-        "answer": "수상"
-      },
-      {
-        "question": "閣僚",
-        "answer": "각료"
-      },
-      {
-        "question": "行政",
-        "answer": "행정"
-      },
-      {
-        "question": "立法",
-        "answer": "입법"
-      },
-      {
-        "question": "司法",
-        "answer": "사법"
-      },
-      {
-        "question": "官廳",
-        "answer": "관청"
-      },
-      {
-        "question": "官僚",
-        "answer": "관료"
-      },
-      {
-        "question": "公務員",
-        "answer": "공무원"
-      },
-      {
-        "question": "中央政府",
-        "answer": "중앙정부"
-      },
-      {
-        "question": "地方自治",
-        "answer": "지방자치"
-      },
-      {
-        "question": "地方政府",
-        "answer": "지방정부"
-      },
-      {
-        "question": "法律",
-        "answer": "법률"
-      },
-      {
-        "question": "法院",
-        "answer": "법원"
-      },
-      {
-        "question": "憲法",
-        "answer": "헌법"
-      },
-      {
-        "question": "條例",
-        "answer": "조례"
-      },
-      {
-        "question": "政策",
-        "answer": "정책"
-      },
-      {
-        "question": "財政",
-        "answer": "재정"
-      },
-      {
-        "question": "稅金",
-        "answer": "세금"
-      },
-      {
-        "question": "預算 (en)",
-        "answer": "예산 budget"
-      },
-      {
-        "question": "決議",
-        "answer": "결의"
-      },
-      {
-        "question": "命令",
-        "answer": "명령"
-      },
-      {
-        "question": "規則",
-        "answer": "규칙"
-      },
-      {
-        "question": "公共 (en)",
-        "answer": "공공 public"
-      },
-      {
-        "question": "福祉",
-        "answer": "복지"
-      },
-      {
-        "question": "權力",
-        "answer": "권력"
-      },
-      {
-        "question": "義務",
-        "answer": "의무"
-      },
-      {
-        "question": "責任",
-        "answer": "의무"
-      },
-      {
-        "question": "責任",
-        "answer": "책임"
-      },
-      {
-        "question": "監督",
-        "answer": "감독"
-      },
-      {
-        "question": "審査",
-        "answer": "심사"
-      },
-      {
-        "question": "調査",
-        "answer": "조사"
-      },
-      {
-        "question": "承認",
-        "answer": "승인"
-      }
-    ],
-    "pdf": "END",
-    "no_shuffle_qa": false,
-    "type": "I",
-    "answer": "",
-    "followup_qa": [],
-    "shuffle_qa": true
-  },
-  {
     "id": "23",
     "code": "Py problems:",
     "qa": [
@@ -1415,6 +1079,39 @@
     "pdf": null,
     "shuffle_qa": true,
     "answer": "",
+    "followup_qa": []
+  },
+  {
+    "type": "I",
+    "id": "10000",
+    "code": "Hanja set 1",
+    "qa": [
+      {
+        "question": "匈奴",
+        "answer": "흉노",
+        "pdf": null
+      },
+      {
+        "question": "突厥",
+        "answer": "돌궐",
+        "pdf": null
+      },
+      {
+        "question": "女眞",
+        "answer": "여진"
+      }
+    ],
+    "pdf": null,
+    "shuffle_qa": true,
+    "answer": "",
+    "followup_qa": []
+  },
+  {
+    "type": "II",
+    "id": "99",
+    "code": "test",
+    "answer": "test\ntest",
+    "shuffle_qa": true,
     "followup_qa": []
   }
 ]

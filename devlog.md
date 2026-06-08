@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Working Features
+Working Features being develope
 ----------------
 - [x] Runs on Python 3.xx and terminal for ruggedness, expandability, and easier debugging
 - [x] JSON card storage: quiz_cards.json
@@ -15,8 +15,59 @@ Working Features
 - [x] QA shuffle toggle: Turn off auto shuffle for certain cards, e.g. cards with non-random QA's.
 - [x] Instant grading: Checks answer per problem.
 - [x] Score tracking: Keep track of score, give final score at end.
+--[x] Bypassed Windows for pdf path to foxit for simplicity.
+-[x] How to standardize and apply a protocol throughout a program while avoiding bugs and crashes. Ex: 1. Enter blank to cancel and go back versus enter new text and make a change. new_code = multiline_optional(...) became the choice because : ENTER = cancel and back, END immediately = cancel, text + END is save, whitespace + Enter is what? i.e. input logic/handling became an issue. settled upon:
+ After text = input().strip().  input() can't distinguish: Enter, esc, ctrl+c, etc.  -import keyboard is Windows-focused real-time key press. It requires pip install keyboard. It can cause conflicts. Pros avoid esc key. 
+- ENTER, SPACE + ENTER, TAB + ENTER, SPACE SPACE SPACE + ENTER == "" ...so, <"" + Enter> = cancel = back =  no change/keep 
+- type in DEL + [Enter] = delete/clear
+-  type in END + [Enter] -> Finish multiline input for Q or Ans- 
+-  other   -> User data
 
----
+:esc   → cancel
+:q     → cancel
+exit   → cancel
+...can be used as well...but how? Just keep in mind.....
+
+AI suggests a pre-input engine layer:
+keyboard → terminal → input() → string → [[[your parser]]] → meaning
+AI says right now "your parser" is scattered:
+cards.py
+│
+├── multiline_required()   → END parser
+├── multiline_optional()    → cancel parser
+├── edit_qa_loop()          → menu parser
+├── add_study_card()        → multi-parser cluster
+└── edit_card()             → full state-machine parser
+
+...so decided to keep things the same for now.  
+qa's are handled differently though as a rule:
+
+cards.py
+│
+├── Card field editors
+│   ├── code
+│   ├── answer
+│   ├── pdf
+│   └── id
+│
+└── QA editor
+    ├── list view
+    ├── add
+    ├── edit
+    └── return
+That is, since qa's are all singleline, just handling them differently and separately may be best, as this app will only be cli-based and simple as possible. So develop extensions and pluggable add ons but keep it simple at its core. 
+- a good thing would be to connect with cpymos folder so questions about numpy and such can somehow be connected to exercises. Say for range 2000-3000: ml or numpy problems. So a popup for a pdf or a sci calculator but just another powershell window for py 3. So maybe if q is a problem, can enter solution in cpymos. 
+s = solve in CPYMOS
+subprocess.run(["cpymos.exe"])
+subprocess.Popen(["python", "cpymos.py"])
+
+
+
+
+
+
+
+
 
 ## File Structure --overall
 
@@ -24,6 +75,9 @@ Working Features
 
 ```
 Triangular design with main.py at top as access. cards.py = data logic(biggest file); quiz.py = runtime logic(selecting, filtering, shuffling).   
+
+foxit is the pdf reader I use:
+Test-Path "C:\Program Files\Foxit Software\Foxit PDF Reader\FoxitPDFReader.exe"
 
 ```
 
@@ -50,12 +104,13 @@ PyQuiz
 ├── cards.py
 │   │
 │   ├── Global Working Memory in RAM ⇆ study_bank ⇆ quiz_cards.json
-│   │       
 │   │
 │   ├── Utility Functions
 │   │   ├── normalize()
-│   │   ├── clean_answer()
-│   │   └── multiline_input()
+│   │   ├── sort_key()   
+│   │   ├── multiline_required(...)  
+│   │   ├── multiline_optional(...)
+│   │   └── multiline_input(...)
 │   │
 │   ├── Directory / Index System
 │   │   │
