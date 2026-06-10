@@ -1,78 +1,53 @@
-#display.py  6_8_2026
 import tkinter as tk
+import re
 
 _root = None
 _label = None
 
-# =====================================================
-# SETTINGS
-# =====================================================
-DEFAULT_FONT = 40
+_ui_font = "Consolas"
+_cjk_font = "Malgun Gothic"
 
 
-PRESETS = {
-    "small":  (28, 250, 150),
-    "medium": (40, 350, 200),
-    "large":  (60, 500, 300),
-}
+def _has_cjk(text):
+    return re.search(r'[\u4e00-\u9fff]', text) is not None
 
 
-# =====================================================
-# INIT WINDOW (CREATE ONCE ONLY)
-# =====================================================
-def _init():
+def init(root):
     global _root, _label
 
-    if _root is None:
-        _root = tk.Tk()
-        _root.title("Quiz Display")
-        _root.configure(bg="white")
+    _root = root
 
-        _label = tk.Label(
-            _root,
-            text="",
-            font=("Arial", DEFAULT_FONT),
-            bg="white",
-            wraplength=400,
-            justify="center"
-        )
-        _label.pack(expand=True, fill="both")
+    _label = tk.Label(
+        _root,
+        text="TEST",
+        font=(_ui_font, 40),
+        bg="white",
+        fg="black"
+    )
 
-        # keep window alive but non-blocking
-        _root.update()
+    _label.pack(expand=True, fill="both")
+    _label.lift()
 
-
-# =====================================================
-# CORE DISPLAY FUNCTION
-# =====================================================
-def show(text, font_size=40, width=400, height=200, image=None, preset=None):
-
-    _init()
-
-    # presets override manual size
-    if preset and preset in PRESETS:
-        font_size, width, height = PRESETS[preset]
-
-    # image hook (future expansion)
-    if image:
-        print("IMAGE REQUESTED:", image)
-
-    # update content only (NO reset loop)
-    _label.config(text=text, font=("Arial", font_size), wraplength=width)
-
-    _root.geometry(f"{width}x{height}")
-
-    _root.lift()
-    _root.attributes("-topmost", True)
-    _root.after(100, lambda: _root.attributes("-topmost", False))
-
-    # IMPORTANT: only update IDLE state, not full loop
     _root.update_idletasks()
 
 
-# =====================================================
-# OPTIONAL: CLEAN SHUTDOWN
-# =====================================================
+def show(text, font_size=40):
+    global _root, _label
+
+    if _root is None or _label is None:
+        raise RuntimeError("display.init(root) must be called first")
+
+    font = _cjk_font if _has_cjk(text) else _ui_font
+
+    _label.config(text=text, font=(font, font_size))
+
+    _label.lift()
+    _root.update_idletasks()
+    _root.update()
+
+    print("POPUP:", text)
+
+
 def close():
     global _root
     if _root:

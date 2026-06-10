@@ -42,10 +42,17 @@ def render_question(q, qa):
 # =====================================================
 # ASK INPUT (UNIFIED)
 # =====================================================
+
 def get_answer(prompt, multiline=False):
     if multiline:
         return cards.multiline_input(prompt)
-    return input(prompt).strip()
+
+    ans = input(prompt).strip()
+
+    if ans.lower() in ("q", "quit", "exit"):
+        return "__EXIT__"
+
+    return ans
 
 
 # =====================================================
@@ -93,9 +100,14 @@ def run_quiz(cards_list):  # For both Type I AND II
             print("\n" + card.get("code", "<no code>"))
 
             user_ans = get_answer(
-                "mline Answer (END to finish):",
+                "mline Answer (END to finish, or q to quit):",
                 multiline=True
             )
+
+            if user_ans == "__EXIT__":
+                print("\n↩ Returning to menu...")
+                return
+    
 
             total += 1
 
@@ -115,7 +127,7 @@ def run_quiz(cards_list):  # For both Type I AND II
         
         
 # =========================
-# TYPE I MODE
+# TYPE I loop for Type I cards
 # =========================
 
         
@@ -150,9 +162,17 @@ def run_quiz(cards_list):  # For both Type I AND II
             a = qa.get("answer", "")
 
             print(f"\nQ: {q}")
+            
+            print("CALLING DISPLAY:", q)
+            display.show(q, font_size=60)
 
             user_ans = get_answer("Answer > ", multiline=False)
 
+            if user_ans == "__EXIT__":
+                print("\n↩ Returning to menu...")
+                return
+                
+                
             total += 1
 
             if cards.normalize(user_ans) == cards.normalize(a):

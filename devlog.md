@@ -1,9 +1,20 @@
 # devlog  ...for pyquiz June 2026
 
-## Current Status
+## Synopsis: 
+devlog for keeping track of day to day development. General goals are described in the README.md. 
 
-Working Features being develope
-----------------
+
+## Current Status, i.e working Features being developed now
+- In quiz.py def run_quiz, Type I loop and Type II loop are parallel . 
+- Decided to make quiz_gui.py to protect quiz.py and pyquiz in general from bugs caused by gui display logic. 
+- print("CALLING DISPLAY:", q)
+display.show(q, font_size=60)   ...this is what made tkinter window work for hanja finally said AI. 
+
+
+
+
+### Working Features well developed at this point now
+
 - [x] Runs on Python 3.xx and terminal for ruggedness, expandability, and easier debugging
 - [x] JSON card storage: quiz_cards.json
 - [x] Type I cards: multiline display with single line qa's in pairs. Use display for example code and qa's for questions about it.
@@ -25,7 +36,8 @@ Working Features being develope
 
 -Removed Ttinter popup for Type II to simplify. Only Type I singline qa's have popups editable in Edit menu option.  The real rule is:
 
-❗ GUI belongs in the display layer, not inside card types.
+### Design goals:
+- Separation of concerns. gui(tkinter) for unicode text display belongs in the display layer, not inside card types.
 
 
 

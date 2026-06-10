@@ -1,17 +1,26 @@
 # main.py  May 2026 
+import tkinter as tk
+import display
 import sys
-import cards  # 
+import cards
 import quiz
-import json, os
 
-# UTF-8 console support
 sys.stdout.reconfigure(encoding='utf-8')
 
+root = tk.Tk()
+root.title("PyQuiz")
 
+display.init(root)
 
-path = os.path.join(os.path.dirname("cards.py"), "quiz_cards.json")
+display.show("HELLO")
+
+root.update_idletasks()
+root.update()
+
 
 cards.load_cards("quiz_cards.json")
+
+
 
 
 def main_menu():
