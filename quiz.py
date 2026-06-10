@@ -1,108 +1,159 @@
+# quiz.py  6_8_2026
+
+DEBUG = False
+
 import random
 import cards
 import display
 
 
 # =====================================================
-# SAFE GUI DISPLAY
+# PARSE RANGE
 # =====================================================
-def safe_show(text, **kwargs):
-    try:
-        display.show(text, **kwargs)
-    except Exception:
-        print(text)
+
+def parse_range(prompt):
+    raw = input(prompt).strip()
+
+    if "-" not in raw:
+        n = int(raw)
+        return n, n
+
+    start, end = raw.split("-")
+    return int(start), int(end)
 
 
 # =====================================================
-# MAIN ENGINE
+# SAFE DISPLAY WRAPPER (ONLY INTERFACE USED BY ENGINE)
 # =====================================================
-def run_quiz(cards_list):
+
+
+def render_question(q, qa):
+
+    mode = qa.get("display", "text").lower()
+
+    # ALWAYS CLI
+    print(f"\nQ: {q}")
+
+    # GUI ONLY if explicitly asked
+    if mode == "gui":
+        display.show(q, font_size=35, width=400, height=200)
+
+
+# =====================================================
+# ASK INPUT (UNIFIED)
+# =====================================================
+def get_answer(prompt, multiline=False):
+    if multiline:
+        return cards.multiline_input(prompt)
+    return input(prompt).strip()
+
+
+# =====================================================
+# MAIN QUIZ ENGINE
+# =====================================================
+
+
+
+
+def run_quiz(cards_list):  # For both Type I AND II
+    if DEBUG:
+        for card in cards_list:
+            print("CARD CHECK QA:", card.get("id"), card.get("qa"))
+        
+        
 
     score = 0
     total = 0
 
+    # FILTER valid cards
     cards_list = [
         c for c in cards_list
-        if (
-            (c.get("type", "I") == "I" and c.get("qa"))
-            or c.get("type") == "II"
-        )
+        if isinstance(c.get("qa"), list) and len(c.get("qa")) > 0
     ]
+
+
+
 
     if not cards_list:
         print("No quiz questions.")
         return
 
+
     for card in cards_list:
 
-        print("\n" + card.get("code", "<no code>"))
+        if DEBUG:
+            print("CARD ID:", card.get("id"))
+            print("QA COUNT:", len(card.get("qa", [])))
 
-        # =====================================================
-        # TYPE II
-        # =====================================================
+        # --------------------- 
+        # TYPE II part of def run_quiz above
+        # ---------------------
+        
         if card.get("type") == "II":
+            print("\n" + card.get("code", "<no code>"))
+
+            user_ans = get_answer(
+                "mline Answer (END to finish):",
+                multiline=True
+            )
 
             total += 1
 
-            ans = cards.multiline_input("\nMain Answer (END to finish): ")
-            correct = card.get("answer", "")
+            correct = card.get("answer", "")  # correct defined
 
-            if cards.normalize(ans) == cards.normalize(correct):
+            if cards.normalize(user_ans) == cards.normalize(correct):  # def normalize in cards.py 1.Utility
                 print("✅ Correct")
                 score += 1
             else:
-                print(f"❌ Expected:\n{correct}")
-
-            for qa in card.get("followup_qa", []):
-
-                total += 1
-
-                q = qa.get("question", "")
-                a = qa.get("answer", "")
-
-                gui = qa.get("gui", False)
-                file_path = qa.get("file")
-
-                if gui:
-                    safe_show(q, image=file_path, font_size=40, width=400, height=200)
-                else:
-                    print(f"\nQ: {q}")
-
-                user_ans = input("Answer > ").strip()
-
-                if cards.normalize(user_ans) == cards.normalize(a):
-                    print("✅ Correct")
-                    score += 1
-                else:
-                    print(f"❌ {a}")
+                print("❌ Incorrect")
+                print("\nCorrect answer:")
+                print(correct)
 
             continue
 
-        # =====================================================
-        # TYPE I
-        # =====================================================
-        qa_list = card.get("qa", [])
+
+        
+        
+# =========================
+# TYPE I MODE
+# =========================
+
+        
+
+        # ALWAYS show code/context first
+
+        code = card.get("code", "")  #       ***code = card.get***
+
+
+
+        if code:
+            print("\n" + code)
+
+        qa_list = card.get("qa") or []
+
+        if DEBUG:
+            print("TYPE I QA LENGTH:", len(qa_list))
+            if qa_list:
+                print("FIRST QA ITEM:", qa_list[0])
+            else:
+                print("⚠️ EMPTY QA LIST")
+        
+        
+        
 
         if card.get("shuffle_qa", True):
             random.shuffle(qa_list)
 
         for qa in qa_list:
 
-            total += 1
-
             q = qa.get("question", "")
             a = qa.get("answer", "")
 
-            gui = qa.get("gui", False)
-            file_path = qa.get("file")
+            print(f"\nQ: {q}")
 
-            # SHOW QUESTION (GUI OR TEXT)
-            if gui:
-                safe_show(q, image=file_path, font_size=40, width=400, height=200)
-            else:
-                print(f"\nQ: {q}")
+            user_ans = get_answer("Answer > ", multiline=False)
 
-            user_ans = input("Answer > ").strip()
+            total += 1
 
             if cards.normalize(user_ans) == cards.normalize(a):
                 print("✅ Correct")
@@ -111,23 +162,47 @@ def run_quiz(cards_list):
                 print(f"❌ {a}")
 
     print(f"\nFINAL SCORE: {score} / {total}")
-    
-    
-#=====================================================
 
+
+# =====================================================
+# QUIZ RANGE
+# =====================================================
 
 def quiz_range():
-    start, end = parse_range("Select range (e.g. 2-20): ")
+
+    def safe_int(x):
+        try:
+            return int(x)
+        except:
+            return -1
+
+    try:
+        start, end = parse_range("Select range (e.g. 2-20): ")
+    except ValueError:
+        print("Invalid input format. Use like 10-20")
+        return
 
     if start > end:
         start, end = end, start
+    
+    
+    
+    if DEBUG:
+        print("DEBUG RANGE:", start, end)
 
-    cards.load_cards("quiz_cards.json")
+    filtered = []
 
-    filtered = [
-        c for c in cards.study_bank
-        if start <= int(c.get("id", 0)) <= end
-    ]
+    for c in cards.study_bank:
+        cid = safe_int(c.get("id"))
+
+        if DEBUG:
+            print("RAW CARD:", c.get("id"), "->", cid)
+
+        if start <= cid <= end:
+            filtered.append(c)
+            
+    if DEBUG:
+        print("FILTERED COUNT:", len(filtered))
 
     if not filtered:
         print("No cards in that range.")
@@ -135,6 +210,7 @@ def quiz_range():
 
     random.shuffle(filtered)
     run_quiz(filtered)
-#------------------------------------
-    print("\nDEBUG IDS:")
+
     
+    if DEBUG:
+        print("\nDEBUG IDS COMPLETE")

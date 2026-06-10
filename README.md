@@ -24,8 +24,6 @@ PyQuiz is a Python CLI flashcard app using JSON-based persistent storage. Made f
 
 ✅ Type II: Multi-line problem display; multi-line answer input for exercises;extra QA input. 
 
-✅ Popup notes. Make in googledocs, download as pdf, view with foxit per card. \pyquiz\pdfs <folder>
-
 ✅ Index with range selector with on/off auto shuffle per range.
 
 ✅ Instant grading feedback per problem, total result at end.

@@ -1,16 +1,15 @@
+#display.py  6_8_2026
 import tkinter as tk
 
 _root = None
 _label = None
 
 # =====================================================
-# 🎛️ GLOBAL DEFAULT SETTINGS (EDIT THESE ONLY)
+# SETTINGS
 # =====================================================
 DEFAULT_FONT = 40
-DEFAULT_WIDTH = 300
-DEFAULT_HEIGHT = 180
 
-# presets (optional quick modes)
+
 PRESETS = {
     "small":  (28, 250, 150),
     "medium": (40, 350, 200),
@@ -18,12 +17,15 @@ PRESETS = {
 }
 
 
+# =====================================================
+# INIT WINDOW (CREATE ONCE ONLY)
+# =====================================================
 def _init():
     global _root, _label
 
     if _root is None:
         _root = tk.Tk()
-        _root.title("Display")
+        _root.title("Quiz Display")
         _root.configure(bg="white")
 
         _label = tk.Label(
@@ -31,31 +33,48 @@ def _init():
             text="",
             font=("Arial", DEFAULT_FONT),
             bg="white",
-            wraplength=DEFAULT_WIDTH
+            wraplength=400,
+            justify="center"
         )
-        _label.pack(expand=True)
+        _label.pack(expand=True, fill="both")
+
+        # keep window alive but non-blocking
+        _root.update()
 
 
 # =====================================================
-# MAIN DISPLAY FUNCTION
+# CORE DISPLAY FUNCTION
 # =====================================================
-
-
-def show(text, font_size=60, width=400, height=200):
-    global _root, _label
+def show(text, font_size=40, width=400, height=200, image=None, preset=None):
 
     _init()
 
-    _label.config(text="")
-    _root.update_idletasks()
-    _label.config(text=text, font=("Arial", font_size))
+    # presets override manual size
+    if preset and preset in PRESETS:
+        font_size, width, height = PRESETS[preset]
 
+    # image hook (future expansion)
+    if image:
+        print("IMAGE REQUESTED:", image)
+
+    # update content only (NO reset loop)
+    _label.config(text=text, font=("Arial", font_size), wraplength=width)
 
     _root.geometry(f"{width}x{height}")
 
-    _root.update_idletasks()
-    _root.update()
-
     _root.lift()
     _root.attributes("-topmost", True)
-    _root.after(150, lambda: _root.attributes("-topmost", False))
+    _root.after(100, lambda: _root.attributes("-topmost", False))
+
+    # IMPORTANT: only update IDLE state, not full loop
+    _root.update_idletasks()
+
+
+# =====================================================
+# OPTIONAL: CLEAN SHUTDOWN
+# =====================================================
+def close():
+    global _root
+    if _root:
+        _root.destroy()
+        _root = None

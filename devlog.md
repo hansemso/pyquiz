@@ -23,10 +23,14 @@ Working Features being develope
 -  type in END + [Enter] -> Finish multiline input for Q or Ans- 
 -  other   -> User data
 
-:esc   → cancel
-:q     → cancel
-exit   → cancel
-...can be used as well...but how? Just keep in mind.....
+-Removed Ttinter popup for Type II to simplify. Only Type I singline qa's have popups editable in Edit menu option.  The real rule is:
+
+❗ GUI belongs in the display layer, not inside card types.
+
+
+
+
+
 
 AI suggests a pre-input engine layer:
 keyboard → terminal → input() → string → [[[your parser]]] → meaning
