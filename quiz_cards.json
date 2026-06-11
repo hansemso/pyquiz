@@ -5,7 +5,8 @@
     "qa": [
       {
         "question": "Write its closest equivalent using new_wrapper and wrapper with no white_space",
-        "answer": "new_wrapper=decoration(wrapper)"
+        "answer": "new_wrapper=decoration(wrapper)",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -20,19 +21,23 @@
     "qa": [
       {
         "question": "Which function is the kernel/innermost function?",
-        "answer": "add"
+        "answer": "add",
+        "display": "text"
       },
       {
         "question": "Which function is the outermost function?",
-        "answer": "decorator"
+        "answer": "decorator",
+        "display": "text"
       },
       {
         "question": "Which function contains all of the math?",
-        "answer": "wrapper"
+        "answer": "wrapper",
+        "display": "text"
       },
       {
         "question": "What is the output?",
-        "answer": "49"
+        "answer": "49",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -47,35 +52,43 @@
     "qa": [
       {
         "question": "Which operation has no automatic descriptor binding at access time? (js or py)",
-        "answer": "js"
+        "answer": "js",
+        "display": "text"
       },
       {
         "question": "Which output uses context at call time instead of binding at access time? (js or py)",
-        "answer": "js"
+        "answer": "js",
+        "display": "text"
       },
       {
         "question": "What is the name of the instance reference object?",
-        "answer": "attr"
+        "answer": "attr",
+        "display": "text"
       },
       {
         "question": "What is the name of the instance reference pointer?",
-        "answer": "p"
+        "answer": "p",
+        "display": "text"
       },
       {
         "question": "'this' or 'self' is never the __ but always just a __ . (comma, no white_space)",
-        "answer": "2"
+        "answer": "2",
+        "display": "text"
       },
       {
         "question": "The instance reference object is the object that __ the method.",
-        "answer": "owns"
+        "answer": "owns",
+        "display": "text"
       },
       {
         "question": "What is the function reference variable name?",
-        "answer": "j"
+        "answer": "j",
+        "display": "text"
       },
       {
         "question": "*Bonus question: Internally, which dunder method is invoked first during attribute retrieval and on which object? (Type in exactly separated by a comma with no whitespace)",
-        "answer": "__getattribute__,attr"
+        "answer": "__getattribute__,attr",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -90,31 +103,38 @@
     "qa": [
       {
         "question": "In which language are functions always independent? (js or py)",
-        "answer": "js"
+        "answer": "js",
+        "display": "text"
       },
       {
         "question": "Which language automatically binds instance context during method retrieval?",
-        "answer": "py"
+        "answer": "py",
+        "display": "text"
       },
       {
         "question": "In which language is p.mthd() not bound?  (js/py)",
-        "answer": "js"
+        "answer": "js",
+        "display": "text"
       },
       {
         "question": "Which language always passes a reference explicitly to p as the first parameter?",
-        "answer": "py"
+        "answer": "py",
+        "display": "text"
       },
       {
         "question": "How and when does JS pass reference then? Fill in: __-ly  at  __ time. (Use comma, no whitespace)",
-        "answer": "implicitly,call"
+        "answer": "implicitly,call",
+        "display": "text"
       },
       {
         "question": "Which language needs bind() to bind its reference object?  (py/js)",
-        "answer": "js"
+        "answer": "js",
+        "display": "text"
       },
       {
         "question": "Which reference object can be hijacked by another function and when?  Fill in: __ at __ time.",
-        "answer": "this,call"
+        "answer": "this,call",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -129,31 +149,38 @@
     "qa": [
       {
         "question": "What will be the first print output? a)True b)False  c)TypeError d)self  (a,b,c, or d)",
-        "answer": "c"
+        "answer": "c",
+        "display": "text"
       },
       {
         "question": "What will be the first console output? a)True b)False c)TypeError d)Circular",
-        "answer": "d"
+        "answer": "d",
+        "display": "text"
       },
       {
         "question": "What will be the second print output? a)True b)False c)TypeError d)self",
-        "answer": "c"
+        "answer": "c",
+        "display": "text"
       },
       {
         "question": "What will be the second console output?",
-        "answer": "true"
+        "answer": "true",
+        "display": "text"
       },
       {
         "question": "Let __init__(self)__ and mthd(self). What will be the first print output? a)TypeError b)self c)<__main__.C address> d)Circular",
-        "answer": "c"
+        "answer": "c",
+        "display": "text"
       },
       {
         "question": "Let  __init__(self)__ and mthd(self). What will be the second print output? a)True b)False c)TypeError d)<__main__.C address> e)self",
-        "answer": "a"
+        "answer": "a",
+        "display": "text"
       },
       {
         "question": "In which language is i.mthd() not bound?  (js/py)",
-        "answer": "js"
+        "answer": "js",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -168,11 +195,13 @@
     "qa": [
       {
         "question": "Which function parses the string and creates an integer?",
-        "answer": "int()"
+        "answer": "int()",
+        "display": "text"
       },
       {
         "question": "Which is the indexing syntax?",
-        "answer": "card[]"
+        "answer": "card[]",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -187,39 +216,48 @@
     "qa": [
       {
         "question": "Which syntax automatically generates __init__, __repr__, and __eq__ methods?",
-        "answer": "@dataclass"
+        "answer": "@dataclass",
+        "display": "text"
       },
       {
         "question": "Which syntax turns a method into an attribute?",
-        "answer": "@property"
+        "answer": "@property",
+        "display": "text"
       },
       {
         "question": "Which method() into which .attribute? (comma,no_white_space)",
-        "answer": "area(),.area"
+        "answer": "area(),.area",
+        "display": "text"
       },
       {
         "question": "In JS a method belongs to any __ , but in Py it belongs only to a __ . (comma,no_white_space)",
-        "answer": "object,class"
+        "answer": "object,class",
+        "display": "text"
       },
       {
         "question": "In Pythonese, what do 'r' and 'area' each stand for in 'r.area'? (comma,no_white_space)",
-        "answer": "instance,attribute"
+        "answer": "instance,attribute",
+        "display": "text"
       },
       {
         "question": "What computed instance attribute does @property create?",
-        "answer": "r.area"
+        "answer": "r.area",
+        "display": "text"
       },
       {
         "question": "What is the long-form equivalent of @property? (no_white_space)",
-        "answer": "attribute = property(function)"
+        "answer": "attribute = property(function)",
+        "display": "text"
       },
       {
         "question": "Which dunder method does @dataclass automatically generate? (w/o delimiter)",
-        "answer": "__init__"
+        "answer": "__init__",
+        "display": "text"
       },
       {
         "question": "In both Py and JS, any .name() is always a __ and never an __ because it is __-able by delimiter. (comma,no_white_space)\")",
-        "answer": "method,attribute,callable"
+        "answer": "method,attribute,callable",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -234,23 +272,28 @@
     "qa": [
       {
         "question": "What will it print?",
-        "answer": "10"
+        "answer": "10",
+        "display": "text"
       },
       {
         "question": "What is the argument?",
-        "answer": "5"
+        "answer": "5",
+        "display": "text"
       },
       {
         "question": "What is the parameter?",
-        "answer": "x"
+        "answer": "x",
+        "display": "text"
       },
       {
         "question": "What is the result?",
-        "answer": "y"
+        "answer": "y",
+        "display": "text"
       },
       {
         "question": "print(obj) where obj == _____ result",
-        "answer": "valid"
+        "answer": "valid",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -265,15 +308,18 @@
     "qa": [
       {
         "question": "What will it print?",
-        "answer": "10"
+        "answer": "10",
+        "display": "text"
       },
       {
         "question": "If we # global x, what will f() try to print?",
-        "answer": "5"
+        "answer": "5",
+        "display": "text"
       },
       {
         "question": "Will it print? (y/n)",
-        "answer": "y"
+        "answer": "y",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -288,23 +334,28 @@
     "qa": [
       {
         "question": "What is the py equivalent of anonymous functions in JS? (single JS keyword)",
-        "answer": "lambda"
+        "answer": "lambda",
+        "display": "text"
       },
       {
         "question": "function sum(a, b) {return a + b;} using arrow function w implicit return",
-        "answer": "const sum = (a, b) => a + b;"
+        "answer": "const sum = (a, b) => a + b;",
+        "display": "text"
       },
       {
         "question": "JS ______ var declarations to the top of their scope.",
-        "answer": "hoists"
+        "answer": "hoists",
+        "display": "text"
       },
       {
         "question": "A function + its surrounding variables = ?",
-        "answer": "closure"
+        "answer": "closure",
+        "display": "text"
       },
       {
         "question": "How can you add a new property to an existing object, myObj, with a property name color and a value blue? (Type in code)",
-        "answer": "myObj.color = 'blue'"
+        "answer": "myObj.color = 'blue'",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -319,15 +370,18 @@
     "qa": [
       {
         "question": "In JS, a _ _ is metadata that describes how it behaves on an object. (2 words)",
-        "answer": "property attribute"
+        "answer": "property attribute",
+        "display": "text"
       },
       {
         "question": "var x; → hoisted, so x exists but is _? (1 word)",
-        "answer": "undefined"
+        "answer": "undefined",
+        "display": "text"
       },
       {
         "question": "Let x = 1; what will console.log(++x); output?",
-        "answer": "2"
+        "answer": "2",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -342,39 +396,48 @@
     "qa": [
       {
         "question": "[1]:",
-        "answer": "collection"
+        "answer": "collection",
+        "display": "text"
       },
       {
         "question": "[2]:",
-        "answer": "related"
+        "answer": "related",
+        "display": "text"
       },
       {
         "question": "[3]:",
-        "answer": "data"
+        "answer": "data",
+        "display": "text"
       },
       {
         "question": "[4]:",
-        "answer": "functions"
+        "answer": "functions",
+        "display": "text"
       },
       {
         "question": "An object is created as a [1] and stored in a [2] declared with const, let, or var. (Start with [1]:)",
-        "answer": "value"
+        "answer": "value",
+        "display": "text"
       },
       {
         "question": "[2]:",
-        "answer": "variable"
+        "answer": "variable",
+        "display": "text"
       },
       {
         "question": "An object is a value of what JS type?",
-        "answer": "object"
+        "answer": "object",
+        "display": "text"
       },
       {
         "question": "A JS object usually inherits from ___ through its prototype chain. (Hint: __.__ , case sensitive)",
-        "answer": "Object.prototype"
+        "answer": "Object.prototype",
+        "display": "text"
       },
       {
         "question": "In JS, ___ live in HTML, while properties live in the DOM object.",
-        "answer": "attributes"
+        "answer": "attributes",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -389,43 +452,53 @@
     "qa": [
       {
         "question": "const, let , var are declarative __. (Fill in)",
-        "answer": "keywords"
+        "answer": "keywords",
+        "display": "text"
       },
       {
         "question": "JS keywords are __, while functions are callable __. (comma, 1 whitespace)",
-        "answer": "syntax, objects"
+        "answer": "syntax, objects",
+        "display": "text"
       },
       {
         "question": "DOM is accessed through which global JS object?",
-        "answer": "document"
+        "answer": "document",
+        "display": "text"
       },
       {
         "question": "A keyword is syntax, an identifier is a name in ____. (4-letter word)",
-        "answer": "code"
+        "answer": "code",
+        "display": "text"
       },
       {
         "question": "And document is an identifier in the ______ _____. (2-word term)",
-        "answer": "global scope"
+        "answer": "global scope",
+        "display": "text"
       },
       {
         "question": "document is a property of ______, the global browser object.",
-        "answer": "window"
+        "answer": "window",
+        "display": "text"
       },
       {
         "question": "Forcing a function into an expression allows it to be immediately invoked. (T/F)",
-        "answer": "T"
+        "answer": "T",
+        "display": "text"
       },
       {
         "question": "An object literal consists of ___ (key–value pairs) and can also be empty. (1 word)",
-        "answer": "properties"
+        "answer": "properties",
+        "display": "text"
       },
       {
         "question": "In arrow functions, {} means a _____ (no return) unless wrapped in (), which turns it into an ______ expression. (comma, 1 whitespace)",
-        "answer": "block, object"
+        "answer": "block, object",
+        "display": "text"
       },
       {
         "question": "A __ is the value itself, while an __ is the name used to refer to that value. (comma, 1 whitespace)",
-        "answer": "literal, identifier"
+        "answer": "literal, identifier",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -440,15 +513,18 @@
     "qa": [
       {
         "question": "Which of the variable declaration keywords is function or global scope?",
-        "answer": "var"
+        "answer": "var",
+        "display": "text"
       },
       {
         "question": "Use dot notation to add 'blue' to the color property of myObj. (End with ;)",
-        "answer": "myObj.color = 'blue';"
+        "answer": "myObj.color = 'blue';",
+        "display": "text"
       },
       {
         "question": "Ditto using bracket notation.",
-        "answer": "myObj['color'] = 'blue';"
+        "answer": "myObj['color'] = 'blue';",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -463,51 +539,63 @@
     "qa": [
       {
         "question": "Type in JS keywords for variable declaration (Alphabetical order, comma, 1 whitespace)",
-        "answer": "const, let, var"
+        "answer": "const, let, var",
+        "display": "text"
       },
       {
         "question": "In JS, all variables should be declared (t/f)",
-        "answer": "t"
+        "answer": "t",
+        "display": "text"
       },
       {
         "question": "x = 5 is an __ variable assignment that creates an __  __ variable (3 words, commas, 1 whitespace)",
-        "answer": "undeclared, implicit, global"
+        "answer": "undeclared, implicit, global",
+        "display": "text"
       },
       {
         "question": "As such, in strict mode, it throws a __.",
-        "answer": "ReferenceError"
+        "answer": "ReferenceError",
+        "display": "text"
       },
       {
         "question": "Python does not use variable declaration keywords like Javascript (t/f)",
-        "answer": "t"
+        "answer": "t",
+        "display": "text"
       },
       {
         "question": "Which JS variable declaration keyword has function scope?",
-        "answer": "var"
+        "answer": "var",
+        "display": "text"
       },
       {
         "question": "What scope do let and const have instead?",
-        "answer": "block"
+        "answer": "block",
+        "display": "text"
       },
       {
         "question": "Re-write const add = function(a, b) {  in function declaration form",
-        "answer": "function add(a, b) {"
+        "answer": "function add(a, b) {",
+        "display": "text"
       },
       {
         "question": "Now re-write as arrow function",
-        "answer": "const add = (a, b) => {"
+        "answer": "const add = (a, b) => {",
+        "display": "text"
       },
       {
         "question": "In both cases, 'add' is a variable binding to a  __  __  in memory (2-word term)",
-        "answer": "function object"
+        "answer": "function object",
+        "display": "text"
       },
       {
         "question": "Arrow functions are __, not __ . (comma, 1 whitespace)",
-        "answer": "expressions, declarations"
+        "answer": "expressions, declarations",
+        "display": "text"
       },
       {
         "question": "function(a, b) {...} creates a temporary ___ function object because it has no binding or reference keeping it reachable. (lowercase word)",
-        "answer": "anonymous"
+        "answer": "anonymous",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -522,19 +610,23 @@
     "qa": [
       {
         "question": "__ = current item in the list during iteration (1 word in the code)",
-        "answer": "price"
+        "answer": "price",
+        "display": "text"
       },
       {
         "question": "Given 13 5 7 77 9 1, what will be the Max Profit?",
-        "answer": "72"
+        "answer": "72",
+        "display": "text"
       },
       {
         "question": "while True runs ___ until a ___ statement is executed inside the loop. (comma, whitespace)",
-        "answer": "forever, break"
+        "answer": "forever, break",
+        "display": "text"
       },
       {
         "question": "If the user inputs Q, .lower() turns it into  _ .",
-        "answer": "q"
+        "answer": "q",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -549,31 +641,38 @@
     "qa": [
       {
         "question": "Methods use _ , attributes do not. (syntax symbol)",
-        "answer": "()"
+        "answer": "()",
+        "display": "text"
       },
       {
         "question": "An attribute/property is __ stored on an object, whereas a method is a __ that belongs to an object. (comma, whitespace)",
-        "answer": "data, function"
+        "answer": "data, function",
+        "display": "text"
       },
       {
         "question": "In JS, every object has a prototype; in Python, every object has a __.",
-        "answer": "class"
+        "answer": "class",
+        "display": "text"
       },
       {
         "question": "JS uses a single prototype chain for inheritance, while Python separates object inheritance (classes → ___ ) and class creation (classes → ___ ). (comma, whitespace)",
-        "answer": "object, type"
+        "answer": "object, type",
+        "display": "text"
       },
       {
         "question": "JS uses one unified prototype chain for everything, while Python separates runtime behavior (MRO through classes → __ ) from class creation (via the type __ ). (comma, whitespace)",
-        "answer": "object, metaclass"
+        "answer": "object, metaclass",
+        "display": "text"
       },
       {
         "question": "Python uses class creation (via __ ) when defining classes, and MRO(Method Resolution Order) when resolving attribute/method access at __. (comma, whitespace)",
-        "answer": "type, runtime"
+        "answer": "type, runtime",
+        "display": "text"
       },
       {
         "question": "classes inherit from __, while type is the metaclass that creates classes and also inherits from __. (comma, whitespace)",
-        "answer": "object, object"
+        "answer": "object, object",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -588,27 +687,33 @@
     "qa": [
       {
         "question": "{} === {} evaluates to __  because each object literal creates a new, distinct __ in memory. (comma, whitespace)",
-        "answer": "false, object"
+        "answer": "false, object",
+        "display": "text"
       },
       {
         "question": "Arrow functions do not use the function keyword. (t/f)",
-        "answer": "t"
+        "answer": "t",
+        "display": "text"
       },
       {
         "question": "A while loop checks its condition __  execution, while a __...while loop executes once before checking the condition. (2 words, comma, whitespace)",
-        "answer": "before, do"
+        "answer": "before, do",
+        "display": "text"
       },
       {
         "question": "In Python, an __ is anything on an object, while a __ is a special attribute that runs logic when accessed. (comma, whitespace)",
-        "answer": "attribute, property"
+        "answer": "attribute, property",
+        "display": "text"
       },
       {
         "question": "Given: const add = function sum(a, b) ...which word can be deleted to make an anonymous function expression?",
-        "answer": "sum"
+        "answer": "sum",
+        "display": "text"
       },
       {
         "question": "Object.___(obj) returns an array of an object’s key-value pairs.",
-        "answer": "entries"
+        "answer": "entries",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -623,23 +728,28 @@
     "qa": [
       {
         "question": "A switch statement checks ___ values, and ___ is used to stop execution after a matching case. (comma, whitespace)",
-        "answer": "discrete, break"
+        "answer": "discrete, break",
+        "display": "text"
       },
       {
         "question": "___ -> stop everything, whereas ___ -> skip this one, keep going. (comma, whitespace)",
-        "answer": "break, continue"
+        "answer": "break, continue",
+        "display": "text"
       },
       {
         "question": "NaN represents an invalid ___ result, whereas undefined represents the absence of a ___. (comma, whitespace)",
-        "answer": "number, value"
+        "answer": "number, value",
+        "display": "text"
       },
       {
         "question": "A ___ loop checks the condition before running the code, whereas a do...while loop runs the code ___ before checking the condition. (comma, whitespace)",
-        "answer": "while, once"
+        "answer": "while, once",
+        "display": "text"
       },
       {
         "question": "In JS, var uses ___ scope (or ___ scope if declared outside a function), whereas let and const use ___ scope tied to {}. (commas, whitespaces)",
-        "answer": "function, global, block"
+        "answer": "function, global, block",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -654,15 +764,18 @@
     "qa": [
       {
         "question": "JS GET puts data in ___ wheras POST puts data in ___ ___. (lowercase, comma, whitespace)",
-        "answer": "url, request body"
+        "answer": "url, request body",
+        "display": "text"
       },
       {
         "question": "In JS, a function resolves variables through ___ scope first, then outer ___ scope. (comma, whitespace)",
-        "answer": "local, global"
+        "answer": "local, global",
+        "display": "text"
       },
       {
         "question": "END",
-        "answer": "END"
+        "answer": "END",
+        "display": "text"
       }
     ],
     "page": 1,
@@ -677,63 +790,78 @@
     "qa": [
       {
         "question": "Given the code below, what will the value of x be after execution?",
-        "answer": "10"
+        "answer": "10",
+        "display": "text"
       },
       {
         "question": "What is the function keyword?",
-        "answer": "function"
+        "answer": "function",
+        "display": "text"
       },
       {
         "question": "What is the function name?",
-        "answer": "changeX"
+        "answer": "changeX",
+        "display": "text"
       },
       {
         "question": "What is the function call operator used to invoke(call) the function?",
-        "answer": "()"
+        "answer": "()",
+        "display": "text"
       },
       {
         "question": "What contains the function's code block?",
-        "answer": "{}"
+        "answer": "{}",
+        "display": "text"
       },
       {
         "question": "In both JS and Py (and most languages), {} by itself represent a code ___, not an ___. (comma, whitespace)",
-        "answer": "block, expression"
+        "answer": "block, expression",
+        "display": "text"
       },
       {
         "question": "The {} above contains ___s, not ___s. (comma, whitespace)",
-        "answer": "statements, expressions"
+        "answer": "statements, expressions",
+        "display": "text"
       },
       {
         "question": "{} is a ___ in statements, and an ___ in expressions. (comma, whitespace)",
-        "answer": "block, object"
+        "answer": "block, object",
+        "display": "text"
       },
       {
         "question": "In JS, an object expression is a {} syntax that evaluates to an object ___.",
-        "answer": "value"
+        "answer": "value",
+        "display": "text"
       },
       {
         "question": "A statement performs an ___. An expression produces a ___. (comma, space)",
-        "answer": "action, value"
+        "answer": "action, value",
+        "display": "text"
       },
       {
         "question": "As such, statement is global, which local? (comma, space, no semicolon)",
-        "answer": "var x = 10, var x = 5"
+        "answer": "var x = 10, var x = 5",
+        "display": "text"
       },
       {
         "question": "___ is function-scoped (or global if outside a function), while let and const are ___-scoped to the nearest ___ syntax. (commas, spaces)",
-        "answer": "var, block, {}"
+        "answer": "var, block, {}",
+        "display": "text"
       },
       {
         "question": "___ creates block scope for let and const, but only function creates function scope for ___. (syntax, comma, space, keyword)",
-        "answer": "{}, var"
+        "answer": "{}, var",
+        "display": "text"
       },
       {
         "question": "Whereas in Python, ___ creates block scope, and only ___ creates function scope. (comma, space)",
-        "answer": "indentation, def"
+        "answer": "indentation, def",
+        "display": "text"
       },
       {
         "question": "END",
-        "answer": "END"
+        "answer": "END",
+        "display": "text"
       }
     ],
     "no_shuffle_qa": false,
@@ -747,19 +875,23 @@
     "qa": [
       {
         "question": "What will [x**2 for x in range(3)] output? (Use default format)",
-        "answer": "[0, 1, 4]"
+        "answer": "[0, 1, 4]",
+        "display": "text"
       },
       {
         "question": "_____ is a keyword that turns a normal function into a generator.",
-        "answer": "yield"
+        "answer": "yield",
+        "display": "text"
       },
       {
         "question": "What is the JS equivalent of yield?",
-        "answer": "function*"
+        "answer": "function*",
+        "display": "text"
       },
       {
         "question": "a = [1, 2] and b = [3, 4]. How to output [1, 2, 3, 4]?",
-        "answer": "a.extend(b)"
+        "answer": "a.extend(b)",
+        "display": "text"
       }
     ],
     "no_shuffle_qa": false,
@@ -772,328 +904,409 @@
     "code": "hanja (set 1)",
     "qa": [
       {
-        "question": "學校",
-        "answer": "학교"
-      },
-      {
-        "question": "學生",
-        "answer": "학생"
-      },
-      {
-        "question": "先生",
-        "answer": "선생"
-      },
-      {
-        "question": "國家",
-        "answer": "국가"
-      },
-      {
-        "question": "歷史",
-        "answer": "역사"
-      },
-      {
-        "question": "政治",
-        "answer": "정치"
-      },
-      {
-        "question": "經濟",
-        "answer": "경재"
-      },
-      {
-        "question": "社會",
-        "answer": "사회"
-      },
-      {
-        "question": "電話",
-        "answer": "전화"
-      },
-      {
-        "question": "電氣",
-        "answer": "전기"
-      },
-      {
-        "question": "自動車",
-        "answer": "자동차"
-      },
-      {
-        "question": "時間",
-        "answer": "시간"
+        "question": "地方政府",
+        "answer": "지방정부",
+        "display": "gui"
       },
       {
         "question": "今日 (en)",
-        "answer": "금일 today"
-      },
-      {
-        "question": "明日 (en)",
-        "answer": "명일 tomorrow"
-      },
-      {
-        "question": "昨日 (en)",
-        "answer": "작일 yesterday"
-      },
-      {
-        "question": "午前",
-        "answer": "오전"
-      },
-      {
-        "question": "午後",
-        "answer": "오후"
-      },
-      {
-        "question": "食堂",
-        "answer": "식당"
-      },
-      {
-        "question": "飮食",
-        "answer": "음식"
-      },
-      {
-        "question": "病院",
-        "answer": "병원"
-      },
-      {
-        "question": "藥局",
-        "answer": "약국"
-      },
-      {
-        "question": "銀行",
-        "answer": "은행"
-      },
-      {
-        "question": "會社",
-        "answer": "회사"
-      },
-      {
-        "question": "工場",
-        "answer": "공장"
-      },
-      {
-        "question": "市場",
-        "answer": "시장"
-      },
-      {
-        "question": "道路",
-        "answer": "도로"
-      },
-      {
-        "question": "地下",
-        "answer": "지하"
-      },
-      {
-        "question": "地下鐵",
-        "answer": "지하철"
-      },
-      {
-        "question": "海洋",
-        "answer": "해양"
-      },
-      {
-        "question": "天氣  (en)",
-        "answer": "천기 weather"
-      },
-      {
-        "question": "空港",
-        "answer": "공항"
-      },
-      {
-        "question": "外國",
-        "answer": "외국"
-      },
-      {
-        "question": "內部",
-        "answer": "내부"
-      },
-      {
-        "question": "外部",
-        "answer": "외부"
-      },
-      {
-        "question": "男女",
-        "answer": "남녀"
-      },
-      {
-        "question": "父母",
-        "answer": "부모"
-      },
-      {
-        "question": "兄弟",
-        "answer": "형제"
-      },
-      {
-        "question": "友情",
-        "answer": "우정"
+        "answer": "금일 today",
+        "display": "gui"
       },
       {
         "question": "安心",
-        "answer": "안심"
-      },
-      {
-        "question": "注意",
-        "answer": "주의"
-      },
-      {
-        "question": "安全",
-        "answer": "안전"
-      },
-      {
-        "question": "危險",
-        "answer": "위험"
-      },
-      {
-        "question": "自由",
-        "answer": "자유"
-      },
-      {
-        "question": "平和",
-        "answer": "평화"
-      },
-      {
-        "question": "政府",
-        "answer": "정부"
-      },
-      {
-        "question": "政治",
-        "answer": "정치"
-      },
-      {
-        "question": "國家",
-        "answer": "국가"
-      },
-      {
-        "question": "國會",
-        "answer": "국회"
-      },
-      {
-        "question": "大統領",
-        "answer": "대통령"
-      },
-      {
-        "question": "首相",
-        "answer": "수상"
-      },
-      {
-        "question": "閣僚",
-        "answer": "각료"
-      },
-      {
-        "question": "行政",
-        "answer": "행정"
-      },
-      {
-        "question": "立法",
-        "answer": "입법"
-      },
-      {
-        "question": "司法",
-        "answer": "사법"
+        "answer": "안심",
+        "display": "gui"
       },
       {
         "question": "官廳",
-        "answer": "관청"
+        "answer": "관청",
+        "display": "gui"
       },
       {
-        "question": "官僚",
-        "answer": "관료"
-      },
-      {
-        "question": "公務員",
-        "answer": "공무원"
-      },
-      {
-        "question": "中央政府",
-        "answer": "중앙정부"
-      },
-      {
-        "question": "地方自治",
-        "answer": "지방자치"
-      },
-      {
-        "question": "地方政府",
-        "answer": "지방정부"
-      },
-      {
-        "question": "法律",
-        "answer": "법률"
-      },
-      {
-        "question": "法院",
-        "answer": "법원"
-      },
-      {
-        "question": "憲法",
-        "answer": "헌법"
-      },
-      {
-        "question": "條例",
-        "answer": "조례"
-      },
-      {
-        "question": "政策",
-        "answer": "정책"
+        "question": "時間",
+        "answer": "시간",
+        "display": "gui"
       },
       {
         "question": "財政",
-        "answer": "재정"
+        "answer": "재정",
+        "display": "gui"
       },
       {
         "question": "稅金",
-        "answer": "세금"
+        "answer": "세금",
+        "display": "gui"
       },
       {
-        "question": "預算 (en)",
-        "answer": "예산 budget"
+        "question": "國家",
+        "answer": "국가",
+        "display": "gui"
       },
       {
-        "question": "決議",
-        "answer": "결의"
+        "question": "法律",
+        "answer": "법률",
+        "display": "gui"
       },
       {
-        "question": "命令",
-        "answer": "명령"
-      },
-      {
-        "question": "規則",
-        "answer": "규칙"
-      },
-      {
-        "question": "公共 (en)",
-        "answer": "공공 public"
-      },
-      {
-        "question": "福祉",
-        "answer": "복지"
-      },
-      {
-        "question": "權力",
-        "answer": "권력"
-      },
-      {
-        "question": "義務",
-        "answer": "의무"
-      },
-      {
-        "question": "責任",
-        "answer": "의무"
-      },
-      {
-        "question": "責任",
-        "answer": "책임"
-      },
-      {
-        "question": "監督",
-        "answer": "감독"
-      },
-      {
-        "question": "審査",
-        "answer": "심사"
+        "question": "司法",
+        "answer": "사법",
+        "display": "gui"
       },
       {
         "question": "調査",
-        "answer": "조사"
+        "answer": "조사",
+        "display": "gui"
+      },
+      {
+        "question": "福祉",
+        "answer": "복지",
+        "display": "gui"
+      },
+      {
+        "question": "閣僚",
+        "answer": "각료",
+        "display": "gui"
+      },
+      {
+        "question": "憲法",
+        "answer": "헌법",
+        "display": "gui"
+      },
+      {
+        "question": "工場",
+        "answer": "공장",
+        "display": "gui"
+      },
+      {
+        "question": "立法",
+        "answer": "입법",
+        "display": "gui"
+      },
+      {
+        "question": "自動車",
+        "answer": "자동차",
+        "display": "gui"
+      },
+      {
+        "question": "午前",
+        "answer": "오전",
+        "display": "gui"
+      },
+      {
+        "question": "內部",
+        "answer": "내부",
+        "display": "gui"
+      },
+      {
+        "question": "平和",
+        "answer": "평화",
+        "display": "gui"
+      },
+      {
+        "question": "政治",
+        "answer": "정치",
+        "display": "gui"
+      },
+      {
+        "question": "注意",
+        "answer": "주의",
+        "display": "gui"
+      },
+      {
+        "question": "地方自治",
+        "answer": "지방자치",
+        "display": "gui"
+      },
+      {
+        "question": "地下",
+        "answer": "지하",
+        "display": "gui"
+      },
+      {
+        "question": "電話",
+        "answer": "전화",
+        "display": "gui"
+      },
+      {
+        "question": "病院",
+        "answer": "병원",
+        "display": "gui"
+      },
+      {
+        "question": "公務員",
+        "answer": "공무원",
+        "display": "gui"
       },
       {
         "question": "承認",
-        "answer": "승인"
+        "answer": "승인",
+        "display": "gui"
+      },
+      {
+        "question": "食堂",
+        "answer": "식당",
+        "display": "gui"
+      },
+      {
+        "question": "外部",
+        "answer": "외부",
+        "display": "gui"
+      },
+      {
+        "question": "責任",
+        "answer": "의무",
+        "display": "gui"
+      },
+      {
+        "question": "政策",
+        "answer": "정책",
+        "display": "gui"
+      },
+      {
+        "question": "天氣  (en)",
+        "answer": "천기 weather",
+        "display": "gui"
+      },
+      {
+        "question": "政治",
+        "answer": "정치",
+        "display": "gui"
+      },
+      {
+        "question": "政府",
+        "answer": "정부",
+        "display": "gui"
+      },
+      {
+        "question": "預算 (en)",
+        "answer": "예산 budget",
+        "display": "gui"
+      },
+      {
+        "question": "空港",
+        "answer": "공항",
+        "display": "gui"
+      },
+      {
+        "question": "行政",
+        "answer": "행정",
+        "display": "gui"
+      },
+      {
+        "question": "首相",
+        "answer": "수상",
+        "display": "gui"
+      },
+      {
+        "question": "外國",
+        "answer": "외국",
+        "display": "gui"
+      },
+      {
+        "question": "明日 (en)",
+        "answer": "명일 tomorrow",
+        "display": "gui"
+      },
+      {
+        "question": "男女",
+        "answer": "남녀",
+        "display": "gui"
+      },
+      {
+        "question": "安全",
+        "answer": "안전",
+        "display": "gui"
+      },
+      {
+        "question": "會社",
+        "answer": "회사",
+        "display": "gui"
+      },
+      {
+        "question": "道路",
+        "answer": "도로",
+        "display": "gui"
+      },
+      {
+        "question": "友情",
+        "answer": "우정",
+        "display": "gui"
+      },
+      {
+        "question": "官僚",
+        "answer": "관료",
+        "display": "gui"
+      },
+      {
+        "question": "命令",
+        "answer": "명령",
+        "display": "gui"
+      },
+      {
+        "question": "市場",
+        "answer": "시장",
+        "display": "gui"
+      },
+      {
+        "question": "銀行",
+        "answer": "은행",
+        "display": "gui"
+      },
+      {
+        "question": "學生",
+        "answer": "학생",
+        "display": "gui"
+      },
+      {
+        "question": "經濟",
+        "answer": "경재",
+        "display": "gui"
+      },
+      {
+        "question": "海洋",
+        "answer": "해양",
+        "display": "gui"
+      },
+      {
+        "question": "午後",
+        "answer": "오후",
+        "display": "gui"
+      },
+      {
+        "question": "法院",
+        "answer": "법원",
+        "display": "gui"
+      },
+      {
+        "question": "社會",
+        "answer": "사회",
+        "display": "gui"
+      },
+      {
+        "question": "父母",
+        "answer": "부모",
+        "display": "gui"
+      },
+      {
+        "question": "兄弟",
+        "answer": "형제",
+        "display": "gui"
+      },
+      {
+        "question": "歷史",
+        "answer": "역사",
+        "display": "gui"
+      },
+      {
+        "question": "自由",
+        "answer": "자유",
+        "display": "gui"
+      },
+      {
+        "question": "義務",
+        "answer": "의무",
+        "display": "gui"
+      },
+      {
+        "question": "審査",
+        "answer": "심사",
+        "display": "gui"
+      },
+      {
+        "question": "飮食",
+        "answer": "음식",
+        "display": "gui"
+      },
+      {
+        "question": "先生",
+        "answer": "선생",
+        "display": "gui"
+      },
+      {
+        "question": "藥局",
+        "answer": "약국",
+        "display": "gui"
+      },
+      {
+        "question": "國家",
+        "answer": "국가",
+        "display": "gui"
+      },
+      {
+        "question": "電氣",
+        "answer": "전기",
+        "display": "gui"
+      },
+      {
+        "question": "條例",
+        "answer": "조례",
+        "display": "gui"
+      },
+      {
+        "question": "中央政府",
+        "answer": "중앙정부",
+        "display": "gui"
+      },
+      {
+        "question": "公共 (en)",
+        "answer": "공공 public",
+        "display": "gui"
+      },
+      {
+        "question": "學校",
+        "answer": "학교",
+        "display": "gui"
+      },
+      {
+        "question": "危險",
+        "answer": "위험",
+        "display": "gui"
+      },
+      {
+        "question": "地下鐵",
+        "answer": "지하철",
+        "display": "gui"
+      },
+      {
+        "question": "國會",
+        "answer": "국회",
+        "display": "gui"
+      },
+      {
+        "question": "權力",
+        "answer": "권력",
+        "display": "gui"
+      },
+      {
+        "question": "決議",
+        "answer": "결의",
+        "display": "gui"
+      },
+      {
+        "question": "監督",
+        "answer": "감독",
+        "display": "gui"
+      },
+      {
+        "question": "昨日 (en)",
+        "answer": "작일 yesterday",
+        "display": "gui"
+      },
+      {
+        "question": "責任",
+        "answer": "책임",
+        "display": "gui"
+      },
+      {
+        "question": "大統領",
+        "answer": "대통령",
+        "display": "gui"
+      },
+      {
+        "question": "規則",
+        "answer": "규칙",
+        "display": "gui"
       }
     ],
     "no_shuffle_qa": false,
@@ -1107,19 +1320,23 @@
     "qa": [
       {
         "question": "___() checks exact class only, while ___() also returns True for subclasses. (comma,space)",
-        "answer": "type, ininstance"
+        "answer": "type, ininstance",
+        "display": "text"
       },
       {
         "question": "Given class S(K):, which is the subclass?",
-        "answer": "S"
+        "answer": "S",
+        "display": "text"
       },
       {
         "question": "Py inheritance must be made by using the Py keyword: class   (t/f)",
-        "answer": "t"
+        "answer": "t",
+        "display": "text"
       },
       {
         "question": "As such, given class S(K), which inherits from which? (comma, space)",
-        "answer": "S, K"
+        "answer": "S, K",
+        "display": "text"
       }
     ],
     "no_shuffle_qa": false,
@@ -1133,55 +1350,68 @@
     "qa": [
       {
         "question": "Write pow(x, y) using ^",
-        "answer": "x^y"
+        "answer": "x^y",
+        "display": "text"
       },
       {
         "question": "What is another simpler way to write pow(x, y) in Python?",
-        "answer": "x**y"
+        "answer": "x**y",
+        "display": "text"
       },
       {
         "question": "Re-write pow(a, b, c) likewise. (no whitespace)",
-        "answer": "(a**b)%c"
+        "answer": "(a**b)%c",
+        "display": "text"
       },
       {
         "question": "What is c in arithmetic terminology?",
-        "answer": "divisor"
+        "answer": "divisor",
+        "display": "text"
       },
       {
         "question": "What is pow(2,3,5) or (2**3)%5  ?",
-        "answer": "3"
+        "answer": "3",
+        "display": "text"
       },
       {
         "question": "What does math.pow() always return?",
-        "answer": "float"
+        "answer": "float",
+        "display": "text"
       },
       {
         "question": "4//2 = 2 but 4//2.00001 = ?",
-        "answer": "1.0"
+        "answer": "1.0",
+        "display": "text"
       },
       {
         "question": "What will divmod(10, 3) output?",
-        "answer": "(3, 1)"
+        "answer": "(3, 1)",
+        "display": "text"
       },
       {
         "question": "What is divmod(a, b) in tuple form? (comma, spaces)",
-        "answer": "(a // b, a % b)"
+        "answer": "(a // b, a % b)",
+        "display": "text"
       },
       {
         "question": "Type in the floor division assignment operator",
-        "answer": "//="
+        "answer": "//=",
+        "display": "text"
       },
       {
         "question": "Type in the modulo assignment operator",
-        "answer": "%="
+        "answer": "%=",
+        "display": "text"
       },
       {
         "question": "Type in the exponentiation assignment operator",
-        "answer": "**="
+        "answer": "**=",
+        "display": "text"
       },
       {
         "question": "Type in the inequality comparison operator",
-        "answer": "!="
+        "answer": "!=",
+        "display": "text"
       }
     ],
     "no_shuffle_qa": false,
@@ -1195,11 +1425,13 @@
     "qa": [
       {
         "question": "What will be the output? (comma, spaces)",
-        "answer": "[1, 4, 9, 16]"
+        "answer": "[1, 4, 9, 16]",
+        "display": "text"
       },
       {
         "question": "Fill in basic form: map(___, ___)",
-        "answer": "function, iterable"
+        "answer": "function, iterable",
+        "display": "text"
       }
     ],
     "no_shuffle_qa": false,
@@ -1213,51 +1445,63 @@
     "qa": [
       {
         "question": "A | B  output",
-        "answer": "{1, 2, 3, 4, 5}"
+        "answer": "{1, 2, 3, 4, 5}",
+        "display": "text"
       },
       {
         "question": "A.union(B) output:",
-        "answer": "{1, 2, 3, 4, 5}"
+        "answer": "{1, 2, 3, 4, 5}",
+        "display": "text"
       },
       {
         "question": "A & B  output:",
-        "answer": "{3, 4}"
+        "answer": "{3, 4}",
+        "display": "text"
       },
       {
         "question": "Write A|B in math notation. (Use spacing)",
-        "answer": "A ∪ B"
+        "answer": "A ∪ B",
+        "display": "text"
       },
       {
         "question": "Write A.union(B) in math notation. (spacing)",
-        "answer": "A ∪ B"
+        "answer": "A ∪ B",
+        "display": "text"
       },
       {
         "question": "Write A & B in math notation. (spacing)",
-        "answer": "A ∩ B"
+        "answer": "A ∩ B",
+        "display": "text"
       },
       {
         "question": "Write A.intersection(B) in math notation.",
-        "answer": "A ∩ B"
+        "answer": "A ∩ B",
+        "display": "text"
       },
       {
         "question": "Write A - B in math notation (Use spacing)",
-        "answer": "A \\ B"
+        "answer": "A \\ B",
+        "display": "text"
       },
       {
         "question": "END",
-        "answer": "END"
+        "answer": "END",
+        "display": "text"
       },
       {
         "question": "Write A.difference(B) in math notation (Use spacing)",
-        "answer": "A \\ B"
+        "answer": "A \\ B",
+        "display": "text"
       },
       {
         "question": "Write A ^ B in math notation",
-        "answer": "A ⊆ B"
+        "answer": "A ⊆ B",
+        "display": "text"
       },
       {
         "question": "Write A < B in math notation",
-        "answer": "A ⊂ B"
+        "answer": "A ⊂ B",
+        "display": "text"
       }
     ],
     "no_shuffle_qa": false,
@@ -1274,7 +1518,8 @@
     "qa": [
       {
         "question": "b",
-        "answer": "b"
+        "answer": "b",
+        "display": "text"
       }
     ],
     "shuffle_qa": true
@@ -1288,19 +1533,23 @@
     "qa": [
       {
         "question": "Name the iteration variable above",
-        "answer": "item"
+        "answer": "item",
+        "display": "text"
       },
       {
         "question": "What is result.append called (in OOP terms)?",
-        "answer": "bound method"
+        "answer": "bound method",
+        "display": "text"
       },
       {
         "question": "Name the instance",
-        "answer": "result"
+        "answer": "result",
+        "display": "text"
       },
       {
         "question": "Name the built-in Py class of the instance",
-        "answer": "list"
+        "answer": "list",
+        "display": "text"
       }
     ],
     "shuffle_qa": true

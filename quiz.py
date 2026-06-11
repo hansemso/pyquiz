@@ -1,10 +1,12 @@
-# quiz.py  6_8_2026
+# quiz.py  Today's Date: 6_10_2026
 
 DEBUG = False
 
 import random
 import cards
 import display
+
+
 
 
 # =====================================================
@@ -155,18 +157,37 @@ def run_quiz(cards_list):  # For both Type I AND II
 
         if card.get("shuffle_qa", True):
             random.shuffle(qa_list)
+            
+# ----------------------------------------------------            
+# for Type I(mline-sline fields) qa pairs in qa_list
+#-----------------------------------------------------
 
         for qa in qa_list:
-
+            
             q = qa.get("question", "")
             a = qa.get("answer", "")
+            
+            print("DEBUG QA:", qa)
+            print("DEBUG DISPLAY FIELD:", qa.get("display"))
 
             print(f"\nQ: {q}")
-            
-            print("CALLING DISPLAY:", q)
-            display.show(q, font_size=60)
+
+            mode = qa.get("display", "text").lower()
+
+            if mode != "text":
+                display.show(q, font_size=60)
 
             user_ans = get_answer("Answer > ", multiline=False)
+            print("DEBUG INPUT:", user_ans)
+    
+            import time
+            time.sleep(0.01)
+    
+            
+            #print("CALLING DISPLAY:", q)
+            #display.show(q, font_size=60)  # Added 6_10_26 last to make hanja work in tkinter, force every question into Tkinter. Before this it was working fine, nothing added except for debug #code. 
+
+            
 
             if user_ans == "__EXIT__":
                 print("\n↩ Returning to menu...")

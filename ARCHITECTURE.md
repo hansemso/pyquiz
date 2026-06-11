@@ -1,19 +1,85 @@
-# devlog  ...for pyquiz June 2026
+# pyquiz\ARCHITECTURE.md  |  today's date: 6_10_26
 
-## Synopsis: 
-devlog for keeping track of day to day development. General goals are described in the README.md. 
+# Synopsis: 
+- quiz.py and cards.py are the core files. main.py is like a simple breaker box.  
+-  
 
 
-## Current Status, i.e working Features being developed now
+# Recent Development:
+
+6.10.26: Finally got Tkinter to work with pyquiz. Trick was to start over by attaching a relay as it were called "display" then to toggle on/off popup window per question by adding it to Edit Mode as, t = toggle. Defensive development as it were. 
+2. 
+3.
+4.
+ 
+
+# Architecture (by file):  
+
+## quiz.py [shuffle, 
+
+
+## cards.py [data, flags
+
+1. Cards are divided into Type I and II: 
+	- Type I: one mline(multi) field >> unlimited sline(single) qa-pair fields. Per card.  
+	- Type II: one mline question field >> one mline answer field. Per card. 
+	- random.shuffle(filtered) card level shuffle. card.get("shuffle_qa",True) = read value of key to on/off qa shuffle of this card(Type I only)   
+	qa.get("display", "text").lower() ...means use key="display" to read value="text" and attach to qa object.  
+	
+	
+- Every question in sline qa-pairs has a <gui> on/off switch to which Tkinter is attached. 
+
+- "Directory"=(user's topic ranges menu)  [card(json obj) -> study_bank -> card.get() -> user Index or Directory in Edit Mode]
+
+
+
+#================ END ================================
+
+my clipboard:  
+
+
+
+
 - In quiz.py def run_quiz, Type I loop and Type II loop are parallel . 
 - Decided to make quiz_gui.py to protect quiz.py and pyquiz in general from bugs caused by gui display logic. 
 - print("CALLING DISPLAY:", q)
 display.show(q, font_size=60)   ...this is what made tkinter window work for hanja finally said AI. 
+🧪 Why HELLO shows but Hanja doesn’t
+
+Because:
+
+HELLO test was forced in main.py ✔
+quiz Hanja depends on "display" == "gui" ❌ (likely false or missing)
+
+❌ Tkinter cannot be safely driven from a blocking CLI loop
+
+English question triggers display → works initially
+Then input() blocks execution
+Tk event queue stalls
+next display.show() calls never repaint correctly
+window stays on last stable frame (“HELLO 3”)
+
+Tk shows HELLO 3
+↓
+program enters input() loop
+↓
+Tk never properly enters stable event cycle
+↓
+window appears frozen
+
+Finally, ai says not a TK bug but missing data field >> logic never activates gui. 
+Your system simply had:
+
+❌ “GUI triggered by metadata that doesn’t exist” ... so I should a have installed a manual switch on each qa pair?  then ai offers "per-card display rules" finally, which I was thinking of doing in the first place to prevent this but this not because it said auto detect english/hanja was good for it. 
 
 
 
+## Class A distinctive structural features well developed
 
-### Working Features well developed at this point now
+- 
+
+
+## Class B specific/less global features
 
 - [x] Runs on Python 3.xx and terminal for ruggedness, expandability, and easier debugging
 - [x] JSON card storage: quiz_cards.json

@@ -1,5 +1,5 @@
 '''
-1.Utility  2.Directory/Index  3.SAFE CARD SANITIZER  4.File Storage  5.Utility Input  6.QA EDITOR  7.ADD CARD  8.EDIT CARD 
+1.Utility  2.Directory/Index  3.SAFE CARD SANITIZER  4.File Storage  5.Utility Input  6.EDIT MODE  7.ADD CARD  8.EDIT CARD 
 RAM: study_bank: List[Dict[str, Any]] = []
 L: |1|edit_directory_note(): lines, line, new_text  |4|save_all_cards():path,f |5|multiline_required():prompt,lines,line; multiline_optional():prompt,first,lines,line |6|edit_qa_loop():i,qa,q,a,choice,idx,item,nq,na |7|add_study_card():card_type,card_id,code,answer,pdf,qa_list,q,a |8|edit_card():card,code,first_line,selected_id,action,new_code,sub,new_answer,qa_list,new_pdf,new_id,state,c
 E: No indented def's
@@ -11,15 +11,15 @@ import json
 import os
 from typing import List, Dict, Any
 
-study_bank: List[Dict[str, Any]] = []  # in-memory data storage loaded from json file. Kept in RAM while program runs. json is the persistent storage. 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# in-memory data storage loaded from json file. Kept in RAM while program runs. json is the persistent storage:
 
+study_bank: List[Dict[str, Any]] = []  
 
-
-
-
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # =====================================================
-# 1] Utility (pure generic helpers, no user interaction)
+# 1. Utility (generic helpers, no user interaction)
 # =====================================================
 
 def normalize(text):
@@ -45,8 +45,9 @@ def sort_key(card):  # Used below by sorted()
     return (1, cid.lower())
     
 # =====================================================
-# 2] Directory/Index
+# 2. Directory  [card(json obj) -> study_bank -> card.get() -> user Index or Directory in Edit Mode]
 # =====================================================
+
 
 DIRECTORY_FILE = os.path.join(
     os.path.dirname(__file__),
@@ -93,11 +94,11 @@ def edit_directory_note():
     with open(DIRECTORY_FILE, "w", encoding="utf-8") as f:
         f.write(new_text)
 
-    print("\n✅ Directory note updated.")
+    print("\n✅ Directory updated.")
 
 
 # =====================================================
-# 3] CARD SANITIZER
+# 3. CARD SANITIZER
 # =====================================================
 
 def sanitize_card(card: dict) -> dict:  
@@ -113,12 +114,13 @@ def sanitize_card(card: dict) -> dict:
         if isinstance(q, dict) and "question" in q and "answer" in q
     ]
 
-
+    for q in card.get("qa", []):
+        q.setdefault("display", "text")  # FLAG
 
     card.setdefault("id", "0")
     card.setdefault("code", "")
     card.setdefault("qa", [])
-    card.setdefault("shuffle_qa", True)
+    card.setdefault("shuffle_qa", True)  #FLAG
     card.setdefault("type", "I")
     card.setdefault("answer", "")
     
@@ -135,19 +137,11 @@ def sanitize_card(card: dict) -> dict:
         card["type"] = "I"
     
     
-    
-    
-    card.pop("followup_qa", None)
-    card.pop("pdf", None)
-    
-    
-    
-    
     return card
 
 
 # =====================================================
-# 4] File Storage
+# 4. File Storage
 # =====================================================
 
 def load_cards(filename="quiz_cards.json"):
@@ -175,7 +169,7 @@ def save_all_cards():
 
 
 # =====================================================
-# 5] Utility Input [dependent on user input()]
+# 5. Utility Input [dependent on user input()]
 # =====================================================
 
 def multiline_required(prompt="Enter text (END to finish):"):  # inner loop. 
@@ -219,7 +213,7 @@ def multiline_optional(prompt="Enter text (END to save, ENTER to cancel):"):
     return "\n".join(lines)  # inserts newline for each line in list, stacks vertically
 
 # =====================================================
-# 6] QA EDITOR 
+# 6. EDIT MODE  [edit_qa_loop]
 # =====================================================
 
 def edit_qa_loop(card, qa_list):  
@@ -233,64 +227,90 @@ def edit_qa_loop(card, qa_list):
         for i, qa in enumerate(qa_list, start=1):
             q = qa.get("question", "")
             a = qa.get("answer", "")
-            print(f"{i}. Q: {q} | A: {a}")
             
+            mode = qa.get("display", "text")
 
-        print("\na = add | ENTER = back")
+            g = "GUI" if mode == "gui" else "--"
+
+            print(f"{i}. [{g}] Q: {q} | A: {a}")
+            
+        print("\na = add | t = toggle gui | g = gui all on/off | e = edit | ENTER = back")
+        
         choice = input("Select: ").strip().lower()
 
+        # toggle GUI
+        if choice == "t":
+            idx = int(input("Toggle which #? ")) - 1
+
+            if 0 <= idx < len(qa_list):
+                qa = qa_list[idx]
+
+                mode = qa.get("display", "text")
+
+                qa["display"] = "gui" if mode != "gui" else "text"
+
+                save_all_cards()
+                print("🔁 Toggled GUI mode")
+
+            continue
+        
+        
+        
+        # add more qa
+        if choice == "a":
+            q = input("Q: ").strip()
+            a = input("A: ").strip()
+            if q and a:
+                qa_list.append({
+                    "question": q,
+                    "answer": a,
+                    "display": "text"
+                })
+                save_all_cards()
+            continue
+
+    
+      
+       # edit QA (FIXED VERSION)
+        if choice == "e":
+            idx = int(input("Edit which #? ")) - 1
+
+            if 0 <= idx < len(qa_list):
+                qa = qa_list[idx]
+
+                nq = input("New Q (blank keep): ").strip()
+                na = input("New A (blank keep): ").strip()
+
+                if nq:
+                    qa["question"] = nq
+                if na:
+                    qa["answer"] = na
+
+                save_all_cards()
+            continue
+
+        # toggle on gui for all in Edit QA
+        if choice == "g":
+
+            state = input("on/off? ").strip().lower()
+
+            for qa in qa_list:
+                qa["display"] = "gui" if state == "on" else "text"
+
+            save_all_cards()
+            print("✅ Updated all questions")
+            continue
+    
+    
+    
+        # exit if no choice selected
         if choice == "":
             save_all_cards()
             return
 
-        if choice == "a":
-            q = input("Q: ").strip()
-            a = input("A: ").strip()
-
-            if q and a:
-                qa_list.append({
-                    "question": q,
-                    "answer": a
-                })
-                save_all_cards()
-
-            continue
-
-        try:
-            idx = int(choice) - 1
-
-            if idx < 0 or idx >= len(qa_list):
-                print("❌ Invalid")
-                continue
-
-            item = qa_list[idx]  #item=single qa dict, qa_list=full list
-            
-            
-
-        except:
-            print("❌ Invalid")
-            continue
-
-        nq = input("New Q (blank keep): ").strip()
-        na = input("New A (blank keep): ").strip()
-        nf = input("Image file (blank keep, '-' to remove): ").strip()
-     
-        if nq:
-            item["question"] = nq
-
-        if na:
-            item["answer"] = na
-
-        if nf == "-":
-            item.pop("file", None)
-        elif nf:
-            item["file"] = nf
-
-        save_all_cards()
-
 
 # =====================================================
-# 7] ADD CARD
+# 7. ADD CARD
 # =====================================================
 
 def add_study_card():
@@ -328,7 +348,7 @@ def add_study_card():
             "id": card_id,
             "code": code,
             "answer": answer,
-            "shuffle_qa": True,
+            "shuffle_qa": True,  # FLAG
         })
 
         save_all_cards()
@@ -346,8 +366,11 @@ def add_study_card():
         a = input("A: ").strip()
 
         if q and a:
-            qa_list.append({"question": q, "answer": a})
-
+            qa_list.append({
+                "question": q,
+                "answer": a,
+                "display": "text"  # FLAG
+            })
     
 
     study_bank.append({
@@ -355,7 +378,7 @@ def add_study_card():
         "id": card_id,
         "code": code,
         "qa": qa_list,
-        "shuffle_qa": True
+        "shuffle_qa": True  # FLAG
     })
 
     save_all_cards()
@@ -385,7 +408,7 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
 
 
 
-    print(card)
+    print(f"\nCard loaded: {card.get('id')} ({card.get('type')})")
     
     
     
@@ -405,7 +428,7 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
         print("2. Edit qa, mline Ans")  # qa edit(type I,II) + multiline answer(type I only)
         print("3. Change card id")
         print("4. Delete card")
-        print("5. Auto shuffle on/off")  # Turn off auto shuffle for Type I cards(ordered qa content) 
+        print("5. Auto shuffle_qa on/off")  # FLAG 
         print("6. Cancel")
 
         action = input("Select option: ").strip()  # action is the variable for user input string for elif list below
@@ -467,6 +490,7 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
             else:
                 qa_list = card.setdefault("qa", [])
                 edit_qa_loop(card, qa_list)
+                
                 save_all_cards()
 
       
@@ -488,12 +512,12 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
             save_all_cards()
 
             if card["shuffle_qa"]:
-                state = "ON (shuffle allowed)"
+                shuffle_status = "ON (shuffle allowed)"  #FLAG
             else:
-                state = "OFF (no shuffle)"
+                shuffle_status = "OFF (no shuffle)"
             
             
-            print(f"🔁 Auto shuffle toggled: {state}")
+            print(f"🔁 Auto shuffle toggled: {shuffle_status}")
     
             
             
