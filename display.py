@@ -2,7 +2,7 @@ import tkinter as tk
 
 _root = None
 _label = None
-_initialized = False
+_initialized = False  # Prevents duplicate windows
 
 
 def init():
