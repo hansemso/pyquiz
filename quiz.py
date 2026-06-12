@@ -10,7 +10,7 @@ import display
 
 
 # =====================================================
-# PARSE RANGE
+# parse_range input prompt 
 # =====================================================
 
 def parse_range(prompt):
@@ -25,7 +25,7 @@ def parse_range(prompt):
 
 
 # =====================================================
-# DISPLAY 
+# render_question tkinter display
 # =====================================================
 
 
@@ -42,12 +42,12 @@ def render_question(q, qa):
 
 
 # =====================================================
-# ASK INPUT (UNIFIED)
+# get_answer ROUTER. Type I or II.   
 # =====================================================
 
 def get_answer(prompt, multiline=False):
     if multiline:
-        return cards.multiline_input(prompt)
+        return cards.multiline_input(prompt)  
 
     ans = input(prompt).strip()
 
@@ -58,7 +58,7 @@ def get_answer(prompt, multiline=False):
 
 
 # =====================================================
-# MAIN QUIZ ENGINE
+# run_quiz engine
 # =====================================================
 
 
@@ -95,7 +95,7 @@ def run_quiz(cards_list):  # For both Type I AND II
             print("QA COUNT:", len(card.get("qa", [])))
 
         # --------------------- 
-        # TYPE II part of def run_quiz above
+        # TYPE II part of def run_quiz above. multiline=True
         # ---------------------
         
         if card.get("type") == "II":
@@ -103,7 +103,7 @@ def run_quiz(cards_list):  # For both Type I AND II
 
             user_ans = get_answer(
                 "mline Answer (END to finish, or q to quit):",
-                multiline=True
+                multiline=True  # Sends True to get_answer above
             )
 
             if user_ans == "__EXIT__":
@@ -158,17 +158,18 @@ def run_quiz(cards_list):  # For both Type I AND II
         if card.get("shuffle_qa", True):
             random.shuffle(qa_list)
             
-# ----------------------------------------------------            
-# for Type I(mline-sline fields) qa pairs in qa_list
-#-----------------------------------------------------
+            
+# ........................................            
+# for Type I sline qa fields -> qa_list:  
+#............................................
 
         for qa in qa_list:
             
             q = qa.get("question", "")
             a = qa.get("answer", "")
             
-            print("DEBUG QA:", qa)
-            print("DEBUG DISPLAY FIELD:", qa.get("display"))
+#            print("DEBUG QA:", qa)
+#            print("DEBUG DISPLAY FIELD:", qa.get("display"))
 
             print(f"\nQ: {q}")
 
@@ -177,11 +178,13 @@ def run_quiz(cards_list):  # For both Type I AND II
             if mode != "text":
                 display.show(q, font_size=60)
 
-            user_ans = get_answer("Answer > ", multiline=False)
-            print("DEBUG INPUT:", user_ans)
+            user_ans = get_answer("Answer > ", multiline=False)  # Sends False to get_answer
+            
+            
+            #print("DEBUG INPUT:", user_ans)
     
-            import time
-            time.sleep(0.01)
+            #import time
+            #time.sleep(0.01)  # If gui works with delay, suggests timing issue
     
             
             #print("CALLING DISPLAY:", q)

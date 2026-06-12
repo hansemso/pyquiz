@@ -77,22 +77,29 @@ def edit_directory_note():
     print(load_directory_note())
 
     print("\nType new note.")
-    print("Type END on its own line to save.\n")
+    print("Type END to save  |  Press [Enter] to cancel\n")
 
     lines = []
 
     while True:
         line = input()
 
+        if line.strip() == "":
+            print("\n↩ Returning to menu...")
+            return
+            
         if line.strip().upper() == "END":
             break
 
         lines.append(line)
+        
+    else:
+        return
 
-    new_text = "\n".join(lines)
+    new_text = "\n".join(lines)  
 
     with open(DIRECTORY_FILE, "w", encoding="utf-8") as f:
-        f.write(new_text)
+        f.write(new_text)  # Writes to disk
 
     print("\n✅ Directory updated.")
 
@@ -332,7 +339,7 @@ def add_study_card():
         print("❌ Duplicate ID!")
         return
 
-    print("DEBUG: before multiline")
+    #print("DEBUG: before multiline")
 
     code = multiline_input("Enter code (END to finish):")  # 🔥mline-Q for Type I or II
 
@@ -404,9 +411,14 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
 
     selected_id = input("\nSelect card ID: ").strip()  # a) user inputs card id
 
-    card = next((c for c in study_bank if str(c.get("id")) == selected_id), None)  # b) assigns user selection to, 'card'
+    card = next(
+        (c for c in study_bank if str(c.get("id")) == selected_id), 
+        None
+    )  
 
-
+    if not card:
+        print("❌ Card not found.")
+        return
 
     print(f"\nCard loaded: {card.get('id')} ({card.get('type')})")
     
@@ -420,7 +432,7 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
     # 🔥 sanitize BEFORE ANY TYPE CHECKS ARE USED
     card = sanitize_card(card)  # take 'card' to 3] def sanitize_card, assign back to 'card'
 
-    print("card type:", card.get("type"))  # 3.Edit prints I or II after card id input. Serves as 🐞DEBUG🐞 for 'type' = variable for type I or II loop defined in 2] add card.
+   # print("card type:", card.get("type"))  # 3.Edit prints I or II after card id input. Serves as 🐞DEBUG🐞 for 'type' = variable for type I or II loop defined in 2] add card.
 
 #  main.py → 3. Edit Card/View Index →  ***** EDIT MENU *****
     while True:  # outer loop
@@ -521,12 +533,12 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
     
             
             
-        elif action == "debug":
-            print("=== DEBUG CARDS ===")
-            for c in study_bank:
-                print("ID:", c.get("id"),
-                  "| shuffle:", c.get("shuffle_qa"),
-                  "| type:", c.get("type"))
+#        elif action == "debug":
+#            print("=== DEBUG CARDS ===")
+#            for c in study_bank:
+#                print("ID:", c.get("id"),
+#                  "| shuffle:", c.get("shuffle_qa"),
+#                  "| type:", c.get("type"))
     
         elif action == "6":
             break
