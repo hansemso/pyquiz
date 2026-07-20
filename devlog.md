@@ -1,20 +1,24 @@
-# devlog
+# devlog for pyquiz.py
+
+6.25.26: Adding truthy flag + payload means to Type I cards so diagram pops up in tkinter automatically only if it exists. Otherwise works normally as single-line qa's after multi-line problem display as usual for Type I. User can in Edit Mode input the unicode diagram into existing cards. 
+
+
+
+
+
 
 ## ML Bayes theorem pyquiz-cpymos exercise feature
 
-Created lab.json pyquiz and cpymos can use to pass data to each other. 
+ 
+
+
+
+
 
 #1000 Bayes theorem review
 
 
 ## Bayes' Theorem – Posterior Density
-
-
-            Bayes' Theorem                     Posterior Density
-
-            P(B | A) P(A)                      p(x | θ) π(θ)
-P(A | B) = ---------------      p(θ | x) = -------------------------
-                P(B)                        ∫ p(x | t) π(t) dt   from -∞ to ∞
 
 
 > Posterior = Likelihood × Prior / Evidence
@@ -29,49 +33,549 @@ Belief about θ before seeing the data.
   Represents the overall probability of observing the data.
 
 
+For Type I cards. Use gui toggle feature. 
 
-        Set-Theoretic View                                 Outcome View
+* Coin fairness p ∈ [0,1]  
 
-+--------------------------------------+      +--------------------------------------+
-|              All Coins               |      |              All Coins               |
-|         Ω = {H,T} = 2 elements       |      |         Ω = {H,T} = 2 elements       |
-|      +------------------+            |      |                                      |
-|      |        B         |            |      |      +------------------------+      |
-|      |    Fair Coin     |            |      |      |           B            |      |
-|      |                  |            |      |      |       Fair Coin        |      |
-|      |    +------+      |            |      |      |                        |      |
-|      |    | A∩B  |      |            |      |      |  +---------+--------+  |      |
-|      |    |Heads |      |            |      |      |  |  A∩B    |        |  |      |
-|      |    +------+      |            |      |      |  | Heads   | Tails  |  |      |
-|      |                  |            |      |      |  |   H     |   T    |  |      |
-|      +------------------+            |      |      |  +---------+--------+  |      |
-|                                      |      |      |                        |      |
-+--------------------------------------+      |      +------------------------+      |
-                                              |                                      |
-                                              +--------------------------------------+
+Ω = {H, T} = theoretical sample space = all possible outcomes
+│             (dataset for one toss: D = {H} or {T})
+│
+├── ω = H or T        (one observed outcome)
+│
+├── subsets (events)
+│     │
+│     ├── A = {H} ⊆ Ω
+│     ├── B = {T} ⊆ Ω
+│     └── Ω = {H,T}
+│
+└── 𝔽 = P(Ω)
+      │
+      ├── ∅
+      ├── {H} = A
+      ├── {T} = B
+      └── {H,T} = Ω
 
-B = Fair Coin = property/description of model, not a subset of Ω
-A∩B or A|B = Heads AND Fair Coin = 1/2 = 1 out of 2 elements/outcomes
-
-For a single fair coin, there really isn't a natural Bayes-theorem Venn diagram because there's no hidden variable to update. That's why our earlier diagram felt forced. You were noticing a real mathematical issue, not just a drawing issue.
 
 
 ### *** Bayes' Theorem ***  
-+--------------------------------------+   
-|              All Coins               |                   P(B | A) P(A)  
-|         Ω = {H,T} = 2 elements       |       P(A | B) = ---------------      
-|                                      |                       P(B)
-|      +------------------------+      |       
-|      |           B            |      |       B = Fair Coin = property/description of model,
-|      |       Fair Coin        |      |                       not a subset of Ω
-|      |                        |      |     
-|      |  +---------+--------+  |      |       A∩B or A|B = Heads AND Fair Coin = 1/2 
-|      |  |  A∩B    |  A∩B   |  |      |                  = 1 out of 2 elements/outcomes
-|      |  | Heads   | Tails  |  |      |     
-|      |  |   H     |   T    |  |      |                       p(D | θ) π(θ)
-|      |  +---------+--------+  |      |       p(θ | D) = -------------------------
-|      |                        |      |                  ∫ p(x | t) π(t) dt   from -∞ to ∞
-|      +------------------------+      |     
-|                                      |       D = dataset        θ = parameter      
-+--------------------------------------+
++----------------------------------+---------------------------------------------+
+|                Ω                 |               P(B | A) P(A)                 |  
+|     theoretical sample space     |   P(A | B) = ---------------                |  
+|          (not dataset)           |                   P(B)                      |  
+|    +------------+-----------+    |                                             |  
+|    | B = new Ω(subset of Ω) |    |  (Ω,𝔽,P) where P:𝔽 → [0,1] and 𝔽 ⊆ P(Ω)    |  
+|    |                        |    |                                             |  
+|    |                        |    |                                             |       
+|    |  +---------+--------+  |    |                                             |        
+|    |  |  A∩B    |  A∩B   |  |    |                                             |   	  
+|    |  | Heads   | Tails  |  |    |                                             |        
+|    |  |   H     |   T    |  |    |                   p(D | θ) π(θ)             |        
+|    |  +---------+--------+  |    |   p(θ | D) = -------------------------      |        
+|    |                        |    |              ∫ p(x | t) π(t) dt  (-∞ to ∞)  |        
+|    +------------------------+    |                                             |        
+|                                  |   D = dataset        θ = parameter          |
++----------------------------------+---------------------------------------------+
 
+### *** Bayes' Theorem (cancer) ***
++----------------------------------+--------------------------------------+
+|                Ω                 |            Bayes Theorem             |
+|     theoretical sample space     |                                      |
+|          (not dataset)           |      P(A | B) = P(B | A) P(A)        |
+|                                  |                 -----------          |
+| Ω = {(C,+),(C,-),                |                    P(B)              |
+|      (NC,+),(NC,-)}              |                                      |
+|                                  |  A = Patient has cancer              |
+| +----------------------------+   |  B = Patient tests positive          |
+| | B = Positive Test          |   |                                      |
+| |                            |   |  P(A)    = Cancer prevalence         |
+| | +---------+-------------+  |   |  P(B|A)  = Sensitivity               |
+| | | A∩B     |   B|Aᶜ      |  |   |  P(B)    = Positive-test rate        |
+| | | (C,+)   |  (NC,+)     |  |   |  P(A|B)  = Cancer given positive     |
+| | +---------+-------------+  |   |                                      |
+| +----------------------------+   |  D = {ω¹, ω², …, ω¹⁰⁰⁰} where ωⁱ ∈ Ω |
++----------------------------------+--------------------------------------+
+
+Q:  In the Venn diagram, what region represents false positives? a) A∩B  b) B|Aᶜ  b) 
+A:  b
+Q:  False positives inside B because they received a ___ test result.
+A:  positive
+Q:  Does a false positive contribute to P(B)? (y/n)
+A:  y
+Q: False positives reduce P(C|+) because they ___ the number of positive tests without increasing the number of cancer cases.
+A:  increase
+Q:  A patient has cancer and tests positive. Given a cancer prevalence of 0.01 and a false positive rate of 0.15, calculate P(B) and P(A|B). (Type both as 0.___ separated by comma,space)
+A: 0.1575, 0.057
+
+
+where A
+c
+ means "no cancer."
+
+
+Q:  If A = "has cancer" and B = "tests positive", what is B \ A?
+A:  Patients who test positive but do not have cancer.
+Q:  Why are false positives outside A?
+A:  Because those patients do not have cancer.
+
+
+Q: Does a false positive contribute to P(A)?
+A: No. The patient does not have cancer.
+
+Q: What does sensitivity measure in plain language?
+A: How good the test is at detecting disease when the disease is actually present.
+Q: What is sensitivity in a medical test?
+A: The probability that the test is positive given that the patient has the disease.
+Q: What does sensitivity measure?
+A: The fraction of actual cancer patients who test positive.
+Q: What does the false positive rate measure?
+A: The fraction of healthy patients who test positive.
+Q: Can a test have high sensitivity and still produce many false positives?
+A: Yes. Sensitivity measures performance on diseased patients, while false positives occur among healthy patients.
+Q: Why can the number of false positives exceed the number of true positives?
+A: Because if the disease is rare, there are many more healthy people than diseased people, so even a small false positive rate can produce many false positives.
+
+Actual Cancer Patients              Actual Healthy Patients
+┌─────────────────────┐             ┌─────────────────────┐
+│ TP       │ FN       │             │ FP       │ TN       │
+└─────────────────────┘             └─────────────────────┘
+      ↑                                    ↑
+  Sensitivity                    False Positive Rate
+
+Q: How does a statistician calculate false positives?
+
+A: By comparing each patient's test result with the patient's true disease status. Healthy patients who test positive are counted as false positives.
+
+
+
+
+P(+)=P(+∣D)P(D)+P(+∣¬D)P(¬D) where + = A as false positive
+P(B|A) 
+
+- theoretical sample space does not include the dataset, such as 1000 cases of something, as 1000 is not theoretical, it is not conditionable
+- 
+
+group 1:
+Q: Theoretical sample space 
+
+Q: For one patient: If sample space Ω = {(C,+),(C,−),(NC,+),(NC,−)}, and B = {positive test}, then  B = {(C,+), (NC,+)} ⊆ Ω. 
+
+
+
+
+
+Q:  Sample space Ω is the complete set of mutually exclusive and collectively exhaustive outcomes of a random experiment.
+A:  
+Q:  All possible data you could have observed before you actually collected any data.(For ML)
+A:
+Q:  The sample space (Ω) is the complete set of all possible data (outcomes) that a random experiment can produce. An outcome is one possible piece of data, and an event is any collection of those outcomes.
+A: 
+Q:  Experiment E ──► Ω = {all possible data/outcomes} ──► ω ∈ Ω ──► A,B ⊆ Ω ──► P(A|B)
+This is the entire Bayesian workflow in one line:
+
+E = random experiment
+Ω = sample space (all possible data/outcomes)
+ω = the actual observed data
+A, B = events (subsets of Ω)
+P(A|B) = probability of event/hypothesis A given observed event/data B
+A:  
+You don’t put Ω into Bayes because Bayes already operates entirely inside a fixed Ω; it is the background space, not a variable in the formula.
+
+Ω = all possible outcomes (theoretical model space)
+D = realized outcomes(positives) drawn from Ω (observed data--not data size such as 1000 patients). Data = a collection of observed values or measurements about one or more entities. Once you attach measurements, then it becomes data:
+
+Data D → empirical probabilities on Ω → Bayes theorem → posterior P(A|B)
+
+
+
+Q:  Sets are unordered, but tuples have o___, a___, and r___.  (comma,space)
+A:  order, arity, repetition
+Q: Events 𝔽 are ______ of outcomes; ordered sequences of outcomes are ______. (commas, space)
+A: sets, tuples
+Q:  A|B means 
+
+Q: Prevalence = cases​ per population.  
+
+
+
+
+group 2:  
+
+
+
+Q: B is a subset(proper + improper) of Ω; B ⊆ Ω
+ (t/f)
+A: t
+Q:  B is an event/condition (t/f)
+A: t
+Q:  Fair coin is a model, not an event/condition.  (t/f)
+A:  t
+Q:  An event is an outcome  (t/f)
+A:  f
+Q:  An event is a subset/collection of possible outcomes.  (t/f)
+A:  t
+
+Q: Outcomes are ___, events are ___ (subsets of sample spaces). (comma, space)
+A: results, conditions
+Q:  Sample spaces are sets/collections of all ___ outcomes of experiments.
+A:  possible  
+
+Q:  B is a model (t/f)
+A:  f
+Q:  H and T are subsets of 
+
+Q:  B is the conditioning(known) event (t/f)
+A:  t
+Q:  P(A|B) is the posterior probability of A given B  (t/f)
+A:  t
+Q:  B is the prior event  (t/f)
+A:  f
+
+Q: A ⊆ B ⟺ A = B or A ⊂ B are 3 types of what set relation for A with B? (commas,space)
+A: subset, improper, proper 
+Q: Bayes operates on events(sets), not ___ outcomes.
+A:  ordered
+Q: “I know how A overlaps B but I want to know how B overlaps A” 
+A: 
+
+
+Event = subset means </= , not proper subset which is always less than sample space S . Improper subset is the whole set. 
+
+
+A parameter is a fixed quantity that characterizes a model relative to a family of possible models.  M={P_θ​:θ∈Θ}
+
+So Bayes is moving a point distribution over a curved parameter space
+
+
+                 Θ  (parameter space)
+                 │
+                 │  θ ↦ P_θ   (model map)
+                 ▼
+        ┌──────────────────────┐
+        │ 𝓜 = {P_θ : θ ∈ Θ}   │   (model family)
+        └──────────────────────┘
+                 │
+                 │ induces
+                 ▼
+        ┌──────────────────────┐
+        │ (Ω, 𝔽, P_θ)          │   (probability model)
+        └──────────────────────┘
+
+
+
+Q: How many outcomes are in the Ω set for 1 toss? (type in number) 
+A: 2
+Q: How many outcomes are in the Ω set for 2 tosses? (type in number)
+A: 4
+
+Q: Probabilities are ___ assigned to outcomes or to ___ (sets of elements). (comma, space) 
+A: numbers, events
+Q: Probability is a function of events. 
+
+
+Q:  Probabilities are real numbers in [0,1] assigned to events (and thus to outcomes via singleton events).
+
+F ⊆ P(Ω)  
+
+(Ω,F,P) where P:F→[0,1] and F⊆P(Ω).
+
+a field (algebra) of events, i.e., a collection of subsets of Ω on which probability is defined.
+
+Outcome:            H
+
+Sample space:       Ω = {H, T}
+
+Events:             𝔽 = {∅, {H}, {T}, {H,T}}
+
+Probability:        P : 𝔽 → [0,1]
+
+Probability is a function that takes a set of outcomes (an event) and returns a number between 0 and 1, measuring how likely that event is.
+
+
+A Venn diagram works only for:
+
+subsets of the SAME universe
+
+But:
+
+Ω = outcomes
+Θ = parameters
+
+So they are different universes
+
+That’s why:
+
+you cannot directly draw θ inside Ω
+
+unless you artificially build a combined space:
+
+
+
+
+        θ (parameter)
+              ↓ generates
+        distribution over Ω
+              ↓ produces
+        observed event D ∈ Ω
+              ↓ feeds into
+        Bayes rule
+              ↓ updates
+        belief over θ
+		
+
+
+
+Joint space: Θ × Ω
+
+Observe D in Ω
+        ↓
+Take slice at Ω = D
+        ↓
+Evaluate height along Θ using likelihood
+        ↓
+Renormalize along Θ
+        ↓
+Get posterior over Θ
+
+
+
+
+
+Bayesian inference is geometry in the product space Θ × Ω, where observed outcomes in Ω define slices, and those slices reshape probability distributions over Θ.
+
+
+outcome space Ω  versus  parameter space θ
+
+
+
+Fair Coin                 60 Hz Signal
+---------                 ------------
+θ = 1/2                   f = 60 Hz
+   |                          |
+Defines probabilities     Defines oscillation rate
+   |                          |
+H or T observed           Voltage observed
+
+
+
+
+The key insight
+
+The Gambler's Fallacy incorrectly updates the probability of the next event while assuming the model (a fair coin) stays the same.
+
+Bayes correctly updates the probability of the model or hypothesis when new evidence arrives.
+
+So:
+
+Gambler's Fallacy: "Ten heads means tails is due."
+Bayes: "Ten heads makes me wonder whether the coin is actually fair."
+
+
+Let A = {H} = "The toss is heads."        
+B = {H,T} = "The outcome is either heads or tails." 
+Then P(B∣A) =
+
+"The probability of the outcome being heads of tails, given that the coin is heads." is an example how not to use Bayes because B is what you observe.
+
+A is a hypothesis.  
+Bayes works whenever: P(B)>0
+B is only useful if it restricts the sample space for A. Thus for Bayes to work sample space must be :
+
+Bayes requires:
+a fixed sample space Ω
+events A and B with P(B) > 0
+a probability measure
+
+
+P(B∣A)/P(B) is the Bayesian update ratio. It tells you how much more (or less) likely A becomes after seeing B
+
+1. The real foundation (Kolmogorov view)
+
+You start with a fixed probability space:
+
+Ω = all possible worlds (coin outcomes, patient states, etc.)
+Events A and B are subsets of Ω
+Probability is a measure on Ω
+
+Nothing moves or mutates.
+
+
+
+
+Probability Model
+────────────────────────────────────────────────────────
+
+Parameter
+│
+├── p = P(H),  0 ≤ p ≤ 1
+│      │
+│      ├── p = 0.5  → fair coin
+│      └── p ≠ 0.5  → biased coin
+│
+▼
+Probability Space (Ω, 𝔽, P)
+│
+├── Ω = {H, T}
+│     = theoretical sample space
+│
+├── ω ∈ Ω
+│     = one observed outcome
+│
+├── Events (subsets of Ω)
+│     │
+│     ├── A = {H} ⊆ Ω
+│     ├── B = {T} ⊆ Ω
+│     └── Ω = {H,T}
+│
+└── 𝔽 = P(Ω)
+      │
+      ├── ∅
+      ├── {H} = A
+      ├── {T} = B
+      └── {H,T} = Ω
+
+────────────────────────────────────────────────────────
+
+Observed Data
+│
+├── One toss:
+│      D = {H}  or  {T}
+│
+└── n tosses:
+       D = {ω¹, ω², …, ωⁿ}
+
+────────────────────────────────────────────────────────
+
+Bayesian Inference
+│
+├── Prior:        P(p)
+├── Data:         D
+└── Posterior:    P(p | D)
+
+
+
+=======================MARKOV====================
+
+
+      PRESENT    ×    TRANSITION      =     FUTURE
+	  
+                        H     T  
+      ┌      ┐      ┌             ┐        ┌      ┐
+ If H │ 0.60 │      │ 0.70  0.30  │      H │ 0.58 │
+ If T │ 0.40 │      │ 0.40  0.60  │      T │ 0.42 │
+      └      ┘      └             ┘        └      ┘
+
+
+Heads (0.60) × 0.70 = 0.42 ───┐
+                              ├── (+) ──▶ Heads (0.58)
+Tails (0.40) × 0.40 = 0.16 ───┘
+
+
+Heads (0.60) × 0.30 = 0.18 ───┐
+                              ├── (+) ──▶ Tails (0.42)
+Tails (0.40) × 0.60 = 0.24 ───┘
+
+
+
+Bayes ≈ infer causes/hypotheses from evidence. 
+
+Markov ≈ predict future states from current states. 
+
+Markov:
+P(Rain tomorrow | Sunny today)
+
+Bayes:
+P(It rained | Ground is wet)
+
+Bayes:
+Evidence → Hypothesis
+
+Markov:
+State → Next State
+
+Bayes:
+"What is the hidden cause given what I observed?"
+
+Markov:
+"What happens next given the current state?"
+
+Bayes → inference (update beliefs from evidence)
+Markov → transitions (how states change)
+
+Q: Is Bayes discrete and Markov continuous?
+
+A: No. Both can be discrete or continuous.
+
+Bayes describes inference.
+Markov describes state transitions.
+
+Q: Is Bayes discrete and Markov continuous?
+
+A: No. Both can be discrete or continuous.
+
+Bayes describes inference.
+Markov describes state transitions.
+
+
+A transition matrix in a Markov chain:
+
+A transition matrix is a matrix that contains the probabilities of moving from one state to another.
+
+Formula:
+Pᵢⱼ = P(Xₜ₊₁ = j | Xₜ = i)
+
+Meaning:
+"The probability of being in state j next, given the current state i."
+
+Example:
+
+P = [
+  0.9  0.1
+  0.2  0.8
+]
+
+Row = current state
+Column = next state
+
+Rules:
+- Each value is between 0 and 1.
+- Each row adds up to 1.
+
+Key idea:
+Current state → Transition matrix → Next state
+
+
+Past affects Present:
+
+P(X_t | X_{t-1}, X_{t-2}, ...)
+
+P(X_{t+1} | X_t, X_{t-1}, ...)
+=
+P(X_{t+1} | X_t)
+
+Chess Analogy for Markov Processes
+
+The entire history of chess moves matters because it created the current board position.
+
+However, once you know the exact current board position, you usually do not need to know every previous move to determine the possible next moves.
+
+Similarly, in a Markov process:
+
+Past → Present State → Future
+
+The past influences the present, but the current state summarizes all relevant information needed to predict the future.
+
+Example:
+
+P(X_{t+1} | X_t, X_{t-1}, ..., X_0)
+=
+P(X_{t+1} | X_t)
+
+Meaning:
+"Given the current state, the past adds no additional predictive information."
+
+
+                Tomorrow
+             B     S     R
+Today B   [0.8   0.15  0.05]
+Today S   [0.3   0.40  0.30]  ← Sideways row
+Today R   [0.2   0.20  0.60]

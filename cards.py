@@ -124,6 +124,7 @@ def sanitize_card(card: dict) -> dict:
     for q in card.get("qa", []):
         q.setdefault("display", "text")  # FLAG
 
+    card.setdefault("popup", "")  #Added 6.25.26
     card.setdefault("id", "0")
     card.setdefault("code", "")
     card.setdefault("qa", [])
@@ -411,23 +412,19 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
 
     selected_id = input("\nSelect card ID: ").strip()  # a) user inputs card id
 
-    card = next(
-        (c for c in study_bank if str(c.get("id")) == selected_id), 
-        None
-    )  
+    card = None
+    for c in study_bank:
+        if str(c.get("id")) == selected_id:
+            card = c
+            break
 
     if not card:
         print("❌ Card not found.")
         return
 
     print(f"\nCard loaded: {card.get('id')} ({card.get('type')})")
+       
     
-    
-    
-    
-    if not card:
-        print("❌ Card not found.")
-        return
 
     # 🔥 sanitize BEFORE ANY TYPE CHECKS ARE USED
     card = sanitize_card(card)  # take 'card' to 3] def sanitize_card, assign back to 'card'
@@ -438,14 +435,20 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
     while True:  # outer loop
         print("\n1. Edit mline Q")  # For both type I and II, multiline question only
         print("2. Edit qa, mline Ans")  # qa edit(type I,II) + multiline answer(type I only)
-        print("3. Change card id")
-        print("4. Delete card")
-        print("5. Auto shuffle_qa on/off")  # FLAG 
-        print("6. Cancel")
-
-        action = input("Select option: ").strip()  # action is the variable for user input string for elif list below
+        print("3. Edit popup diagram")
+        print("4. Change card id")
+        print("5. Auto shuffle_qa on/off")  
+        print("6. Delete card")
+        print("7. Cancel")
 
         
+        action = input("Select option: ").strip()  # action is the variable for user input string for elif list below
+
+        if action == "":
+            print("↩ Cancelled")
+            break
+
+                   
 
         # 1: Edit multiline-Question(mline-Q)  
         if action == "1":  # 🔥 Input mline-Q for Type I and II
@@ -508,16 +511,41 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
       
     
         elif action == "3":
-            new_id = input("New ID: ").strip()
-            if new_id:
-                card["id"] = new_id
+            print("\nCURRENT POPUP:\n")
+            print(card.get("popup", ""))
+
+            new_popup = multiline_optional(
+                "Enter popup diagram (END to save, ENTER to cancel):"
+            )
+
+            if new_popup is not None:
+                card["popup"] = new_popup
                 save_all_cards()
+                print("✅ Popup updated.")
+            else:
+                print("↩ No changes made.")
                 
+        
         elif action == "4":
-            if input("Delete? (y/n): ").lower() == "y":
-                study_bank.remove(card)
-                save_all_cards()
-                break
+            new_id = input("Enter new card ID: ").strip()
+
+            if not new_id.isdigit():
+                print("❌ ID must be numeric.")
+                continue
+
+            if any(c.get("id") == new_id for c in study_bank):
+                print("❌ Duplicate ID.")
+                continue
+
+            old_id = card["id"]
+            card["id"] = new_id
+
+            save_all_cards()
+
+            print(f"✅ Card ID changed: {old_id} → {new_id}")
+            
+        
+        
 
         elif action == "5":
             card["shuffle_qa"] = not card.get("shuffle_qa", True)
@@ -531,7 +559,9 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
             
             print(f"🔁 Auto shuffle toggled: {shuffle_status}")
     
-            
+        
+        
+        
             
 #        elif action == "debug":
 #            print("=== DEBUG CARDS ===")
@@ -540,13 +570,21 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
 #                  "| shuffle:", c.get("shuffle_qa"),
 #                  "| type:", c.get("type"))
     
+        
         elif action == "6":
+            if input("Delete? (y/n): ").lower() == "y":
+                study_bank.remove(card)
+                save_all_cards()
+                break
+        
+        
+        elif action == "7":  # CANCEL
             break
 
         else:
             print("❌ Invalid option.")
             
-            save_all_cards()
+            
             
             
             

@@ -1,12 +1,12 @@
 import tkinter as tk
 
 _root = None
-_label = None
-_initialized = False  # Prevents duplicate windows
+_text = None
+_initialized = False
 
 
 def init():
-    global _root, _label, _initialized
+    global _root, _text, _initialized
 
     if _initialized:
         return
@@ -14,21 +14,36 @@ def init():
     _root = tk.Tk()
     _root.title("PyQuiz")
 
-    _label = tk.Label(_root, text="", font=("Consolas", 40), bg="white")
-    _label.pack(expand=True, fill="both")
+    _root.geometry("900x600")
+    _root.minsize(400, 300)
+
+    # IMPORTANT FIX:
+    # wrap="none" prevents diagram scrambling
+    _text = tk.Text(
+        _root,
+        font=("Consolas", 24),
+        wrap="none",
+        padx=20,
+        pady=20
+    )
+
+    _text.pack(expand=True, fill="both")
 
     _initialized = True
 
 
-def show(text, font_size=40):
-    global _root, _label, _initialized
+def show(text, font_size=28):
+    global _text, _root, _initialized
 
     if not _initialized:
         init()
 
-    _label.config(
-        text=text,
-        font=("Malgun Gothic", font_size)
-    )
-    _root.update_idletasks()
+    _text.config(state="normal")
+    _text.delete("1.0", tk.END)
+
+    _text.insert(tk.END, text)
+
+    _text.config(font=("Consolas", font_size))
+    _text.config(state="disabled")
+
     _root.update()

@@ -13,7 +13,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "2",
@@ -44,7 +45,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "3",
@@ -95,7 +97,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "4",
@@ -141,7 +144,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "5",
@@ -187,7 +191,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "6",
@@ -208,7 +213,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "7",
@@ -264,7 +270,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "8",
@@ -300,7 +307,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "9",
@@ -326,7 +334,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "10",
@@ -362,7 +371,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "11",
@@ -388,7 +398,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "12",
@@ -444,7 +455,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "13",
@@ -505,7 +517,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "14",
@@ -531,7 +544,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "15",
@@ -602,7 +616,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "16",
@@ -633,7 +648,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "17",
@@ -679,7 +695,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "18",
@@ -720,7 +737,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "19",
@@ -756,7 +774,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "20",
@@ -782,7 +801,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "21",
@@ -867,7 +887,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "22",
@@ -897,255 +918,16 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "10001",
     "code": "hanja (set 1)",
     "qa": [
       {
-        "question": "昨日 (en)",
-        "answer": "작일 yesterday",
-        "display": "gui"
-      },
-      {
-        "question": "父母",
-        "answer": "부모",
-        "display": "gui"
-      },
-      {
-        "question": "學校",
-        "answer": "학교",
-        "display": "gui"
-      },
-      {
-        "question": "注意",
-        "answer": "주의",
-        "display": "gui"
-      },
-      {
-        "question": "天氣  (en)",
-        "answer": "천기 weather",
-        "display": "gui"
-      },
-      {
-        "question": "地下鐵",
-        "answer": "지하철",
-        "display": "gui"
-      },
-      {
-        "question": "預算 (en)",
-        "answer": "예산 budget",
-        "display": "gui"
-      },
-      {
-        "question": "法律",
-        "answer": "법률",
-        "display": "gui"
-      },
-      {
-        "question": "飮食",
-        "answer": "음식",
-        "display": "gui"
-      },
-      {
-        "question": "午前",
-        "answer": "오전",
-        "display": "gui"
-      },
-      {
-        "question": "中央政府",
-        "answer": "중앙정부",
-        "display": "gui"
-      },
-      {
-        "question": "政策",
-        "answer": "정책",
-        "display": "gui"
-      },
-      {
-        "question": "社會",
-        "answer": "사회",
-        "display": "gui"
-      },
-      {
-        "question": "安全",
-        "answer": "안전",
-        "display": "gui"
-      },
-      {
-        "question": "國家",
-        "answer": "국가",
-        "display": "gui"
-      },
-      {
-        "question": "義務",
-        "answer": "의무",
-        "display": "gui"
-      },
-      {
-        "question": "行政",
-        "answer": "행정",
-        "display": "gui"
-      },
-      {
-        "question": "條例",
-        "answer": "조례",
-        "display": "gui"
-      },
-      {
-        "question": "稅金",
-        "answer": "세금",
-        "display": "gui"
-      },
-      {
-        "question": "公務員",
-        "answer": "공무원",
-        "display": "gui"
-      },
-      {
-        "question": "監督",
-        "answer": "감독",
-        "display": "gui"
-      },
-      {
-        "question": "地下",
-        "answer": "지하",
-        "display": "gui"
-      },
-      {
-        "question": "國家",
-        "answer": "국가",
-        "display": "gui"
-      },
-      {
-        "question": "命令",
-        "answer": "명령",
-        "display": "gui"
-      },
-      {
-        "question": "安心",
-        "answer": "안심",
-        "display": "gui"
-      },
-      {
-        "question": "先生",
-        "answer": "선생",
-        "display": "gui"
-      },
-      {
-        "question": "學生",
-        "answer": "학생",
-        "display": "gui"
-      },
-      {
-        "question": "審査",
-        "answer": "심사",
-        "display": "gui"
-      },
-      {
-        "question": "歷史",
-        "answer": "역사",
-        "display": "gui"
-      },
-      {
-        "question": "外部",
-        "answer": "외부",
-        "display": "gui"
-      },
-      {
-        "question": "電氣",
-        "answer": "전기",
-        "display": "gui"
-      },
-      {
-        "question": "大統領",
-        "answer": "대통령",
-        "display": "gui"
-      },
-      {
-        "question": "政府",
-        "answer": "정부",
-        "display": "gui"
-      },
-      {
-        "question": "午後",
-        "answer": "오후",
-        "display": "gui"
-      },
-      {
-        "question": "經濟",
-        "answer": "경재",
-        "display": "gui"
-      },
-      {
-        "question": "海洋",
-        "answer": "해양",
-        "display": "gui"
-      },
-      {
-        "question": "危險",
-        "answer": "위험",
-        "display": "gui"
-      },
-      {
-        "question": "地方政府",
-        "answer": "지방정부",
-        "display": "gui"
-      },
-      {
-        "question": "病院",
-        "answer": "병원",
-        "display": "gui"
-      },
-      {
-        "question": "友情",
-        "answer": "우정",
-        "display": "gui"
-      },
-      {
-        "question": "官廳",
-        "answer": "관청",
-        "display": "gui"
-      },
-      {
-        "question": "空港",
-        "answer": "공항",
-        "display": "gui"
-      },
-      {
-        "question": "司法",
-        "answer": "사법",
-        "display": "gui"
-      },
-      {
-        "question": "權力",
-        "answer": "권력",
-        "display": "gui"
-      },
-      {
-        "question": "內部",
-        "answer": "내부",
-        "display": "gui"
-      },
-      {
-        "question": "責任",
-        "answer": "의무",
-        "display": "gui"
-      },
-      {
-        "question": "藥局",
-        "answer": "약국",
-        "display": "gui"
-      },
-      {
-        "question": "政治",
-        "answer": "정치",
-        "display": "gui"
-      },
-      {
-        "question": "立法",
-        "answer": "입법",
+        "question": "官僚",
+        "answer": "관료",
         "display": "gui"
       },
       {
@@ -1154,143 +936,13 @@
         "display": "gui"
       },
       {
-        "question": "外國",
-        "answer": "외국",
+        "question": "地下",
+        "answer": "지하",
         "display": "gui"
       },
       {
-        "question": "公共 (en)",
-        "answer": "공공 public",
-        "display": "gui"
-      },
-      {
-        "question": "自動車",
-        "answer": "자동차",
-        "display": "gui"
-      },
-      {
-        "question": "明日 (en)",
-        "answer": "명일 tomorrow",
-        "display": "gui"
-      },
-      {
-        "question": "政治",
-        "answer": "정치",
-        "display": "gui"
-      },
-      {
-        "question": "承認",
-        "answer": "승인",
-        "display": "gui"
-      },
-      {
-        "question": "憲法",
-        "answer": "헌법",
-        "display": "gui"
-      },
-      {
-        "question": "規則",
-        "answer": "규칙",
-        "display": "gui"
-      },
-      {
-        "question": "男女",
-        "answer": "남녀",
-        "display": "gui"
-      },
-      {
-        "question": "決議",
-        "answer": "결의",
-        "display": "gui"
-      },
-      {
-        "question": "法院",
-        "answer": "법원",
-        "display": "gui"
-      },
-      {
-        "question": "testing diagram mode",
-        "answer": "test",
-        "display": "gui"
-      },
-      {
-        "question": "銀行",
-        "answer": "은행",
-        "display": "gui"
-      },
-      {
-        "question": "兄弟",
-        "answer": "형제",
-        "display": "gui"
-      },
-      {
-        "question": "工場",
-        "answer": "공장",
-        "display": "gui"
-      },
-      {
-        "question": "閣僚",
-        "answer": "각료",
-        "display": "gui"
-      },
-      {
-        "question": "道路",
-        "answer": "도로",
-        "display": "gui"
-      },
-      {
-        "question": "責任",
-        "answer": "책임",
-        "display": "gui"
-      },
-      {
-        "question": "首相",
-        "answer": "수상",
-        "display": "gui"
-      },
-      {
-        "question": "會社",
-        "answer": "회사",
-        "display": "gui"
-      },
-      {
-        "question": "地方自治",
-        "answer": "지방자치",
-        "display": "gui"
-      },
-      {
-        "question": "官僚",
-        "answer": "관료",
-        "display": "gui"
-      },
-      {
-        "question": "國會",
-        "answer": "국회",
-        "display": "gui"
-      },
-      {
-        "question": "食堂",
-        "answer": "식당",
-        "display": "gui"
-      },
-      {
-        "question": "時間",
-        "answer": "시간",
-        "display": "gui"
-      },
-      {
-        "question": "福祉",
-        "answer": "복지",
-        "display": "gui"
-      },
-      {
-        "question": "平和",
-        "answer": "평화",
-        "display": "gui"
-      },
-      {
-        "question": "今日 (en)",
-        "answer": "금일 today",
+        "question": "注意",
+        "answer": "주의",
         "display": "gui"
       },
       {
@@ -1299,8 +951,193 @@
         "display": "gui"
       },
       {
+        "question": "預算 (en)",
+        "answer": "예산 budget",
+        "display": "gui"
+      },
+      {
+        "question": "政策",
+        "answer": "정책",
+        "display": "gui"
+      },
+      {
+        "question": "外國",
+        "answer": "외국",
+        "display": "gui"
+      },
+      {
+        "question": "學生",
+        "answer": "학생",
+        "display": "gui"
+      },
+      {
+        "question": "國會",
+        "answer": "국회",
+        "display": "gui"
+      },
+      {
+        "question": "地方政府",
+        "answer": "지방정부",
+        "display": "gui"
+      },
+      {
+        "question": "社會",
+        "answer": "사회",
+        "display": "gui"
+      },
+      {
+        "question": "權力",
+        "answer": "권력",
+        "display": "gui"
+      },
+      {
+        "question": "國家",
+        "answer": "국가",
+        "display": "gui"
+      },
+      {
+        "question": "兄弟",
+        "answer": "형제",
+        "display": "gui"
+      },
+      {
+        "question": "外部",
+        "answer": "외부",
+        "display": "gui"
+      },
+      {
+        "question": "條例",
+        "answer": "조례",
+        "display": "gui"
+      },
+      {
+        "question": "食堂",
+        "answer": "식당",
+        "display": "gui"
+      },
+      {
+        "question": "政府",
+        "answer": "정부",
+        "display": "gui"
+      },
+      {
+        "question": "法院",
+        "answer": "법원",
+        "display": "gui"
+      },
+      {
+        "question": "決議",
+        "answer": "결의",
+        "display": "gui"
+      },
+      {
+        "question": "昨日 (en)",
+        "answer": "작일 yesterday",
+        "display": "gui"
+      },
+      {
+        "question": "審査",
+        "answer": "심사",
+        "display": "gui"
+      },
+      {
+        "question": "午後",
+        "answer": "오후",
+        "display": "gui"
+      },
+      {
+        "question": "政治",
+        "answer": "정치",
+        "display": "gui"
+      },
+      {
+        "question": "國家",
+        "answer": "국가",
+        "display": "gui"
+      },
+      {
+        "question": "責任",
+        "answer": "책임",
+        "display": "gui"
+      },
+      {
+        "question": "地下鐵",
+        "answer": "지하철",
+        "display": "gui"
+      },
+      {
+        "question": "平和",
+        "answer": "평화",
+        "display": "gui"
+      },
+      {
+        "question": "危險",
+        "answer": "위험",
+        "display": "gui"
+      },
+      {
+        "question": "政治",
+        "answer": "정치",
+        "display": "gui"
+      },
+      {
+        "question": "司法",
+        "answer": "사법",
+        "display": "gui"
+      },
+      {
+        "question": "明日 (en)",
+        "answer": "명일 tomorrow",
+        "display": "gui"
+      },
+      {
+        "question": "內部",
+        "answer": "내부",
+        "display": "gui"
+      },
+      {
+        "question": "公務員",
+        "answer": "공무원",
+        "display": "gui"
+      },
+      {
+        "question": "行政",
+        "answer": "행정",
+        "display": "gui"
+      },
+      {
+        "question": "責任",
+        "answer": "의무",
+        "display": "gui"
+      },
+      {
+        "question": "安全",
+        "answer": "안전",
+        "display": "gui"
+      },
+      {
+        "question": "友情",
+        "answer": "우정",
+        "display": "gui"
+      },
+      {
         "question": "財政",
         "answer": "재정",
+        "display": "gui"
+      },
+      {
+        "question": "閣僚",
+        "answer": "각료",
+        "display": "gui"
+      },
+      {
+        "question": "經濟",
+        "answer": "경재",
+        "display": "gui"
+      },
+      {
+        "question": "會社",
+        "answer": "회사",
         "display": "gui"
       },
       {
@@ -1309,15 +1146,206 @@
         "display": "gui"
       },
       {
+        "question": "中央政府",
+        "answer": "중앙정부",
+        "display": "gui"
+      },
+      {
+        "question": "空港",
+        "answer": "공항",
+        "display": "gui"
+      },
+      {
+        "question": "命令",
+        "answer": "명령",
+        "display": "gui"
+      },
+      {
+        "question": "先生",
+        "answer": "선생",
+        "display": "gui"
+      },
+      {
+        "question": "藥局",
+        "answer": "약국",
+        "display": "gui"
+      },
+      {
+        "question": "學校",
+        "answer": "학교",
+        "display": "gui"
+      },
+      {
+        "question": "父母",
+        "answer": "부모",
+        "display": "gui"
+      },
+      {
+        "question": "歷史",
+        "answer": "역사",
+        "display": "gui"
+      },
+      {
+        "question": "男女",
+        "answer": "남녀",
+        "display": "gui"
+      },
+      {
+        "question": "道路",
+        "answer": "도로",
+        "display": "gui"
+      },
+      {
+        "question": "福祉",
+        "answer": "복지",
+        "display": "gui"
+      },
+      {
+        "question": "銀行",
+        "answer": "은행",
+        "display": "gui"
+      },
+      {
+        "question": "午前",
+        "answer": "오전",
+        "display": "gui"
+      },
+      {
+        "question": "海洋",
+        "answer": "해양",
+        "display": "gui"
+      },
+      {
+        "question": "今日 (en)",
+        "answer": "금일 today",
+        "display": "gui"
+      },
+      {
+        "question": "安心",
+        "answer": "안심",
+        "display": "gui"
+      },
+      {
+        "question": "首相",
+        "answer": "수상",
+        "display": "gui"
+      },
+      {
+        "question": "時間",
+        "answer": "시간",
+        "display": "gui"
+      },
+      {
+        "question": "電氣",
+        "answer": "전기",
+        "display": "gui"
+      },
+      {
+        "question": "病院",
+        "answer": "병원",
+        "display": "gui"
+      },
+      {
+        "question": "地方自治",
+        "answer": "지방자치",
+        "display": "gui"
+      },
+      {
         "question": "調査",
         "answer": "조사",
         "display": "gui"
+      },
+      {
+        "question": "立法",
+        "answer": "입법",
+        "display": "gui"
+      },
+      {
+        "question": "官廳",
+        "answer": "관청",
+        "display": "gui"
+      },
+      {
+        "question": "大統領",
+        "answer": "대통령",
+        "display": "gui"
+      },
+      {
+        "question": "testing diagram mode",
+        "answer": "test",
+        "display": "gui"
+      },
+      {
+        "question": "飮食",
+        "answer": "음식",
+        "display": "gui"
+      },
+      {
+        "question": "承認",
+        "answer": "승인",
+        "display": "gui"
+      },
+      {
+        "question": "天氣  (en)",
+        "answer": "천기 weather",
+        "display": "gui"
+      },
+      {
+        "question": "稅金",
+        "answer": "세금",
+        "display": "gui"
+      },
+      {
+        "question": "自動車",
+        "answer": "자동차",
+        "display": "gui"
+      },
+      {
+        "question": "工場",
+        "answer": "공장",
+        "display": "gui"
+      },
+      {
+        "question": "義務",
+        "answer": "의무",
+        "display": "gui"
+      },
+      {
+        "question": "監督",
+        "answer": "감독",
+        "display": "gui"
+      },
+      {
+        "question": "規則",
+        "answer": "규칙",
+        "display": "gui"
+      },
+      {
+        "question": "法律",
+        "answer": "법률",
+        "display": "gui"
+      },
+      {
+        "question": "憲法",
+        "answer": "헌법",
+        "display": "gui"
+      },
+      {
+        "question": "公共 (en)",
+        "answer": "공공 public",
+        "display": "gui"
+      },
+      {
+        "question": "test",
+        "answer": "test",
+        "display": "text"
       }
     ],
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "23",
@@ -1347,7 +1375,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "24",
@@ -1422,7 +1451,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "25",
@@ -1442,7 +1472,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "id": "26",
@@ -1512,7 +1543,8 @@
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
   },
   {
     "type": "II",
@@ -1542,20 +1574,64 @@
         "display": "text"
       }
     ],
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": ""
+  },
+  {
+    "type": "II",
+    "id": "100",
+    "code": "TEST TYPE II multi-line question\nmline\nmline",
+    "answer": "testing mline\nmline\nmline",
+    "shuffle_qa": true,
+    "qa": [],
+    "popup": ""
   },
   {
     "type": "I",
     "id": "99",
-    "code": "line\nline\nline",
+    "code": "popup test\nnot here\nmline",
     "qa": [
       {
-        "question": "test display",
+        "question": "not here. go to 3. Edit popup diagram",
         "answer": "test",
-        "display": "gui"
+        "display": "text"
       }
     ],
     "shuffle_qa": true,
+    "popup": "Ω = {H, T}\n│\n├── subsets of Ω\n│     │\n│     ├── A = {H} ⊆ Ω\n│     ├── B = {H, T} ⊆ Ω\n│\n└── 𝔽 = P(Ω)\n      │\n      ├── ∅\n      ├── {H} = A\n      ├── {T}\n      └── {H, T} = B = Ω",
     "answer": ""
+  },
+  {
+    "type": "I",
+    "id": "1000",
+    "code": "### *** Bayes' Theorem (cancer) ***\n+----------------------------------+--------------------------------------+\n|                Ω                 |            Bayes Theorem             |\n|     theoretical sample space     |                                      |\n|          (not dataset)           |      P(A | B) = P(B | A) P(A)        |\n|                                  |                 -----------          |\n| Ω = {(C,+),(C,-),                |                    P(B)              |\n|      (NC,+),(NC,-)}              |                                      |\n|                                  |  A = Patient has cancer              |\n| +----------------------------+   |  B = Patient tests positive          |\n| | B = Positive Test          |   |                                      |\n| |                            |   |  P(A)    = Cancer prevalence         |\n| | +---------+-------------+  |   |  P(B|A)  = Sensitivity               |\n| | | A∩B     |   B|Aᶜ      |  |   |  P(B)    = Positive-test rate        |\n| | | (C,+)   |  (NC,+)     |  |   |  P(A|B)  = Cancer given positive     |\n| | +---------+-------------+  |   |                                      |\n| +----------------------------+   |  D = {ω¹, ω², …, ω¹⁰⁰⁰} where ωⁱ ∈ Ω |\n+----------------------------------+--------------------------------------+\n",
+    "qa": [
+      {
+        "question": "In the Venn diagram, what region represents false positives? a) A∩B  b) B|Aᶜ  b)",
+        "answer": "b",
+        "display": "text"
+      },
+      {
+        "question": "False positives inside B because they received a ___ test result.",
+        "answer": "positive",
+        "display": "text"
+      },
+      {
+        "question": "Does a false positive contribute to P(B)? (y/n)",
+        "answer": "y",
+        "display": "text"
+      },
+      {
+        "question": "False positives reduce P(C|+) because they ___ the number of positive tests without increasing the number of cancer cases.",
+        "answer": "increase",
+        "display": "text"
+      },
+      {
+        "question": "A patient has cancer and tests positive. Given a cancer prevalence of 0.01 and a false positive rate of 0.15, calculate P(B) and P(A|B). (Type both as 0.___ separated by comma,space)",
+        "answer": "0.1575, 0.057",
+        "display": "text"
+      }
+    ],
+    "shuffle_qa": true
   }
 ]

@@ -16,11 +16,12 @@ Source code:
 PyQuiz is a Python CLI flashcard app using JSON-based persistent storage. Made for self-study with my problems. However, anybody can modify and use. Goal was to build a easy-to-troubleshoot app that is expandable. Developed and updated regularly.  
 
 
-## ✨ FEATURES
+## ✨ FEATURES/How to use:
 
 ✅ Fully modularized structure for easy debugging and modification. Uses Python 3.
 
-✅ Type I cards: Multiline problem display; groupable QA's with single line qa input.
+✅ Type I cards: Multiline problem display; groupable QA's with single line qa input. 
+	- Can add single-line text, such as Chinese characters, and Tkinter popup will zoom up for better viewing. Just turn toggle on in edit mode.
 
 ✅ Type II: Multi-line problem display; multi-line answer input for exercises;extra QA input. 
 
