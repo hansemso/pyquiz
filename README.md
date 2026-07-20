@@ -31,6 +31,14 @@ PyQuiz is a Python CLI flashcard app using JSON-based persistent storage. Made f
 
 ✅ Local JSON storage. Can connect to sql and add data analysis scripts
 
+✅ Use [enter] or type "EXIT" to exit loops in app, also "END" to finish input.  
+
+✅ 
+
+
+## 🎬 Demo   (A quick tour of how pyquiz works)
+
+![PyQuiz Demo](pyquiz_demo.gif)
 
 
 ## 📜 MENU
