@@ -2,24 +2,11 @@
 
 6.25.26: Adding truthy flag + payload means to Type I cards so diagram pops up in tkinter automatically only if it exists. Otherwise works normally as single-line qa's after multi-line problem display as usual for Type I. User can in Edit Mode input the unicode diagram into existing cards. 
 
-
-
-
-
-
 ## ML Bayes theorem pyquiz-cpymos exercise feature
-
- 
-
-
-
-
 
 #1000 Bayes theorem review
 
-
-## Bayes' Theorem – Posterior Density
-
+# Bayes' Theorem – Posterior Density
 
 > Posterior = Likelihood × Prior / Evidence
 p(θ | x) = Posterior distribution  
@@ -76,63 +63,65 @@ For Type I cards. Use gui toggle feature.
 |                                  |   D = dataset        θ = parameter          |
 +----------------------------------+---------------------------------------------+
 
+
+pyquiz card # 1000:
+
 ### *** Bayes' Theorem (cancer) ***
 +----------------------------------+--------------------------------------+
-|                Ω                 |            Bayes Theorem             |
+|                Ω                 |            Bayes' Theorem            |
 |     theoretical sample space     |                                      |
 |          (not dataset)           |      P(A | B) = P(B | A) P(A)        |
 |                                  |                 -----------          |
 | Ω = {(C,+),(C,-),                |                    P(B)              |
 |      (NC,+),(NC,-)}              |                                      |
-|                                  |  A = Patient has cancer              |
-| +----------------------------+   |  B = Patient tests positive          |
-| | B = Positive Test          |   |                                      |
-| |                            |   |  P(A)    = Cancer prevalence         |
-| | +---------+-------------+  |   |  P(B|A)  = Sensitivity               |
-| | | A∩B     |   B|Aᶜ      |  |   |  P(B)    = Positive-test rate        |
-| | | (C,+)   |  (NC,+)     |  |   |  P(A|B)  = Cancer given positive     |
-| | +---------+-------------+  |   |                                      |
-| +----------------------------+   |  D = {ω¹, ω², …, ω¹⁰⁰⁰} where ωⁱ ∈ Ω |
+|                                  |  A  = Patient has cancer             |
+| +----------------------------+   |  Aᶜ = Patient has no cancer          |
+| | B = Positive Tests         |   |  B  = Patient tests positive         |
+| |                            |   |                                      |
+| | +---------+-------------+  |   |  P(A)     = Cancer prevalence        |
+| | | A∩B     |   B∩Aᶜ      |  |   |  P(B|A)   = Sensitivity (TPR)        |
+| | | (TP)    |   (FP)      |  |   |  P(B|Aᶜ)  = False Positive Rate      |
+| | +---------+-------------+  |   |  P(Bᶜ|Aᶜ) = Specificity (TNR)        |
+| +----------------------------+   |                                      |
+|                                  |  P(B)=P(B|A)P(A)+P(B|Aᶜ)P(Aᶜ)        |
+| (C,-) = FN    (NC,-) = TN        |                                      |
+|                                  |  P(A|B) = Cancer given positive      |
+| TPR = TP/(TP+FN)                 |                                      |
+| FPR = FP/(FP+TN)                 |  D = {ω¹,ω²,…,ω¹⁰⁰⁰}, ωⁱ∈Ω           |
 +----------------------------------+--------------------------------------+
 
-Q:  In the Venn diagram, what region represents false positives? a) A∩B  b) B|Aᶜ  b) 
+Q:  In the venn diagram, which region represents false positives? a) A∩B  b) B|Aᶜ  
 A:  b
-Q:  False positives inside B because they received a ___ test result.
+Q:  B _ A∩B + B|Aᶜ  (Type in < = or >)
+A:  =
+Q:  False positives are included in B because they received a  ____  test result.
 A:  positive
 Q:  Does a false positive contribute to P(B)? (y/n)
 A:  y
-Q: False positives reduce P(C|+) because they ___ the number of positive tests without increasing the number of cancer cases.
+Q: False positives reduce P(C|+) because they ____ the number of + tests without increasing the number of cancer cases.
 A:  increase
 Q:  A patient has cancer and tests positive. Given a cancer prevalence of 0.01 and a false positive rate of 0.15, calculate P(B) and P(A|B). (Type both as 0.___ separated by comma,space)
 A: 0.1575, 0.057
+Q: False positive are outside A because those patients ___ have cancer. (do/do not)
+A:  do not
+Q: Does a false positive contribute to P(A)?  (y/n)
+A:  n
+Q: Sensitivity is the probability that the test is ____ given that the disease is actually present.
+A: positive
+Q: The rarer the disease, the greater the probability of ___ positives.
+A: false
+Q: Sensitivity measures performance on ___ patients, while false positives occur among ___ patients. (comma,space)
+A: diseased, healthy
 
 
-where A
-c
- means "no cancer."
-
-
-Q:  If A = "has cancer" and B = "tests positive", what is B \ A?
-A:  Patients who test positive but do not have cancer.
-Q:  Why are false positives outside A?
-A:  Because those patients do not have cancer.
-
-
-Q: Does a false positive contribute to P(A)?
-A: No. The patient does not have cancer.
-
-Q: What does sensitivity measure in plain language?
-A: How good the test is at detecting disease when the disease is actually present.
-Q: What is sensitivity in a medical test?
-A: The probability that the test is positive given that the patient has the disease.
 Q: What does sensitivity measure?
 A: The fraction of actual cancer patients who test positive.
 Q: What does the false positive rate measure?
 A: The fraction of healthy patients who test positive.
 Q: Can a test have high sensitivity and still produce many false positives?
-A: Yes. Sensitivity measures performance on diseased patients, while false positives occur among healthy patients.
-Q: Why can the number of false positives exceed the number of true positives?
-A: Because if the disease is rare, there are many more healthy people than diseased people, so even a small false positive rate can produce many false positives.
+A: Yes
+
+
 
 Actual Cancer Patients              Actual Healthy Patients
 ┌─────────────────────┐             ┌─────────────────────┐

@@ -6,14 +6,16 @@
       {
         "question": "Write its closest equivalent using new_wrapper and wrapper with no white_space",
         "answer": "new_wrapper=decoration(wrapper)",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true,
+    "shuffle_qa": false,
     "popup": ""
   },
   {
@@ -21,24 +23,32 @@
     "code": "# ******* @decorator at runtime **********\ndef decorator(func):\n    def wrapper(a, b):\n        return func(a, b) * 7\n    return wrapper\n\n@decorator\ndef add(a, b)\n    return a + b\n\nprint(add(3,4))\n\n",
     "qa": [
       {
-        "question": "Which function is the kernel/innermost function?",
-        "answer": "add",
-        "display": "text"
-      },
-      {
-        "question": "Which function is the outermost function?",
-        "answer": "decorator",
-        "display": "text"
-      },
-      {
         "question": "Which function contains all of the math?",
         "answer": "wrapper",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the output?",
         "answer": "49",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "Which function is the outermost function?",
+        "answer": "decorator",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "Which function is the kernel/innermost function?",
+        "answer": "add",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -55,42 +65,58 @@
       {
         "question": "Which operation has no automatic descriptor binding at access time? (js or py)",
         "answer": "js",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which output uses context at call time instead of binding at access time? (js or py)",
         "answer": "js",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the name of the instance reference object?",
         "answer": "attr",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the name of the instance reference pointer?",
         "answer": "p",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "'this' or 'self' is never the __ but always just a __ . (comma, no white_space)",
         "answer": "2",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "The instance reference object is the object that __ the method.",
         "answer": "owns",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the function reference variable name?",
         "answer": "j",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "*Bonus question: Internally, which dunder method is invoked first during attribute retrieval and on which object? (Type in exactly separated by a comma with no whitespace)",
         "answer": "__getattribute__,attr",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -107,37 +133,51 @@
       {
         "question": "In which language are functions always independent? (js or py)",
         "answer": "js",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which language automatically binds instance context during method retrieval?",
         "answer": "py",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In which language is p.mthd() not bound?  (js/py)",
         "answer": "js",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which language always passes a reference explicitly to p as the first parameter?",
         "answer": "py",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "How and when does JS pass reference then? Fill in: __-ly  at  __ time. (Use comma, no whitespace)",
         "answer": "implicitly,call",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which language needs bind() to bind its reference object?  (py/js)",
         "answer": "js",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which reference object can be hijacked by another function and when?  Fill in: __ at __ time.",
         "answer": "this,call",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -154,37 +194,51 @@
       {
         "question": "What will be the first print output? a)True b)False  c)TypeError d)self  (a,b,c, or d)",
         "answer": "c",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What will be the first console output? a)True b)False c)TypeError d)Circular",
         "answer": "d",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What will be the second print output? a)True b)False c)TypeError d)self",
         "answer": "c",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What will be the second console output?",
         "answer": "true",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Let __init__(self)__ and mthd(self). What will be the first print output? a)TypeError b)self c)<__main__.C address> d)Circular",
         "answer": "c",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Let  __init__(self)__ and mthd(self). What will be the second print output? a)True b)False c)TypeError d)<__main__.C address> e)self",
         "answer": "a",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In which language is i.mthd() not bound?  (js/py)",
         "answer": "js",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -201,12 +255,16 @@
       {
         "question": "Which function parses the string and creates an integer?",
         "answer": "int()",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which is the indexing syntax?",
         "answer": "card[]",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -223,47 +281,65 @@
       {
         "question": "Which syntax automatically generates __init__, __repr__, and __eq__ methods?",
         "answer": "@dataclass",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which syntax turns a method into an attribute?",
         "answer": "@property",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which method() into which .attribute? (comma,no_white_space)",
         "answer": "area(),.area",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In JS a method belongs to any __ , but in Py it belongs only to a __ . (comma,no_white_space)",
         "answer": "object,class",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In Pythonese, what do 'r' and 'area' each stand for in 'r.area'? (comma,no_white_space)",
         "answer": "instance,attribute",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What computed instance attribute does @property create?",
         "answer": "r.area",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the long-form equivalent of @property? (no_white_space)",
         "answer": "attribute = property(function)",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which dunder method does @dataclass automatically generate? (w/o delimiter)",
         "answer": "__init__",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In both Py and JS, any .name() is always a __ and never an __ because it is __-able by delimiter. (comma,no_white_space)\")",
         "answer": "method,attribute,callable",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -280,27 +356,37 @@
       {
         "question": "What will it print?",
         "answer": "10",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the argument?",
         "answer": "5",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the parameter?",
         "answer": "x",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the result?",
         "answer": "y",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "print(obj) where obj == _____ result",
         "answer": "valid",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -317,17 +403,23 @@
       {
         "question": "What will it print?",
         "answer": "10",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "If we # global x, what will f() try to print?",
         "answer": "5",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Will it print? (y/n)",
         "answer": "y",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -344,27 +436,37 @@
       {
         "question": "What is the py equivalent of anonymous functions in JS? (single JS keyword)",
         "answer": "lambda",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "function sum(a, b) {return a + b;} using arrow function w implicit return",
         "answer": "const sum = (a, b) => a + b;",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "JS ______ var declarations to the top of their scope.",
         "answer": "hoists",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A function + its surrounding variables = ?",
         "answer": "closure",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "How can you add a new property to an existing object, myObj, with a property name color and a value blue? (Type in code)",
         "answer": "myObj.color = 'blue'",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -381,17 +483,23 @@
       {
         "question": "In JS, a _ _ is metadata that describes how it behaves on an object. (2 words)",
         "answer": "property attribute",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "var x; → hoisted, so x exists but is _? (1 word)",
         "answer": "undefined",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Let x = 1; what will console.log(++x); output?",
         "answer": "2",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -408,47 +516,65 @@
       {
         "question": "[1]:",
         "answer": "collection",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "[2]:",
         "answer": "related",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "[3]:",
         "answer": "data",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "[4]:",
         "answer": "functions",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "An object is created as a [1] and stored in a [2] declared with const, let, or var. (Start with [1]:)",
         "answer": "value",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "[2]:",
         "answer": "variable",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "An object is a value of what JS type?",
         "answer": "object",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A JS object usually inherits from ___ through its prototype chain. (Hint: __.__ , case sensitive)",
         "answer": "Object.prototype",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In JS, ___ live in HTML, while properties live in the DOM object.",
         "answer": "attributes",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -465,52 +591,72 @@
       {
         "question": "const, let , var are declarative __. (Fill in)",
         "answer": "keywords",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "JS keywords are __, while functions are callable __. (comma, 1 whitespace)",
         "answer": "syntax, objects",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "DOM is accessed through which global JS object?",
         "answer": "document",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A keyword is syntax, an identifier is a name in ____. (4-letter word)",
         "answer": "code",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "And document is an identifier in the ______ _____. (2-word term)",
         "answer": "global scope",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "document is a property of ______, the global browser object.",
         "answer": "window",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Forcing a function into an expression allows it to be immediately invoked. (T/F)",
         "answer": "T",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "An object literal consists of ___ (key–value pairs) and can also be empty. (1 word)",
         "answer": "properties",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In arrow functions, {} means a _____ (no return) unless wrapped in (), which turns it into an ______ expression. (comma, 1 whitespace)",
         "answer": "block, object",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A __ is the value itself, while an __ is the name used to refer to that value. (comma, 1 whitespace)",
         "answer": "literal, identifier",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -527,17 +673,23 @@
       {
         "question": "Which of the variable declaration keywords is function or global scope?",
         "answer": "var",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Use dot notation to add 'blue' to the color property of myObj. (End with ;)",
         "answer": "myObj.color = 'blue';",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Ditto using bracket notation.",
         "answer": "myObj['color'] = 'blue';",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -554,62 +706,86 @@
       {
         "question": "Type in JS keywords for variable declaration (Alphabetical order, comma, 1 whitespace)",
         "answer": "const, let, var",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In JS, all variables should be declared (t/f)",
         "answer": "t",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "x = 5 is an __ variable assignment that creates an __  __ variable (3 words, commas, 1 whitespace)",
         "answer": "undeclared, implicit, global",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "As such, in strict mode, it throws a __.",
         "answer": "ReferenceError",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Python does not use variable declaration keywords like Javascript (t/f)",
         "answer": "t",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Which JS variable declaration keyword has function scope?",
         "answer": "var",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What scope do let and const have instead?",
         "answer": "block",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Re-write const add = function(a, b) {  in function declaration form",
         "answer": "function add(a, b) {",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Now re-write as arrow function",
         "answer": "const add = (a, b) => {",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In both cases, 'add' is a variable binding to a  __  __  in memory (2-word term)",
         "answer": "function object",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Arrow functions are __, not __ . (comma, 1 whitespace)",
         "answer": "expressions, declarations",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "function(a, b) {...} creates a temporary ___ function object because it has no binding or reference keeping it reachable. (lowercase word)",
         "answer": "anonymous",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -626,22 +802,30 @@
       {
         "question": "__ = current item in the list during iteration (1 word in the code)",
         "answer": "price",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Given 13 5 7 77 9 1, what will be the Max Profit?",
         "answer": "72",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "while True runs ___ until a ___ statement is executed inside the loop. (comma, whitespace)",
         "answer": "forever, break",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "If the user inputs Q, .lower() turns it into  _ .",
         "answer": "q",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -658,37 +842,51 @@
       {
         "question": "Methods use _ , attributes do not. (syntax symbol)",
         "answer": "()",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "An attribute/property is __ stored on an object, whereas a method is a __ that belongs to an object. (comma, whitespace)",
         "answer": "data, function",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In JS, every object has a prototype; in Python, every object has a __.",
         "answer": "class",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "JS uses a single prototype chain for inheritance, while Python separates object inheritance (classes → ___ ) and class creation (classes → ___ ). (comma, whitespace)",
         "answer": "object, type",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "JS uses one unified prototype chain for everything, while Python separates runtime behavior (MRO through classes → __ ) from class creation (via the type __ ). (comma, whitespace)",
         "answer": "object, metaclass",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Python uses class creation (via __ ) when defining classes, and MRO(Method Resolution Order) when resolving attribute/method access at __. (comma, whitespace)",
         "answer": "type, runtime",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "classes inherit from __, while type is the metaclass that creates classes and also inherits from __. (comma, whitespace)",
         "answer": "object, object",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -705,32 +903,44 @@
       {
         "question": "{} === {} evaluates to __  because each object literal creates a new, distinct __ in memory. (comma, whitespace)",
         "answer": "false, object",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Arrow functions do not use the function keyword. (t/f)",
         "answer": "t",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A while loop checks its condition __  execution, while a __...while loop executes once before checking the condition. (2 words, comma, whitespace)",
         "answer": "before, do",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In Python, an __ is anything on an object, while a __ is a special attribute that runs logic when accessed. (comma, whitespace)",
         "answer": "attribute, property",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Given: const add = function sum(a, b) ...which word can be deleted to make an anonymous function expression?",
         "answer": "sum",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Object.___(obj) returns an array of an object’s key-value pairs.",
         "answer": "entries",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -747,27 +957,37 @@
       {
         "question": "A switch statement checks ___ values, and ___ is used to stop execution after a matching case. (comma, whitespace)",
         "answer": "discrete, break",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "___ -> stop everything, whereas ___ -> skip this one, keep going. (comma, whitespace)",
         "answer": "break, continue",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "NaN represents an invalid ___ result, whereas undefined represents the absence of a ___. (comma, whitespace)",
         "answer": "number, value",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A ___ loop checks the condition before running the code, whereas a do...while loop runs the code ___ before checking the condition. (comma, whitespace)",
         "answer": "while, once",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In JS, var uses ___ scope (or ___ scope if declared outside a function), whereas let and const use ___ scope tied to {}. (commas, whitespaces)",
         "answer": "function, global, block",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -784,17 +1004,23 @@
       {
         "question": "JS GET puts data in ___ wheras POST puts data in ___ ___. (lowercase, comma, whitespace)",
         "answer": "url, request body",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In JS, a function resolves variables through ___ scope first, then outer ___ scope. (comma, whitespace)",
         "answer": "local, global",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "END",
         "answer": "END",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "page": 1,
@@ -811,77 +1037,107 @@
       {
         "question": "Given the code below, what will the value of x be after execution?",
         "answer": "10",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the function keyword?",
         "answer": "function",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the function name?",
         "answer": "changeX",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the function call operator used to invoke(call) the function?",
         "answer": "()",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What contains the function's code block?",
         "answer": "{}",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In both JS and Py (and most languages), {} by itself represent a code ___, not an ___. (comma, whitespace)",
         "answer": "block, expression",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "The {} above contains ___s, not ___s. (comma, whitespace)",
         "answer": "statements, expressions",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "{} is a ___ in statements, and an ___ in expressions. (comma, whitespace)",
         "answer": "block, object",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "In JS, an object expression is a {} syntax that evaluates to an object ___.",
         "answer": "value",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A statement performs an ___. An expression produces a ___. (comma, space)",
         "answer": "action, value",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "As such, statement is global, which local? (comma, space, no semicolon)",
         "answer": "var x = 10, var x = 5",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "___ is function-scoped (or global if outside a function), while let and const are ___-scoped to the nearest ___ syntax. (commas, spaces)",
         "answer": "var, block, {}",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "___ creates block scope for let and const, but only function creates function scope for ___. (syntax, comma, space, keyword)",
         "answer": "{}, var",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Whereas in Python, ___ creates block scope, and only ___ creates function scope. (comma, space)",
         "answer": "indentation, def",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "END",
         "answer": "END",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "no_shuffle_qa": false,
@@ -897,22 +1153,30 @@
       {
         "question": "What will [x**2 for x in range(3)] output? (Use default format)",
         "answer": "[0, 1, 4]",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "_____ is a keyword that turns a normal function into a generator.",
         "answer": "yield",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is the JS equivalent of yield?",
         "answer": "function*",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "a = [1, 2] and b = [3, 4]. How to output [1, 2, 3, 4]?",
         "answer": "a.extend(b)",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "no_shuffle_qa": false,
@@ -926,425 +1190,591 @@
     "code": "hanja (set 1)",
     "qa": [
       {
-        "question": "官僚",
-        "answer": "관료",
-        "display": "gui"
-      },
-      {
-        "question": "電話",
-        "answer": "전화",
-        "display": "gui"
-      },
-      {
-        "question": "地下",
-        "answer": "지하",
-        "display": "gui"
-      },
-      {
-        "question": "注意",
-        "answer": "주의",
-        "display": "gui"
-      },
-      {
-        "question": "市場",
-        "answer": "시장",
-        "display": "gui"
-      },
-      {
-        "question": "預算 (en)",
-        "answer": "예산 budget",
-        "display": "gui"
-      },
-      {
-        "question": "政策",
-        "answer": "정책",
-        "display": "gui"
-      },
-      {
-        "question": "外國",
-        "answer": "외국",
-        "display": "gui"
-      },
-      {
-        "question": "學生",
-        "answer": "학생",
-        "display": "gui"
-      },
-      {
-        "question": "國會",
-        "answer": "국회",
-        "display": "gui"
-      },
-      {
-        "question": "地方政府",
-        "answer": "지방정부",
-        "display": "gui"
-      },
-      {
-        "question": "社會",
-        "answer": "사회",
-        "display": "gui"
-      },
-      {
-        "question": "權力",
-        "answer": "권력",
-        "display": "gui"
-      },
-      {
-        "question": "國家",
-        "answer": "국가",
-        "display": "gui"
-      },
-      {
-        "question": "兄弟",
-        "answer": "형제",
-        "display": "gui"
-      },
-      {
-        "question": "外部",
-        "answer": "외부",
-        "display": "gui"
-      },
-      {
-        "question": "條例",
-        "answer": "조례",
-        "display": "gui"
-      },
-      {
-        "question": "食堂",
-        "answer": "식당",
-        "display": "gui"
-      },
-      {
-        "question": "政府",
-        "answer": "정부",
-        "display": "gui"
-      },
-      {
-        "question": "法院",
-        "answer": "법원",
-        "display": "gui"
-      },
-      {
-        "question": "決議",
-        "answer": "결의",
-        "display": "gui"
-      },
-      {
-        "question": "昨日 (en)",
-        "answer": "작일 yesterday",
-        "display": "gui"
-      },
-      {
-        "question": "審査",
-        "answer": "심사",
-        "display": "gui"
-      },
-      {
-        "question": "午後",
-        "answer": "오후",
-        "display": "gui"
-      },
-      {
-        "question": "政治",
-        "answer": "정치",
-        "display": "gui"
-      },
-      {
-        "question": "國家",
-        "answer": "국가",
-        "display": "gui"
-      },
-      {
-        "question": "責任",
-        "answer": "책임",
-        "display": "gui"
-      },
-      {
-        "question": "地下鐵",
-        "answer": "지하철",
-        "display": "gui"
-      },
-      {
-        "question": "平和",
-        "answer": "평화",
-        "display": "gui"
-      },
-      {
-        "question": "危險",
-        "answer": "위험",
-        "display": "gui"
-      },
-      {
-        "question": "政治",
-        "answer": "정치",
-        "display": "gui"
-      },
-      {
-        "question": "司法",
-        "answer": "사법",
-        "display": "gui"
-      },
-      {
-        "question": "明日 (en)",
-        "answer": "명일 tomorrow",
-        "display": "gui"
-      },
-      {
-        "question": "內部",
-        "answer": "내부",
-        "display": "gui"
-      },
-      {
-        "question": "公務員",
-        "answer": "공무원",
-        "display": "gui"
-      },
-      {
-        "question": "行政",
-        "answer": "행정",
-        "display": "gui"
-      },
-      {
-        "question": "責任",
-        "answer": "의무",
-        "display": "gui"
-      },
-      {
-        "question": "安全",
-        "answer": "안전",
-        "display": "gui"
-      },
-      {
-        "question": "友情",
-        "answer": "우정",
-        "display": "gui"
-      },
-      {
-        "question": "財政",
-        "answer": "재정",
-        "display": "gui"
-      },
-      {
-        "question": "閣僚",
-        "answer": "각료",
-        "display": "gui"
-      },
-      {
-        "question": "經濟",
-        "answer": "경재",
-        "display": "gui"
-      },
-      {
-        "question": "會社",
-        "answer": "회사",
-        "display": "gui"
-      },
-      {
-        "question": "自由",
-        "answer": "자유",
-        "display": "gui"
-      },
-      {
-        "question": "中央政府",
-        "answer": "중앙정부",
-        "display": "gui"
-      },
-      {
-        "question": "空港",
-        "answer": "공항",
-        "display": "gui"
-      },
-      {
-        "question": "命令",
-        "answer": "명령",
-        "display": "gui"
-      },
-      {
-        "question": "先生",
-        "answer": "선생",
-        "display": "gui"
-      },
-      {
-        "question": "藥局",
-        "answer": "약국",
-        "display": "gui"
+        "question": "安心",
+        "answer": "안심",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "學校",
         "answer": "학교",
-        "display": "gui"
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
-        "question": "父母",
-        "answer": "부모",
-        "display": "gui"
+        "question": "市場",
+        "answer": "시장",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
-        "question": "歷史",
-        "answer": "역사",
-        "display": "gui"
-      },
-      {
-        "question": "男女",
-        "answer": "남녀",
-        "display": "gui"
-      },
-      {
-        "question": "道路",
-        "answer": "도로",
-        "display": "gui"
-      },
-      {
-        "question": "福祉",
-        "answer": "복지",
-        "display": "gui"
-      },
-      {
-        "question": "銀行",
-        "answer": "은행",
-        "display": "gui"
-      },
-      {
-        "question": "午前",
-        "answer": "오전",
-        "display": "gui"
+        "question": "地下",
+        "answer": "지하",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "海洋",
         "answer": "해양",
-        "display": "gui"
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
-        "question": "今日 (en)",
-        "answer": "금일 today",
-        "display": "gui"
-      },
-      {
-        "question": "安心",
-        "answer": "안심",
-        "display": "gui"
-      },
-      {
-        "question": "首相",
-        "answer": "수상",
-        "display": "gui"
-      },
-      {
-        "question": "時間",
-        "answer": "시간",
-        "display": "gui"
-      },
-      {
-        "question": "電氣",
-        "answer": "전기",
-        "display": "gui"
-      },
-      {
-        "question": "病院",
-        "answer": "병원",
-        "display": "gui"
-      },
-      {
-        "question": "地方自治",
-        "answer": "지방자치",
-        "display": "gui"
-      },
-      {
-        "question": "調査",
-        "answer": "조사",
-        "display": "gui"
-      },
-      {
-        "question": "立法",
-        "answer": "입법",
-        "display": "gui"
-      },
-      {
-        "question": "官廳",
-        "answer": "관청",
-        "display": "gui"
-      },
-      {
-        "question": "大統領",
-        "answer": "대통령",
-        "display": "gui"
-      },
-      {
-        "question": "testing diagram mode",
-        "answer": "test",
-        "display": "gui"
-      },
-      {
-        "question": "飮食",
-        "answer": "음식",
-        "display": "gui"
-      },
-      {
-        "question": "承認",
-        "answer": "승인",
-        "display": "gui"
+        "question": "責任",
+        "answer": "의무",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "天氣  (en)",
         "answer": "천기 weather",
-        "display": "gui"
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
-        "question": "稅金",
-        "answer": "세금",
-        "display": "gui"
+        "question": "明日 (en)",
+        "answer": "명일 tomorrow",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
-        "question": "自動車",
-        "answer": "자동차",
-        "display": "gui"
-      },
-      {
-        "question": "工場",
-        "answer": "공장",
-        "display": "gui"
-      },
-      {
-        "question": "義務",
-        "answer": "의무",
-        "display": "gui"
-      },
-      {
-        "question": "監督",
-        "answer": "감독",
-        "display": "gui"
-      },
-      {
-        "question": "規則",
-        "answer": "규칙",
-        "display": "gui"
-      },
-      {
-        "question": "法律",
-        "answer": "법률",
-        "display": "gui"
-      },
-      {
-        "question": "憲法",
-        "answer": "헌법",
-        "display": "gui"
+        "question": "政府",
+        "answer": "정부",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "公共 (en)",
         "answer": "공공 public",
-        "display": "gui"
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "電氣",
+        "answer": "전기",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "責任",
+        "answer": "책임",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "首相",
+        "answer": "수상",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "昨日 (en)",
+        "answer": "작일 yesterday",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "時間",
+        "answer": "시간",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "稅金",
+        "answer": "세금",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "先生",
+        "answer": "선생",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "福祉",
+        "answer": "복지",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "政治",
+        "answer": "정치",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "地下鐵",
+        "answer": "지하철",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "地方自治",
+        "answer": "지방자치",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "今日 (en)",
+        "answer": "금일 today",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "道路",
+        "answer": "도로",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "財政",
+        "answer": "재정",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "政治",
+        "answer": "정치",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "條例",
+        "answer": "조례",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "父母",
+        "answer": "부모",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "調査",
+        "answer": "조사",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "自動車",
+        "answer": "자동차",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "歷史",
+        "answer": "역사",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "testing diagram mode",
+        "answer": "test",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "平和",
+        "answer": "평화",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "立法",
+        "answer": "입법",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "政策",
+        "answer": "정책",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "午後",
+        "answer": "오후",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "危險",
+        "answer": "위험",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "官廳",
+        "answer": "관청",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "test",
         "answer": "test",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "司法",
+        "answer": "사법",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "行政",
+        "answer": "행정",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "飮食",
+        "answer": "음식",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "外部",
+        "answer": "외부",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "社會",
+        "answer": "사회",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "義務",
+        "answer": "의무",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "憲法",
+        "answer": "헌법",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "銀行",
+        "answer": "은행",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "內部",
+        "answer": "내부",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "地方政府",
+        "answer": "지방정부",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "男女",
+        "answer": "남녀",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "法律",
+        "answer": "법률",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "大統領",
+        "answer": "대통령",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "午前",
+        "answer": "오전",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "閣僚",
+        "answer": "각료",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "中央政府",
+        "answer": "중앙정부",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "國家",
+        "answer": "국가",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "注意",
+        "answer": "주의",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "病院",
+        "answer": "병원",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "決議",
+        "answer": "결의",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "國家",
+        "answer": "국가",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "學生",
+        "answer": "학생",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "食堂",
+        "answer": "식당",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "經濟",
+        "answer": "경재",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "預算 (en)",
+        "answer": "예산 budget",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "安全",
+        "answer": "안전",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "規則",
+        "answer": "규칙",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "會社",
+        "answer": "회사",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "電話",
+        "answer": "전화",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "權力",
+        "answer": "권력",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "藥局",
+        "answer": "약국",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "空港",
+        "answer": "공항",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "命令",
+        "answer": "명령",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "監督",
+        "answer": "감독",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "兄弟",
+        "answer": "형제",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "審査",
+        "answer": "심사",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "官僚",
+        "answer": "관료",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "國會",
+        "answer": "국회",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "友情",
+        "answer": "우정",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "法院",
+        "answer": "법원",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "外國",
+        "answer": "외국",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "公務員",
+        "answer": "공무원",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "承認",
+        "answer": "승인",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "自由",
+        "answer": "자유",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "工場",
+        "answer": "공장",
+        "display": "gui",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "no_shuffle_qa": false,
     "type": "I",
     "answer": "",
-    "shuffle_qa": true,
+    "shuffle_qa": false,
     "popup": ""
   },
   {
@@ -1354,22 +1784,30 @@
       {
         "question": "___() checks exact class only, while ___() also returns True for subclasses. (comma,space)",
         "answer": "type, ininstance",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Given class S(K):, which is the subclass?",
         "answer": "S",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Py inheritance must be made by using the Py keyword: class   (t/f)",
         "answer": "t",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "As such, given class S(K), which inherits from which? (comma, space)",
         "answer": "S, K",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "no_shuffle_qa": false,
@@ -1385,67 +1823,93 @@
       {
         "question": "Write pow(x, y) using ^",
         "answer": "x^y",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is another simpler way to write pow(x, y) in Python?",
         "answer": "x**y",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Re-write pow(a, b, c) likewise. (no whitespace)",
         "answer": "(a**b)%c",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is c in arithmetic terminology?",
         "answer": "divisor",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is pow(2,3,5) or (2**3)%5  ?",
         "answer": "3",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What does math.pow() always return?",
         "answer": "float",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "4//2 = 2 but 4//2.00001 = ?",
         "answer": "1.0",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What will divmod(10, 3) output?",
         "answer": "(3, 1)",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is divmod(a, b) in tuple form? (comma, spaces)",
         "answer": "(a // b, a % b)",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Type in the floor division assignment operator",
         "answer": "//=",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Type in the modulo assignment operator",
         "answer": "%=",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Type in the exponentiation assignment operator",
         "answer": "**=",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Type in the inequality comparison operator",
         "answer": "!=",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "no_shuffle_qa": false,
@@ -1461,12 +1925,16 @@
       {
         "question": "What will be the output? (comma, spaces)",
         "answer": "[1, 4, 9, 16]",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Fill in basic form: map(___, ___)",
         "answer": "function, iterable",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "no_shuffle_qa": false,
@@ -1482,62 +1950,86 @@
       {
         "question": "A | B  output",
         "answer": "{1, 2, 3, 4, 5}",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A.union(B) output:",
         "answer": "{1, 2, 3, 4, 5}",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A & B  output:",
         "answer": "{3, 4}",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Write A|B in math notation. (Use spacing)",
         "answer": "A ∪ B",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Write A.union(B) in math notation. (spacing)",
         "answer": "A ∪ B",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Write A & B in math notation. (spacing)",
         "answer": "A ∩ B",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Write A.intersection(B) in math notation.",
         "answer": "A ∩ B",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Write A - B in math notation (Use spacing)",
         "answer": "A \\ B",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "END",
         "answer": "END",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Write A.difference(B) in math notation (Use spacing)",
         "answer": "A \\ B",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Write A ^ B in math notation",
         "answer": "A ⊆ B",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Write A < B in math notation",
         "answer": "A ⊂ B",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "no_shuffle_qa": false,
@@ -1556,22 +2048,30 @@
       {
         "question": "Name the iteration variable above",
         "answer": "item",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "What is result.append called (in OOP terms)?",
         "answer": "bound method",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Name the instance",
         "answer": "result",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Name the built-in Py class of the instance",
         "answer": "list",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "shuffle_qa": true,
@@ -1594,7 +2094,9 @@
       {
         "question": "not here. go to 3. Edit popup diagram",
         "answer": "test",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
     "shuffle_qa": true,
@@ -1604,34 +2106,184 @@
   {
     "type": "I",
     "id": "1000",
-    "code": "### *** Bayes' Theorem (cancer) ***\n+----------------------------------+--------------------------------------+\n|                Ω                 |            Bayes Theorem             |\n|     theoretical sample space     |                                      |\n|          (not dataset)           |      P(A | B) = P(B | A) P(A)        |\n|                                  |                 -----------          |\n| Ω = {(C,+),(C,-),                |                    P(B)              |\n|      (NC,+),(NC,-)}              |                                      |\n|                                  |  A = Patient has cancer              |\n| +----------------------------+   |  B = Patient tests positive          |\n| | B = Positive Test          |   |                                      |\n| |                            |   |  P(A)    = Cancer prevalence         |\n| | +---------+-------------+  |   |  P(B|A)  = Sensitivity               |\n| | | A∩B     |   B|Aᶜ      |  |   |  P(B)    = Positive-test rate        |\n| | | (C,+)   |  (NC,+)     |  |   |  P(A|B)  = Cancer given positive     |\n| | +---------+-------------+  |   |                                      |\n| +----------------------------+   |  D = {ω¹, ω², …, ω¹⁰⁰⁰} where ωⁱ ∈ Ω |\n+----------------------------------+--------------------------------------+\n",
+    "code": "### *** Bayes' Theorem (cancer) ***\n+----------------------------------+--------------------------------------+\n|                Ω                 |            Bayes' Theorem            |\n|     theoretical sample space     |                                      |\n|          (not dataset)           |      P(A | B) = P(B | A) P(A)        |\n|                                  |                 -----------          |\n| Ω = {(C,+),(C,-),                |                    P(B)              |\n|      (NC,+),(NC,-)}              |                                      |\n|                                  |  A  = Patient has cancer             |\n| +----------------------------+   |  Aᶜ = Patient has no cancer          |\n| | B = Positive Tests         |   |  B  = Patient tests positive         |\n| |                            |   |                                      |\n| | +---------+-------------+  |   |  P(A)     = Cancer prevalence        |\n| | | A∩B     |   B∩Aᶜ      |  |   |  P(B|A)   = Sensitivity (TPR)        |\n| | | (TP)    |   (FP)      |  |   |  P(B|Aᶜ)  = False Positive Rate      |\n| | +---------+-------------+  |   |  P(Bᶜ|Aᶜ) = Specificity (TNR)        |\n| +----------------------------+   |                                      |\n|                                  |  P(B)=P(B|A)P(A)+P(B|Aᶜ)P(Aᶜ)        |\n| (C,-) = FN    (NC,-) = TN        |                                      |\n|                                  |  P(A|B) = Cancer given positive      |\n| TPR = TP/(TP+FN)                 |                                      |\n| FPR = FP/(FP+TN)                 |  D = {ω¹,ω²,…,ω¹⁰⁰⁰}, ωⁱ∈Ω           |\n+----------------------------------+--------------------------------------+\n",
     "qa": [
       {
-        "question": "In the Venn diagram, what region represents false positives? a) A∩B  b) B|Aᶜ  b)",
+        "question": "In the Venn diagram, what region represents false positives? a) A∩B  b) B|Aᶜ",
         "answer": "b",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
-        "question": "False positives inside B because they received a ___ test result.",
+        "question": "False positives are included in B because they received a  ____  test result.",
         "answer": "positive",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "Does a false positive contribute to P(B)? (y/n)",
         "answer": "y",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "False positives reduce P(C|+) because they ___ the number of positive tests without increasing the number of cancer cases.",
         "answer": "increase",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       },
       {
         "question": "A patient has cancer and tests positive. Given a cancer prevalence of 0.01 and a false positive rate of 0.15, calculate P(B) and P(A|B). (Type both as 0.___ separated by comma,space)",
         "answer": "0.1575, 0.057",
-        "display": "text"
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "False positive are outside A because those patients ___ have cancer. (do/do not)",
+        "answer": "do not",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "Does a false positive contribute to P(A)?  (y/n)",
+        "answer": "n",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "Sensitivity is the probability that the test is ____ given that the disease is actually present.",
+        "answer": "positive",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "The rarer the disease, the greater the probability of ___ positives.",
+        "answer": "false",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "Sensitivity measures performance on ___ patients, while false positives occur among ___ patients. (comma,space)",
+        "answer": "diseased, healthy",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
       }
     ],
-    "shuffle_qa": true
+    "shuffle_qa": true,
+    "popup": "",
+    "answer": ""
+  },
+  {
+    "type": "I",
+    "id": "1001",
+    "code": "User enters problem example\nhere. Multi-line input. \nType END to end and exit. ",
+    "qa": [
+      {
+        "question": "User enters question for new card",
+        "answer": "User puts answer here.",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      }
+    ],
+    "shuffle_qa": true,
+    "popup": "",
+    "answer": ""
+  },
+  {
+    "type": "I",
+    "id": "1003",
+    "code": "User enters sample for\nproblem here. Types in\nEND to finish and exit",
+    "qa": [
+      {
+        "question": "User inputs questions here",
+        "answer": "Enter as many as needed",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "Type END to exit loop",
+        "answer": "END",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      }
+    ],
+    "shuffle_qa": true,
+    "popup": "",
+    "answer": ""
+  },
+  {
+    "type": "I",
+    "id": "1111",
+    "code": "User enters problem here\nfield is multi-line\nwhen done entering,\ntype END to exit loop",
+    "qa": [
+      {
+        "question": "Now input qa's",
+        "answer": "like so. Answer here",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      },
+      {
+        "question": "Can enter as many qa's as needed",
+        "answer": "Can exit by typing END at question",
+        "display": "text",
+        "q_popup": "",
+        "a_popup": ""
+      }
+    ],
+    "shuffle_qa": true,
+    "popup": "",
+    "answer": ""
+  },
+  {
+    "type": "I",
+    "id": "10000",
+    "code": "*** Hanja Phrases ***\n-----------------------------",
+    "qa": [
+      {
+        "question": "有備無患",
+        "answer": "유비무환",
+        "display": "gui",
+        "q_popup": "有備無患\n",
+        "a_popup": "prevent calamity"
+      },
+      {
+        "question": "因果應報",
+        "q_popup": "因果應報",
+        "answer": "인과응보",
+        "a_popup": "cause and effect; you reap what you sow",
+        "display": "gui"
+      },
+      {
+        "question": "事實無根",
+        "answer": "사실무근",
+        "display": "gui",
+        "q_popup": "事實無根",
+        "a_popup": "testing 2. Edit answer popup"
+      },
+      {
+        "question": "不變之眞理 (Type in Korean exactly)",
+        "answer": "불변의진리",
+        "display": "gui",
+        "q_popup": " 不變之眞理",
+        "a_popup": ""
+      }
+    ],
+    "shuffle_qa": true,
+    "popup": "preparedness prevents calamity",
+    "answer": ""
   }
 ]

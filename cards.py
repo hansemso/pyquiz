@@ -1,11 +1,4 @@
-'''
-1.Utility  2.Directory/Index  3.SAFE CARD SANITIZER  4.File Storage  5.Utility Input  6.EDIT MODE  7.ADD CARD  8.EDIT CARD 
-RAM: study_bank: List[Dict[str, Any]] = []
-L: |1|edit_directory_note(): lines, line, new_text  |4|save_all_cards():path,f |5|multiline_required():prompt,lines,line; multiline_optional():prompt,first,lines,line |6|edit_qa_loop():i,qa,q,a,choice,idx,item,nq,na |7|add_study_card():card_type,card_id,code,answer,pdf,qa_list,q,a |8|edit_card():card,code,first_line,selected_id,action,new_code,sub,new_answer,qa_list,new_pdf,new_id,state,c
-E: No indented def's
-G: |1|normalize(), sort_key()  |2|DIRECTORY_FILE, load_directory_note(), edit_directory_note() |3|sanitize_card() |4|load_cards(), save_all_cards() |5|multiline_required(), multiline_input(), multiline_optional() |6|edit_qa_loop() |7|add_study_card() |8|edit_card()
-B: |1|(none directly used) |2|open,FileNotFoundError |3|dict,list,isinstance |4|open,Exception |5|input,str |6|input,enumerate,int,str |7|input,any,dict,list |8|input,print,next,str,int,dict,enumerate
-'''
+# cards.py  8.5.26 added add/edit diagram to qa's feature in 3.Edit mode
 
 import json
 import os
@@ -122,9 +115,10 @@ def sanitize_card(card: dict) -> dict:
     ]
 
     for q in card.get("qa", []):
-        q.setdefault("display", "text")  # FLAG
-
-    card.setdefault("popup", "")  #Added 6.25.26
+        q.setdefault("display", "text")
+        q.setdefault("q_popup", "")
+        q.setdefault("a_popup", "")
+    
     card.setdefault("id", "0")
     card.setdefault("code", "")
     card.setdefault("qa", [])
@@ -242,7 +236,7 @@ def edit_qa_loop(card, qa_list):
 
             print(f"{i}. [{g}] Q: {q} | A: {a}")
             
-        print("\na = add | t = toggle gui | g = gui all on/off | e = edit | ENTER = back")
+        print("\na = add | t = gui on/off | g = all gui on/off | e = edit | ENTER = back")
         
         choice = input("Select: ").strip().lower()
 
@@ -271,9 +265,12 @@ def edit_qa_loop(card, qa_list):
             if q and a:
                 qa_list.append({
                     "question": q,
+                    "q_popup": "",
                     "answer": a,
+                    "a_popup": "",
                     "display": "text"
                 })
+
                 save_all_cards()
             continue
 
@@ -316,7 +313,73 @@ def edit_qa_loop(card, qa_list):
             save_all_cards()
             return
 
+#=======================================================
+#  
+# =====================================================
 
+def edit_qa_popup_loop(card):
+
+    qa_list = card.get("qa", [])
+
+    while True:
+        print("\nQA Diagram List:\n")
+
+        for i, qa in enumerate(qa_list, start=1):
+            print(
+                f"{i}. {qa.get('question')} → {qa.get('answer')}"
+            )
+            print(
+                f"   Q popup: {qa.get('q_popup','')}"
+            )
+            print(
+                f"   A popup: {qa.get('a_popup','')}"
+            )
+            print()
+
+        print("Select QA # (ENTER to back):")
+
+        choice = input("> ").strip()
+
+        if choice == "":
+            return
+
+        idx = int(choice) - 1
+
+        if 0 <= idx < len(qa_list):
+
+            qa = qa_list[idx]
+
+            print("\nSelected:")
+            print("Q:", qa["question"])
+            print("A:", qa["answer"])
+
+            print("\n1. Edit question popup")
+            print("2. Edit answer popup")
+            print("3. Back")
+
+            sub = input("Select: ").strip()
+
+            if sub == "1":
+
+                new = multiline_optional(
+                    "Enter question popup:"
+                )
+
+                if new is not None:
+                    qa["q_popup"] = new
+                    save_all_cards()
+
+            elif sub == "2":
+
+                new = multiline_optional(
+                    "Enter answer popup:"
+                )
+
+                if new is not None:
+                    qa["a_popup"] = new
+                    save_all_cards()
+                    
+                    
 # =====================================================
 # 7. ADD CARD
 # =====================================================
@@ -376,8 +439,10 @@ def add_study_card():
         if q and a:
             qa_list.append({
                 "question": q,
+                "q_popup": "",
                 "answer": a,
-                "display": "text"  # FLAG
+                "a_popup": "",
+                "display": "text"
             })
     
 
@@ -434,8 +499,8 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
 #  main.py → 3. Edit Card/View Index →  ***** EDIT MENU *****
     while True:  # outer loop
         print("\n1. Edit mline Q")  # For both type I and II, multiline question only
-        print("2. Edit qa, mline Ans")  # qa edit(type I,II) + multiline answer(type I only)
-        print("3. Edit popup diagram")
+        print("2. Edit QA, mline Ans")  # qa edit(type I,II) + multiline answer(type I only)
+        print("3. Edit QA diagrams")
         print("4. Change card id")
         print("5. Auto shuffle_qa on/off")  
         print("6. Delete card")
@@ -511,19 +576,10 @@ def edit_card():         # 🡨 elif choice == "3": from main.py
       
     
         elif action == "3":
-            print("\nCURRENT POPUP:\n")
-            print(card.get("popup", ""))
+            edit_qa_popup_loop(card)
 
-            new_popup = multiline_optional(
-                "Enter popup diagram (END to save, ENTER to cancel):"
-            )
 
-            if new_popup is not None:
-                card["popup"] = new_popup
-                save_all_cards()
-                print("✅ Popup updated.")
-            else:
-                print("↩ No changes made.")
+            
                 
         
         elif action == "4":

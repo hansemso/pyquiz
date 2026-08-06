@@ -1,3 +1,4 @@
+# quiz.py  8.5.26 added qa diagram edit feature
 import random
 import cards
 import display
@@ -40,17 +41,17 @@ def get_answer(prompt, multiline=False):
 # =====================================================
 def font_for(text):
     if not text:
-        return 28
+        return 20
 
     # Hanja
     if any('\u4e00' <= c <= '\u9fff' for c in text):
-        return 60
+        return 40
 
     # Diagram
     if "\n" in text:
-        return 22
+        return 16
 
-    return 28
+    return 20
 
 
 # =====================================================
@@ -115,23 +116,31 @@ def run_quiz(cards_list):
         # =====================================================
         # CARD-LEVEL POPUP (diagram / stored popup)
         # =====================================================
-        popup = card.get("popup", "")
-
-        if popup.strip():
-            display.show(popup, font_size=font_for(popup))
+        
+        
 
         for qa in qa_list:
 
             q = qa.get("question", "")
             a = qa.get("answer", "")
 
+            q_popup = qa.get("q_popup", "")
+            a_popup = qa.get("a_popup", "")
+
             print(f"\nQ: {q}")
 
-            # =================================================
-            # AUTO HANJA FALLBACK (IMPORTANT FIX)
-            # =================================================
-            if any('\u4e00' <= c <= '\u9fff' for c in q):
-                display.show(q, font_size=60)
+            display_text = ""
+
+            if q_popup.strip():
+                display_text += q_popup + "\n\n"
+
+            
+
+            if display_text:
+                display.show(
+                    display_text,
+                    font_size=28  #Changes hanja size in popup
+                )
 
             user_ans = get_answer("Answer > ", multiline=False)
 
@@ -146,6 +155,18 @@ def run_quiz(cards_list):
                 score += 1
             else:
                 print(f"❌ {a}")
+
+            # show answer explanation after checking
+            if a_popup.strip():
+                display.show(
+                    a_popup,
+                    font_size=16 # Text size in popup for note attachment to answer
+                )
+
+            input("\nPress ENTER to continue...")
+
+       
+   
 
     print(f"\nFINAL SCORE: {score} / {total}")
 
@@ -179,3 +200,6 @@ def quiz_range():
 
     random.shuffle(filtered)
     run_quiz(filtered)
+    
+    
+    
