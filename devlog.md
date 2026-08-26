@@ -1,6 +1,15 @@
 # devlog for pyquiz.py
 
+# Development (Most recent at top):
+
+8.26.26 Added pyquiz\repl folder to store Python 3 exercises user can follow from flashcard. Added repl_1.py loss.backward() exercise for ml cards.
+8.6.26 Added note attachment feature to tkinter popup. Now when user inputs answer, answer explanation shows in popup to go with answer check. Can be edited in 3. Edit mode. So now there is an enlargeable popup of the question and an attachable note for the answer. 
+7.20.26 Added pyquiz_demo.gif to repo showing pyquiz features. 
 6.25.26: Adding truthy flag + payload means to Type I cards so diagram pops up in tkinter automatically only if it exists. Otherwise works normally as single-line qa's after multi-line problem display as usual for Type I. User can in Edit Mode input the unicode diagram into existing cards. 
+6.10.26: Finally got Tkinter to work with pyquiz. Trick was to start over by attaching a relay as it were called "display" then to toggle on/off popup window per question by adding it to Edit Mode as, t = toggle. Defensive development as it were. So user will see Type I card question in terminal window and at once zoomed up as desired in Tkinter popup window. Then added g = toggle gui as well for the whole card so user can zoom up all questions on Tkinter display at once instead of toggling each one.
+6.11.26: Decided not to for Type II cards put multi-line question on Tkinter as with Type I single-line questions. Because since mline question allows unicode diagrams there is no point of blowing it up in size using Tkinter display which is for zooming up single-line question input by user. 
+
+
 
 ## ML Bayes theorem pyquiz-cpymos exercise feature
 
@@ -568,3 +577,294 @@ Meaning:
 Today B   [0.8   0.15  0.05]
 Today S   [0.3   0.40  0.30]  ← Sideways row
 Today R   [0.2   0.20  0.60]
+
+#==============================================================
+# pyquiz card #1005 in 1000 series for machine learning:
+*** ML 101 qa's ***
+
+
+| Observed sequence | Probability of (n+1) |  P(n heads in a row) = (1/2)^n
+| ----------------- | -------------------- |  n consecutive heads = 2^(n+1) − 2
+| `1`               |                 50%* |  (2^(n+1) - 1) - 1 = 2^(n+1) - 2
+| `1,2`             |              **90%** |
+| `1,2,3`           |           **98.78%** |
+| `1,2,3,4`         |           **99.86%** |
+
+| Process      | Next outcome          | Does past change next probability? |
+| ------------ | --------------------- | ---------------------------------- |
+| Fair coin    | H or T                | **No**                             |
+| Known (aₙ=n) | (n+1)                 | **No**                             |
+| Unknown rule | User's guess of (n+1) | **Uncertainty is about the rule**  |
+
+* Prob of fitting the model increases
+Where it is n + 1 for natural sequence of (1/n)^p for fair coin toss variation. As number of terms grow, computer can calculate fit to model. 
+So if you get 10 heads in a row, then you know it corresponds to a p. So the more heads you get, p increases proportionately. But gambler's fallacy states next prob is still 1/2 for fair coin. It suggests some derivative exists. The prob of 1/6 is obviously a lot greater. With p increasing even faster. With n + q for integers, what outcomes would fit model as q increase? Or a more complex model, where q can be a noninteger. Obviously, n + prime is not guessable, as no formula has been found for finding prime numbers. Or is there? prime + 1?  
+
+**Q:** Does the order of observations always matter in probability? (y/n)
+**A:** n
+**Q:** Order Of Observations matters when the model uses the r____s or t_____s between observations. (comma,space)
+A: relationships, transitions
+ 
+Q: A list is a finite ______ collection. A _____ is a function whose domain is an ordered index set. (comma,space)
+A: ordered, sequence
+Q: P(10 consecutive heads) = 2^(10+1) - 2 = 2046. P(head) for next toss is __%
+A: 50
+Q: P(aₙ₊₁ = n+1 | 1,2,…,n)
+A: 
+
+
+# Predicting the Next Whole Number
+
+Given:1, 2, 3, …, n  What is the probability, P(aₙ₊₁ = n+1 ∣ 1,2,…,n), that the next term is n+1?
+
+
+
+**Question:**
+What is the probability that the next term is n+1?
+
+**Answer:**
+
+**P(aₙ₊₁ = n+1 ∣ 1,2,…,n)**
+
+The probability depends on the model used for possible rules.
+
+As more consecutive terms match the pattern, confidence in **aₙ = n** can increase, but it does not necessarily reach 100% at any finite n.
+
+**Key idea:**
+
+**More matching terms → greater confidence in aₙ = n**
+
+**But:** the exact probability requires assumptions about the possible underlying rules.
+
+
+
+
+
+
+
+# Predicting the Next Whole Number
+
+**Computer's rule:**
+
+**aₙ = n**
+
+**Computer knows:**
+
+**aₙ₊₁ = n+1**
+
+**User sees only:**
+
+**1, 2, 3, …, n**
+
+**Question:**
+What is the probability that the user correctly guesses **n+1**?
+
+**Answer:**
+
+**P(user guesses n+1 ∣ 1,2,…,n)**
+
+The probability is determined **empirically** by observing the user's guesses:
+
+**Confidence = correct guesses / total guesses**
+
+For example:
+
+**80 correct guesses / 100 attempts = 80%**
+
+The computer knows the answer with certainty, but the user's confidence depends on their ability to infer the pattern.
+
+**Key idea:**
+
+**Computer: 100% certain**
+
+**User: probability measured from guessing behavior**
+
+
+
+
+| Process      | Next outcome          | Does past change next probability? |
+| ------------ | --------------------- | ---------------------------------- |
+| Fair coin    | H or T                | **No**                             |
+| Known (aₙ=n) | (n+1)                 | **No**                             |
+| Unknown rule | User's guess of (n+1) | **Uncertainty is about the rule**  |
+
+
+
+
+=================================================
+
+
+
+
+
+
+
+
+
+
+
+
+### 4. Probability vs. model
+
+**Q:** Does probability itself determine whether sequence matters?
+
+**A:** No. **The probability model determines whether sequence is relevant.**
+
+### 5. Bayesian inference
+
+**Q:** In Bayesian inference, what determines whether sequence matters?
+
+**A:** The **likelihood model** determines whether the order of observations contributes information about the hypothesis.
+
+These are better separated because each card tests **one idea** rather than putting all five ideas into one card.
+
+
+
+
+========================== pytorch section ==============================================
+# card # 1100
+
+*** pytorch differentiation lesson ***
+
+import torch
+
+x = torch.tensor(3.0, requires_grad=True)
+
+loss = x ** 2
+
+loss.backward()
+
+print(x.grad)
+
+Q: What is the output?  (C&P Py3 answer)
+A: tensor(6.)
+Q: In the code, what is the PyTorch tensor object? 
+A: loss
+Q: Calling y.backward() tells PyTorch to calculate the gradients by working backward through the operations that produced `y`.
+* The resulting gradients are stored in the `.grad` attributes of tensors that require gradients.
+
+# PyTorch `.backward()` Method
+
+**Question:**
+In PyTorch, what are `y` and `.backward()` in:
+
+```python
+y.backward()
+```
+
+**Answer:**
+
+* **`y`** is a PyTorch **tensor object**.
+* **`.backward()`** is a **method** belonging to that tensor.
+* Calling `y.backward()` tells PyTorch to calculate the gradients by working backward through the operations that produced `y`.
+* The resulting gradients are stored in the `.grad` attributes of tensors that require gradients.
+
+Example:
+
+```python
+x = torch.tensor(3.0, requires_grad=True)
+y = x ** 2
+
+y.backward()
+
+print(x.grad)
+```
+
+Output:
+
+```text
+tensor(6.)
+```
+
+because:
+
+**y = x² → dy/dx = 2x → dy/dx at x = 3 is 6**
+
+
+
+Loss
+  ↑
+25│ ●                 ●
+  │  ╲             ╱
+16│    ●         ●
+  │      ╲     ╱
+ 9│        ● ●
+  │         ╲╱
+ 4│          ●
+  │
+ 0│──────────●────────────→ Prediction
+            10
+
+             ↑
+          true value
+		  
+		  
+import torch
+
+# True value
+y = torch.tensor(10.0)
+
+# Prediction
+ŷ = torch.tensor(7.0, requires_grad=True)
+
+# Loss
+L = (ŷ - y) ** 2
+
+# Calculate derivative
+L.backward()
+
+print("Prediction:", ŷ.item())
+print("Difference:", (ŷ - y).item())
+print("Loss:", L.item())
+print("Gradient:", ŷ.grad.item())
+
+Prediction: 7.0
+Difference: -3.0
+Loss: 9.0
+Gradient: -6.0
+		  
+		  
+		  
+		  
+		  
+		  
+# input  → model → prediction → loss → .backward() → gradient → update → parameters → repeat
+
+# pyquiz card 1101 stored in repl folder as repl_1.py
+
+import torch
+
+x = torch.tensor(3.0)  # input
+y = torch.tensor(10.0)  # target(correct answer used to evaluate)
+
+w = torch.tensor(2.0, requires_grad=True)  # model parameter, what it learns
+
+learning_rate = 0.01
+
+for i in range(100):
+    prediction = w * x  # y' or prediction = 6
+    loss = (prediction - y) ** 2  # = 16 or how wrong the prediction is
+
+    w.grad = None  # Tells how to change w
+    loss.backward()  # calculates how param w should change
+
+    with torch.no_grad():
+        w -= learning_rate * w.grad
+
+print("w:", w.item())
+print("prediction:", (w * x).item())
+print("loss:", loss.item())
+
+
+
+
+
+---------------------
+
+|                           | NumPy            | PyTorch |
+| ------------------------- | ---------------- | ------- |
+| Arrays/tensors            | ✓                | ✓       |
+| Mathematical operations   | ✓                | ✓       |
+| Automatic differentiation | ✗                | ✓       |
+| `.backward()`             | ✗                | ✓       |
+| GPU computation           | Limited/indirect | ✓       |

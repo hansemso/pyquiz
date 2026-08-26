@@ -33,7 +33,7 @@ PyQuiz is a Python CLI flashcard app using JSON-based persistent storage. Made f
 
 ✅ Use [enter] or type "EXIT" to exit loops in app, also "END" to finish input.  
 
-✅ 
+✅ pyquiz\repl folder contains machine learning and other exercises to run in Python 3. Follow instructions on flashcard. 
 
 
 ## 🎬 Demo   (A quick tour of how pyquiz works)
