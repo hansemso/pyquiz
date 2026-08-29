@@ -868,3 +868,109 @@ print("loss:", loss.item())
 | Automatic differentiation | ✗                | ✓       |
 | `.backward()`             | ✗                | ✓       |
 | GPU computation           | Limited/indirect | ✓       |
+
+
+===============================================================
+
+                    MACHINE LEARNING
+                          │
+             ┌────────────┴────────────┐
+             │                         │
+       PROBABILISTIC                 OPTIMIZATION
+          LEARNING                     LEARNING
+             │                         │
+        Bayes theorem             Gradient descent
+             │                         │
+     Update beliefs from          Minimize loss by
+          evidence                changing parameters
+		  
+
+PYML
+
+001  Prediction
+002  Error
+003  Loss
+004  Parameter search
+005  Numerical derivative
+006  Gradient descent
+007  Linear regression
+008  Probability
+009  Conditional probability
+010  Bayes theorem
+011  Naive Bayes
+012  Logistic regression
+013  Gradient descent logistic regression
+014  Neural network
+015  PyTorch neural network
+
+
+                 MACHINE LEARNING
+                       │
+             ┌─────────┴─────────┐
+             │                   │
+          BAYESIAN           OPTIMIZATION
+             │                   │
+        Probability          Prediction
+             │                   │
+      Conditional P          Error
+             │                   │
+       Bayes theorem          Loss
+             │                   │
+          Prior             Derivative
+             │                   │
+        Likelihood          Gradient
+             │                   │
+         Posterior       Gradient descent
+             │                   │
+        Naive Bayes       Linear regression
+             │                   │
+             └─────────┬─────────┘
+                       │
+                 More advanced ML
+                       │
+                Neural networks
+                       │
+                    PyTorch
+					
+					
+card # 1001:  
+
+*** The Loss Function ***
+
+Loss = −log(P(target, actual outcome, true label, ground truth...))
+ ↑
+ │\                             loss function
+ │ \                                 🡇
+ │  \                       prediction + target 
+ │   \                               🡇
+ │    \____                       loss value
+ │         \____ 
+ │              \__              
+ │                 \__
+ └──────────────────────→ w
+                         ↑
+                    lowest loss
+
+Q: In machine learning, _____ are the distinct possible categories or outcomes that a classification model can predict.
+A:  classes
+Q:   Given fair coin, what is P(Heads) if the outcome is Heads? (Type as 0.__ )
+A:  0.5
+Loss = −log(P(actual outcome))
+     = −log(P(Heads))
+     = −log(0.5)
+     ≈ 0.693
+Q:  In ML loss calculations, outcome refers to the ____ outcome or target(the known result). 
+A: actual 
+Q:  Actual outcome → Heads
+Target encoding → 1
+Predicted probability → 0.8
+
+
+
+
+
+
+====== Let pyquiz card #1000 be the overview card...in fact, each section in directory should begin with an overview card ==============
+**********  pyquiz card #1000: overview of machine learning cards 1000 series  *****************
+
+- 

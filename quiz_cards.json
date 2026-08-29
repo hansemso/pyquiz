@@ -2105,7 +2105,7 @@
   },
   {
     "type": "I",
-    "id": "1000",
+    "id": "1005",
     "code": "### *** Bayes' Theorem (cancer) ***\n+----------------------------------+--------------------------------------+\n|                Ω                 |            Bayes' Theorem            |\n|     theoretical sample space     |                                      |\n|          (not dataset)           |      P(A | B) = P(B | A) P(A)        |\n|                                  |                 -----------          |\n| Ω = {(C,+),(C,-),                |                    P(B)              |\n|      (NC,+),(NC,-)}              |                                      |\n|                                  |  A  = Patient has cancer             |\n| +----------------------------+   |  Aᶜ = Patient has no cancer          |\n| | B = Positive Tests         |   |  B  = Patient tests positive         |\n| |                            |   |                                      |\n| | +---------+-------------+  |   |  P(A)     = Cancer prevalence        |\n| | | A∩B     |   B∩Aᶜ      |  |   |  P(B|A)   = Sensitivity (TPR)        |\n| | | (TP)    |   (FP)      |  |   |  P(B|Aᶜ)  = False Positive Rate      |\n| | +---------+-------------+  |   |  P(Bᶜ|Aᶜ) = Specificity (TNR)        |\n| +----------------------------+   |                                      |\n|                                  |  P(B)=P(B|A)P(A)+P(B|Aᶜ)P(Aᶜ)        |\n| (C,-) = FN    (NC,-) = TN        |                                      |\n|                                  |  P(A|B) = Cancer given positive      |\n| TPR = TP/(TP+FN)                 |                                      |\n| FPR = FP/(FP+TN)                 |  D = {ω¹,ω²,…,ω¹⁰⁰⁰}, ωⁱ∈Ω           |\n+----------------------------------+--------------------------------------+\n",
     "qa": [
       {
@@ -2174,23 +2174,6 @@
       {
         "question": "Sensitivity measures performance on ___ patients, while false positives occur among ___ patients. (comma,space)",
         "answer": "diseased, healthy",
-        "display": "text",
-        "q_popup": "",
-        "a_popup": ""
-      }
-    ],
-    "shuffle_qa": true,
-    "popup": "",
-    "answer": ""
-  },
-  {
-    "type": "I",
-    "id": "1001",
-    "code": "User enters problem example\nhere. Multi-line input. \nType END to end and exit. ",
-    "qa": [
-      {
-        "question": "User enters question for new card",
-        "answer": "User puts answer here.",
         "display": "text",
         "q_popup": "",
         "a_popup": ""
@@ -2284,6 +2267,30 @@
     ],
     "shuffle_qa": true,
     "popup": "preparedness prevents calamity",
+    "answer": ""
+  },
+  {
+    "type": "I",
+    "id": "1000",
+    "code": "*** ML OVERVIEW ***",
+    "qa": [],
+    "shuffle_qa": true,
+    "answer": ""
+  },
+  {
+    "type": "I",
+    "id": "1001",
+    "code": "*** The Loss Function ***\n\nLoss = −log(P(outcome))\n ↑\n │\\                             loss function\n │ \\                                 🡇\n │  \\                       prediction + outcome \n │   \\                               🡇\n │    \\____                       loss value\n │         \\____ \n │              \\__              \n │                 \\__\n └──────────────────────→ w\n                         ↑\n                    lowest loss\n",
+    "qa": [
+      {
+        "question": "question with popup",
+        "q_popup": "             NATURAL LOG LOSS\n             Loss = −ln(p)\n\nLoss\n  5 │ ●\n    │  \\\n  4 │   \\\n    │    \\\n  3 │     ●\n    │      \\\n  2 │        ●\n    │          \\\n  1 │             ●\n    │                \\\n0.693│───────────────●  ← p = 0.5\n    │                 \\\n  0 │──────────────────●\n    └────────────────────────\n     0    0.2  0.5  0.8  1.0\n\n     p = probability assigned\n         to actual outcome",
+        "answer": "popup on",
+        "a_popup": "",
+        "display": "gui"
+      }
+    ],
+    "shuffle_qa": true,
     "answer": ""
   }
 ]
